@@ -1,22 +1,24 @@
 {
-  "name": "MEAN Contact List",
-  "description": "Example contact list app using MEAN",
-  "keywords": [
-    "MEAN",
-    "Angular",
-    "Node",
-    "MongoDB",
-    "mLab"
-  ],
-  "repository": "https://github.com/chrisckchang/mean-contactlist-angular2",
-  "success_url": "/",
-  "formation": {
-    "web": {
-      "quantity": 1,
-      "size": "free"
-    }
-  },
-  "addons": [
-    "mongolab"
-  ]
+    "name": "MEAN Admin RedPhone",
+    "description": "Admin RedPhone app using MEAN",
+    "keywords": [
+        "MEAN",
+        "Angular",
+        "Node",
+        "FireBase",
+        "Postgress",
+        "mLab"
+    ],
+    "repository": "https://github.com/spsolutionsmexico/adminredphone",
+    "success_url": "/",
+    "formation": {
+        "web": {
+            "quantity": 1,
+            "size": "free"
+        }
+    },
+    "addons": [
+        "postgress",
+        "FireBase"
+    ]
 }
