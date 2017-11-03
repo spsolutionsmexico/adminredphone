@@ -12,4 +12,8 @@ export class ActualizarCompComponent implements OnInit {
   ngOnInit() {
   }
 
+  public actualizar(): void {
+    console.log("Call actualizar button");
+  }
+
 }
