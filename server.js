@@ -39,7 +39,16 @@ var server = app.listen(process.env.PORT || 8080, function() {
 
 app.get("/api/actualizar", function(req, res) {
     console.log("metodo de actualizacion de base de datos en server.js");
-    console.log("req: ", req);
+    //console.log("req: ", req);
+    var ref = db.ref(REF_ALTA);
+    var count = 0;
+    ref.on("value", function(snap) {
+        snap.forEach(function(childSnap) {
+            var reg = childSnap.val();
+            console.log('registro= ', reg.fb_id);
+            contador++;
+        })
+    });
     res.status(200).json('{"resultado":"OK"}');
 });
 
