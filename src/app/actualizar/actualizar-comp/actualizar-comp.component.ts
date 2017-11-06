@@ -4,7 +4,8 @@ import { ActualizarServService } from '../actualizar-serv.service';
 @Component({
   selector: 'actualizar-comp',
   templateUrl: './actualizar-comp.component.html',
-  styleUrls: ['./actualizar-comp.component.css']
+  styleUrls: ['./actualizar-comp.component.css'],
+  providers: [ActualizarServService]
 })
 export class ActualizarCompComponent implements OnInit {
 
