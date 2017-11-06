@@ -22,8 +22,7 @@ var server = app.listen(process.env.PORT || 8080, function() {
 app.get("/api/actualizar", function(req, res) {
     console.log("metodo de actualizacion de base de datos en server.js");
     console.log("req: ", req);
-    res.status(code || 200).json({ "message": 'OK' });
-    return res;
+    res.status(200).json('{"resultado":"OK"}');
 });
 
 
