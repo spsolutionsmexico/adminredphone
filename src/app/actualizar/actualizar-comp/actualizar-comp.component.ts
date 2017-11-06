@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActualizarServService } from '../actualizar-serv.service';
 
 @Component({
   selector: 'actualizar-comp',
@@ -7,13 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActualizarCompComponent implements OnInit {
 
-  constructor() { }
+  constructor(private actualizarservice: ActualizarServService) { }
 
   ngOnInit() {
   }
 
   public actualizar(): void {
     console.log("Call actualizar button");
+    this.actualizarservice.getActualizar();
   }
 
 }

@@ -17,7 +17,14 @@ var server = app.listen(process.env.PORT || 8080, function() {
 });
 //});
 
-// CONTACTS API ROUTES BELOW
+// ACTUALIZAR API ROUTES BELOW
+
+app.get("/api/actualizar", function(req, res) {
+    console.log("Lammas metodo de actualizacion de base de datos");
+    res.status(code || 200).json({ "OK": message });
+});
+
+
 
 // Generic error handler used by all endpoints.
 function handleError(res, reason, message, code) {
