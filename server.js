@@ -20,8 +20,10 @@ var server = app.listen(process.env.PORT || 8080, function() {
 // ACTUALIZAR API ROUTES BELOW
 
 app.get("/api/actualizar", function(req, res) {
-    console.log("Lammas metodo de actualizacion de base de datos");
-    res.status(code || 200).json({ "OK": message });
+    console.log("metodo de actualizacion de base de datos en server.js");
+    console.log("req: ", req);
+    res.status(code || 200).json({ "message": 'OK' });
+    return res;
 });
 
 
