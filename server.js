@@ -8,7 +8,7 @@ var firebase = require('firebase');
 var config = {
     apiKey: process.env.FBASE_APIKEY, //"AIzaSyCsVB58GbuUmkwSSv4WAlk3FOuU786IrEg",
     authDomain: process.env.AUTH_DOMAIN, //"cocacola-redphone.firebaseapp.com",
-    databaseURL: process.env.DATABASE_URL, //"https://cocacola-redphone.firebaseio.com",
+    databaseURL: process.env.FB_DB_URL, //"https://cocacola-redphone.firebaseio.com",
     projectId: process.env.PROJECT_ID, //"cocacola-redphone",
     storageBucket: "",
     messagingSenderId: process.env.MESSAGING_SERNDER_ID //"634647561747"

@@ -5,6 +5,7 @@ const { Client } = require('pg');
 class condblib {
     obtenerdata(query, callback) {
         //Connect to the database before starting the application server.
+        console.log('process.env.DATABASE_URL: ', process.env.DATABASE_URL);
         var client = new Client({
             connectionString: process.env.DATABASE_URL,
             ssl: true,
