@@ -52,7 +52,7 @@ app.get("/api/actualizar", function(req, res) {
     //conexion a postgres 
     try {
         console.log('conectado a postgres');
-        var textqry = 'select * from usuario';
+        var textqry = 'SELECT * FROM public."USUARIO"ORDER BY "fbId" ASC ';
         var lib = new condblib.condblib();
         lib.obtenerdata(textqry, function(textqry, resDB) {
             console.log('res obtenerdata: ', JSON.stringify(resDB));
