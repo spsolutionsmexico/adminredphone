@@ -52,7 +52,7 @@ app.get("/api/actualizar", function(req, res) {
     //conexion a postgres 
     try {
         console.log('conectado a postgres');
-        var textqry = 'select now()';
+        var textqry = 'INSERT INTO public."USUARIO" ("codigoPostal", "anoNacimiento", codigo, "fechaActualizacion", nombre, "fbId") VALUES (%(3010)s::text, %(1985)s::text, %(abc123)s::text, %(2017-11-07 15:22:00)s::date, %(Jhon)s::text, %(456789)s::text);';
         var lib = new condblib.condblib();
         lib.obtenerdata(textqry, function(textqry, resDB) {
             console.log('res obtenerdata: ', JSON.stringify(resDB));
