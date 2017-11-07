@@ -39,7 +39,7 @@ var server = app.listen(process.env.PORT || 8080, function() {
 
 app.get("/api/actualizar", function(req, res) {
     console.log("metodo de actualizacion de base de datos en server.js");
-    //console.log("req: ", req);
+    //conexion a fire base 
     var ref = db.ref(REF_ALTA);
     var contador = 0;
     ref.on("value", function(snap) {
@@ -49,6 +49,15 @@ app.get("/api/actualizar", function(req, res) {
             contador++;
         })
     });
+    //conexion a postgres 
+    var textqry = 'select * from usuario';
+    var lib = new condblib.condblib();
+    lib.obtenerdata(textqry, function(textqry, resDB) {
+        console.log('res obtenerdata: ', JSON.stringify(resDB));
+        let queryDB = resDB;
+        console.log('queryDB result: ', queryDB);
+    });
+
     res.status(200).json('{"resultado":"OK"}');
 });
 
