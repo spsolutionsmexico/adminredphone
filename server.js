@@ -50,14 +50,16 @@ app.get("/api/actualizar", function(req, res) {
         })
     });
     //conexion a postgres 
-    var textqry = 'select * from usuario';
-    var lib = new condblib.condblib();
-    lib.obtenerdata(textqry, function(textqry, resDB) {
-        console.log('res obtenerdata: ', JSON.stringify(resDB));
-        let queryDB = resDB;
-        console.log('queryDB result: ', queryDB);
-    });
-
+    try {
+        console.log('conectado a postgres');
+        var textqry = 'select * from usuario';
+        var lib = new condblib.condblib();
+        lib.obtenerdata(textqry, function(textqry, resDB) {
+            console.log('res obtenerdata: ', JSON.stringify(resDB));
+        });
+    } catch (err) {
+        console.log('err ', err);
+    }
     res.status(200).json('{"resultado":"OK"}');
 });
 
