@@ -29,21 +29,26 @@ class condblib {
             //return queryDB;
         })
     }
-    insertardata() {
+    insertardata(columnas, datos, callback) {
         //Connect to the database before starting the application server.
         console.log('process.env.DATABASE_URL: ', process.env.DATABASE_URL);
         var client = new Client({
             connectionString: process.env.DATABASE_URL,
             ssl: true,
         });
-        try {
-            client.connect();
-            console.log("Database connection ready");
-            client.query("INSERT INTO usuario(fdId) values($1)", ['789521']);
+        client.connect();
+        console.log("Database connection ready");
+        client.query("INSERT INTO usuario (fbId) values($1)", ['123456'], (err, resDB) => {
+            if (err) {
+                console.log(JSON.stringify(err));
+                throw err;
+            }
+            console.log('res: STEP1--', JSON.stringify(resDB));
             client.end();
-        } catch (err) {
-            console.log('err: ->', err);
-        }
+            //return data base query 
+            console.log("return data");
+            callback(null, 'OK');
+        });
     }
 }
 
