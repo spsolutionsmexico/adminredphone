@@ -29,7 +29,7 @@ class condblib {
             console.log("return data");
             callback(null, queryDB);
             //return queryDB;
-        })
+        });
     }
     insertardata(columnas, datos, callback) {
         //Connect to the database before starting the application server.
