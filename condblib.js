@@ -39,6 +39,7 @@ class condblib {
         client.connect();
         console.log("Database connection ready");
         client.query("INSERT INTO usuario(bdId) values($1)", ['789521']).catch(err => console.log(err));
+        client.end();
     }
 }
 
