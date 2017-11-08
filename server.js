@@ -52,8 +52,16 @@ app.get("/api/actualizar", function(req, res) {
     //conexion a postgres 
     try {
         console.log('conectado a postgres');
-        var textqry = 'texto';
+        var textqry = 'select * from usuario';
         var lib = new condblib.condblib();
+        //---------consulta de prueba ---
+        lib.obtenerdata(textqry, function(textqry, resDB) {
+            console.log('res obtenerdata: ', JSON.stringify(resDB));
+            let queryDB = resDB;
+            //return data base query 
+            res.status(200).json(queryDB);
+        });
+        //---------insertar data 
         lib.insertardata();
     } catch (err) {
         console.log('err ', err);
