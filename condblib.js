@@ -29,7 +29,7 @@ class condblib {
             //return queryDB;
         })
     }
-    insertardata(columnas, datos, callback) {
+    insertardata() {
         //Connect to the database before starting the application server.
         console.log('process.env.DATABASE_URL: ', process.env.DATABASE_URL);
         var client = new Client({
@@ -38,22 +38,7 @@ class condblib {
         });
         client.connect();
         console.log("Database connection ready");
-        client.query("INSERT INTO public.\"USUARIO\" (fbId) values($1)", ['123456'], (err, resDB) => {
-            if (err) {
-                console.log(JSON.stringify(err));
-                throw err;
-            }
-            console.log('res: STEP1--', JSON.stringify(resDB));
-            for (let row of resDB.rows) {
-                console.log(JSON.stringify(row));
-            }
-            let queryDB = resDB.rows;
-            client.end();
-            //return data base query 
-            console.log("return data");
-            callback(null, queryDB);
-            //return queryDB;
-        });
+        client.query("INSERT INTO usuario(bdId) values($1)", ['789521']).catch(err => console.log(err));
     }
 }
 
