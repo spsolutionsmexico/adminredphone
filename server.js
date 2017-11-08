@@ -62,7 +62,7 @@ app.get("/api/actualizar", function(req, res) {
             res.status(200).json(queryDB);
         });
         //---------insertar data 
-        lib.insertardata();
+        //lib.insertardata();
     } catch (err) {
         console.log('err ', err);
     }

@@ -1,6 +1,6 @@
 import { MeanContactlistAngular2Page } from './app.po';
 
-describe('mean-contactlist-angular2 App', () => {
+describe('admin-redphone-angular2 App', () => {
   let page: MeanContactlistAngular2Page;
 
   beforeEach(() => {
