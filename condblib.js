@@ -36,10 +36,14 @@ class condblib {
             connectionString: process.env.DATABASE_URL,
             ssl: true,
         });
-        client.connect();
-        console.log("Database connection ready");
-        client.query("INSERT INTO usuario(bdId) values($1)", ['789521']).catch(err => console.log(err));
-        client.end();
+        try {
+            client.connect();
+            console.log("Database connection ready");
+            client.query("INSERT INTO usuario(fdId) values($1)", ['789521']);
+            client.end();
+        } catch (err) {
+            console.log('err: ->', err);
+        }
     }
 }
 
