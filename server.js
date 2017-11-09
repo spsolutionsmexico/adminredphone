@@ -42,10 +42,12 @@ app.get("/api/actualizar", function(req, res) {
     //conexion a fire base 
     var ref = db.ref(REF_ALTA);
     var contador = 0;
+    var arrUSR = [];
     ref.on("value", function(snap) {
         snap.forEach(function(childSnap) {
             var reg = childSnap.val();
             console.log('registro= ', reg.fb_id);
+            arrUSR.push(reg.fb_id);
             contador++;
         })
     });
@@ -58,16 +60,19 @@ app.get("/api/actualizar", function(req, res) {
         lib.obtenerdata(textqry, function(textqry, resDB) {
             console.log('res obtenerdata: ', JSON.stringify(resDB));
             let queryDB = resDB;
-            //return data base query 
-            //res.status(200).json(queryDB);
+            queryDB.forEach(function(fbid) {
+                console.log('for ecach fbid: ', fbid);
+            });
+            arrUSR
         });
         //---------insertar data 
         var textqryInsert = "INSERT INTO usuario (fbid,anonacimiento) values($1,$2)";
-        var values = ['12346', '1990'];
+        var values = ['12347', '1990'];
         lib.insertardata(textqryInsert, values, function(textqryInsert, values, resDBI) {
             console.log('res obtenerdata: ', JSON.stringify(resDBI));
             let queryDBI = resDBI;
         });
+        //------------------------------------
     } catch (err) {
         console.log('err ', err);
     }
