@@ -41,7 +41,7 @@ class condblib {
         });
         client.connect();
         console.log("Database connection ready");
-        client.query("INSERT INTO usuario (fbId) values($1)", ['123456'], (err, resDB) => {
+        client.query("INSERT INTO usuario (fbId,insertardata) values($1,$2)", ['123456', '2010'], (err, resDB) => {
             if (err) {
                 console.log(JSON.stringify(err));
                 throw err;
@@ -49,7 +49,7 @@ class condblib {
             console.log('res: STEP1--', JSON.stringify(resDB));
             client.end();
             //return data base query 
-            console.log("return data");
+            console.log("Insert OK");
             callback(null, 'OK');
         });
     }
