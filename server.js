@@ -34,8 +34,9 @@ var server = app.listen(process.env.PORT || 8080, function() {
     console.log("App now running on port", port);
 });
 
-function listarRegsitrados(callback) {
+function listarRegsitrados(param, callback) {
     //conexion a fire base 
+    console.log('param1: ', param1)
     var ref = db.ref(REF_ALTA);
     var arrUSR = [];
     ref.on("value", function(snap) {
@@ -45,7 +46,7 @@ function listarRegsitrados(callback) {
             arrUSR.push(reg.fb_id);
         })
         console.log('arrUSR.length: ', arrUSR.length);
-        callback(null, 'test1');
+        callback(null, arrUSR);
     });
 
 }
@@ -54,8 +55,10 @@ function listarRegsitrados(callback) {
 
 app.get("/api/actualizar", function(req, res) {
     console.log("metodo de actualizacion de base de datos en server.js");
-    listarRegsitrados(function(arrUSR) {
-        console.log('listarRegsitrados arrUSR:', arrUSR);
+    var parametro1 = 'param1';
+    listarRegsitrados(parametro1, function(parametro1, respuesta) {
+        console.log('listarRegsitrados parametro1:', parametro1);
+        console.log('listarRegsitrados respuesta:', respuesta);
         //});
         //conexion a postgres 
         try {
