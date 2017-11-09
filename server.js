@@ -72,7 +72,7 @@ app.get("/api/actualizar", function(req, res) {
                 let queryDB = resDB;
                 console.log('arrUSR.length:', arrUSR.length);
                 queryDB.forEach(function(row) {
-                    console.log('fbid --> ', row.fbid);
+                    console.log('arrUSR.indexOf: ', arrUSR.indexOf(row.fbid));
                 });
             });
             //---------insertar data 
