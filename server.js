@@ -45,7 +45,7 @@ function listarRegsitrados(callback) {
             arrUSR.push(reg.fb_id);
         })
         console.log('arrUSR.length: ', arrUSR.length);
-        callback(null, arrUSR);
+        callback(null, 'test1');
     });
 
 }
