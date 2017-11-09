@@ -34,7 +34,7 @@ var server = app.listen(process.env.PORT || 8080, function() {
     console.log("App now running on port", port);
 });
 
-function listarRegsitrados(param, callback) {
+function listarRegsitrados(param1, callback) {
     //conexion a fire base 
     console.log('param1: ', param1)
     var ref = db.ref(REF_ALTA);
