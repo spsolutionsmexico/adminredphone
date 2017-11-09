@@ -33,50 +33,56 @@ var server = app.listen(process.env.PORT || 8080, function() {
     var port = server.address().port;
     console.log("App now running on port", port);
 });
-//});
 
-// ACTUALIZAR API ROUTES BELOW
-
-app.get("/api/actualizar", function(req, res) {
-    console.log("metodo de actualizacion de base de datos en server.js");
+function listarRegsitrados(callback) {
     //conexion a fire base 
     var ref = db.ref(REF_ALTA);
-    var contador = 0;
     var arrUSR = [];
     ref.on("value", function(snap) {
         snap.forEach(function(childSnap) {
             var reg = childSnap.val();
             console.log('registro= ', reg.fb_id);
             arrUSR.push(reg.fb_id);
-            contador++;
         })
+        callback(null, arrUSR);
     });
-    //conexion a postgres 
-    try {
-        console.log('conectado a postgres');
-        var textqry = 'SELECT * FROM usuario';
-        var lib = new condblib.condblib();
-        //---------consulta de prueba ---
-        lib.obtenerdata(textqry, function(textqry, resDB) {
-            console.log('res obtenerdata: ', JSON.stringify(resDB));
-            let queryDB = resDB;
-            console.log('arrUSR.length:', arrUSR.length);
-            queryDB.forEach(function(row) {
-                console.log('fbid --> ', row.fbid);
+
+}
+
+// ACTUALIZAR API ROUTES BELOW
+
+app.get("/api/actualizar", function(req, res) {
+    console.log("metodo de actualizacion de base de datos en server.js");
+    listarRegsitrados(function(result) {
+        console.log('listarRegsitrados result:', result);
+        //});
+        //conexion a postgres 
+        try {
+            console.log('conectado a postgres');
+            var textqry = 'SELECT * FROM usuario';
+            var lib = new condblib.condblib();
+            //---------consulta de prueba ---
+            lib.obtenerdata(textqry, function(textqry, resDB) {
+                console.log('res obtenerdata: ', JSON.stringify(resDB));
+                let queryDB = resDB;
+                console.log('arrUSR.length:', arrUSR.length);
+                queryDB.forEach(function(row) {
+                    console.log('fbid --> ', row.fbid);
+                });
             });
-        });
-        //---------insertar data 
-        var textqryInsert = "INSERT INTO usuario (fbid,anonacimiento) values($1,$2)";
-        var values = ['12348', '1990'];
-        /*lib.insertardata(textqryInsert, values, function(textqryInsert, values, resDBI) {
-            console.log('res obtenerdata: ', JSON.stringify(resDBI));
-            let queryDBI = resDBI;
-        });*/
-        //------------------------------------
-    } catch (err) {
-        console.log('err ', err);
-    }
-    res.status(200).json('{"resultado":"OK"}');
+            //---------insertar data 
+            var textqryInsert = "INSERT INTO usuario (fbid,anonacimiento) values($1,$2)";
+            var values = ['12348', '1990'];
+            /*lib.insertardata(textqryInsert, values, function(textqryInsert, values, resDBI) {
+                console.log('res obtenerdata: ', JSON.stringify(resDBI));
+                let queryDBI = resDBI;
+            });*/
+            //------------------------------------
+        } catch (err) {
+            console.log('err ', err);
+        }
+        res.status(200).json('{"resultado":"OK"}');
+    });
 });
 
 
