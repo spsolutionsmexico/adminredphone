@@ -60,18 +60,18 @@ app.get("/api/actualizar", function(req, res) {
         lib.obtenerdata(textqry, function(textqry, resDB) {
             console.log('res obtenerdata: ', JSON.stringify(resDB));
             let queryDB = resDB;
-            queryDB.forEach(function(fbid) {
-                console.log('for ecach fbid: ', fbid);
+            queryDB.forEach(function(row) {
+                console.log('fbid --> ', row.fbid);
             });
             arrUSR
         });
         //---------insertar data 
         var textqryInsert = "INSERT INTO usuario (fbid,anonacimiento) values($1,$2)";
-        var values = ['12347', '1990'];
-        lib.insertardata(textqryInsert, values, function(textqryInsert, values, resDBI) {
+        var values = ['12348', '1990'];
+        /*lib.insertardata(textqryInsert, values, function(textqryInsert, values, resDBI) {
             console.log('res obtenerdata: ', JSON.stringify(resDBI));
             let queryDBI = resDBI;
-        });
+        });*/
         //------------------------------------
     } catch (err) {
         console.log('err ', err);

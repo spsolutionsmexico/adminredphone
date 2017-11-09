@@ -34,9 +34,7 @@ class condblib {
     insertardata(query, values, callback) {
         //Connect to the database before starting the application server.
         console.log('Inicio insertardata ');
-        console.log('process.env.DATABASE_URL: ', process.env.DATABASE_URL);
-        console.log('queri insert: ');
-        console.log('valores: ');
+        //console.log('process.env.DATABASE_URL: ', process.env.DATABASE_URL);
         var client = new Client({
             connectionString: process.env.DATABASE_URL,
             ssl: true,
