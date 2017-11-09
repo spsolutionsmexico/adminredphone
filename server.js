@@ -57,7 +57,7 @@ app.get("/api/actualizar", function(req, res) {
     console.log("metodo de actualizacion de base de datos en server.js");
     var parametro1 = 'param1';
     listarRegsitrados(parametro1, function(parametro1, respuesta) {
-        console.log('listarRegsitrados parametro1:', parametro1);
+        //console.log('listarRegsitrados parametro1:', parametro1);
         console.log('listarRegsitrados respuesta:', respuesta);
         //});
         //conexion a postgres 
