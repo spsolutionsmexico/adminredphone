@@ -62,7 +62,12 @@ app.get("/api/actualizar", function(req, res) {
             //res.status(200).json(queryDB);
         });
         //---------insertar data 
-        lib.insertardata();
+        var textqryInsert = "INSERT INTO usuario (fbid,anonacimiento) values($1,$2)";
+        var values = ['12346', '1990'];
+        lib.insertardata(textqryInsert, values, function(textqryInsert, values, resDBI) {
+            console.log('res obtenerdata: ', JSON.stringify(resDBI));
+            let queryDBI = resDBI;
+        });
     } catch (err) {
         console.log('err ', err);
     }

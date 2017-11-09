@@ -31,17 +31,19 @@ class condblib {
             //return queryDB;
         });
     }
-    insertardata(columnas, datos, callback) {
+    insertardata(query, values, callback) {
         //Connect to the database before starting the application server.
         console.log('Inicio insertardata ');
         console.log('process.env.DATABASE_URL: ', process.env.DATABASE_URL);
+        console.log('queri insert: ');
+        console.log('valores: ');
         var client = new Client({
             connectionString: process.env.DATABASE_URL,
             ssl: true,
         });
         client.connect();
         console.log("Database connection ready");
-        client.query("INSERT INTO usuario (fbid,anonacimiento) values($1,$2)", ['12345', '1980'], (err, resDB) => {
+        client.query(query, values, (err, resDB) => {
             if (err) {
                 console.log(JSON.stringify(err));
                 throw err;
