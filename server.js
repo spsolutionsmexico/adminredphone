@@ -60,10 +60,10 @@ app.get("/api/actualizar", function(req, res) {
         lib.obtenerdata(textqry, function(textqry, resDB) {
             console.log('res obtenerdata: ', JSON.stringify(resDB));
             let queryDB = resDB;
+            console.log('arrUSR.length:', arrUSR.length);
             queryDB.forEach(function(row) {
                 console.log('fbid --> ', row.fbid);
             });
-            arrUSR
         });
         //---------insertar data 
         var textqryInsert = "INSERT INTO usuario (fbid,anonacimiento) values($1,$2)";
