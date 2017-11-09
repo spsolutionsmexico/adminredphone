@@ -44,6 +44,7 @@ function listarRegsitrados(callback) {
             console.log('registro= ', reg.fb_id);
             arrUSR.push(reg.fb_id);
         })
+        console.log('arrUSR.length: ', arrUSR.length);
         callback(null, arrUSR);
     });
 
@@ -53,8 +54,8 @@ function listarRegsitrados(callback) {
 
 app.get("/api/actualizar", function(req, res) {
     console.log("metodo de actualizacion de base de datos en server.js");
-    listarRegsitrados(function(result) {
-        console.log('listarRegsitrados result:', result);
+    listarRegsitrados(function(arrUSR) {
+        console.log('listarRegsitrados arrUSR:', arrUSR);
         //});
         //conexion a postgres 
         try {
