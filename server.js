@@ -34,11 +34,11 @@ var server = app.listen(process.env.PORT || 8080, function() {
     console.log("App now running on port", port);
 });
 
-function listarRegsitrados(callback) {
+function listarRegsitrados(arrUSR, callback) {
     //conexion a fire base 
     //console.log('param1: ', param1)
+    arrUSR = [];
     var ref = db.ref(REF_ALTA);
-    var arrUSR = [];
     ref.on("value", function(snap) {
         snap.forEach(function(childSnap) {
             var reg = childSnap.val();
@@ -55,10 +55,11 @@ function listarRegsitrados(callback) {
 
 app.get("/api/actualizar", function(req, res) {
     console.log("metodo de actualizacion de base de datos en server.js");
-    var parametro1 = 'param1';
-    listarRegsitrados(null, function(respuesta) {
+    var arrUSR = [];
+    listarRegsitrados(arrUSR, function(arrUSR, respuesta) {
         //console.log('listarRegsitrados parametro1:', parametro1);
         console.log('listarRegsitrados respuesta:', respuesta);
+        arrUSR = respuesta;
         //});
         //conexion a postgres 
         try {
