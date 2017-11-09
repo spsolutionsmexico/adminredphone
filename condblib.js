@@ -41,7 +41,7 @@ class condblib {
         });
         client.connect();
         console.log("Database connection ready");
-        client.query("INSERT INTO usuario (fbId,insertardata) values($1,$2)", ['123456', '2010'], (err, resDB) => {
+        client.query("INSERT INTO usuario (fbId,anoNacimiento) values($1,$2)", ['123456', '2010'], (err, resDB) => {
             if (err) {
                 console.log(JSON.stringify(err));
                 throw err;
