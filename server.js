@@ -34,9 +34,9 @@ var server = app.listen(process.env.PORT || 8080, function() {
     console.log("App now running on port", port);
 });
 
-function listarRegsitrados(param1, callback) {
+function listarRegsitrados(callback) {
     //conexion a fire base 
-    console.log('param1: ', param1)
+    //console.log('param1: ', param1)
     var ref = db.ref(REF_ALTA);
     var arrUSR = [];
     ref.on("value", function(snap) {
@@ -55,8 +55,8 @@ function listarRegsitrados(param1, callback) {
 
 app.get("/api/actualizar", function(req, res) {
     console.log("metodo de actualizacion de base de datos en server.js");
-    var parametro1 = 'param1';
-    listarRegsitrados(parametro1, function(parametro1, respuesta) {
+    //var parametro1 = 'param1';
+    listarRegsitrados(, function(respuesta) {
         //console.log('listarRegsitrados parametro1:', parametro1);
         console.log('listarRegsitrados respuesta:', respuesta);
         //});
