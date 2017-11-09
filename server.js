@@ -59,7 +59,7 @@ app.get("/api/actualizar", function(req, res) {
             console.log('res obtenerdata: ', JSON.stringify(resDB));
             let queryDB = resDB;
             //return data base query 
-            res.status(200).json(queryDB);
+            //res.status(200).json(queryDB);
         });
         //---------insertar data 
         //lib.insertardata();
