@@ -56,15 +56,15 @@ function insertarUSRpg(idUSR) {
     console.log('recuperando datos del ususrio', idUSR);
     var ref = db.ref(REF_ALTA_DATA + idUSR);
     ref.on("value", function(snap) {
+        var registro = snap.val();
         console.log('snap: ', snap);
-        snap.forEach(function(childSnap) {
-            //console.log('childSnap.fb_id= ', childSnap.fb_id);
-            //console.log('childSnap.anonacimiento= ', childSnap.anonacimiento);
-            //console.log('childSnap.codigo= ', childSnap.codigo);
-            //console.log('childSnap.sexo= ', childSnap.sexo);
-            console.log('childSnap: ', childSnap);
-            console.log('------------------------------------');
-        })
+        //snap.forEach(function(childSnap) {
+        console.log('registro.fb_id= ', registro.fb_id);
+        console.log('registro.anonacimiento= ', registro.anonacimiento);
+        console.log('registro.codigo= ', registro.codigo);
+        console.log('registro.sexo= ', registro.sexo);
+        console.log('------------------------------------');
+        //})
     });
     //---------insertar data 
     //var textqryInsert = "INSERT INTO usuario (fbid,anonacimiento) values($1,$2)";
