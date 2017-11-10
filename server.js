@@ -71,9 +71,15 @@ app.get("/api/actualizar", function(req, res) {
                 console.log('res obtenerdata: ', JSON.stringify(resDB));
                 let queryDB = resDB;
                 console.log('arrUSR.length:', arrUSR.length);
+                var arrUSRPost = [];
                 queryDB.forEach(function(row) {
-                    console.log('arrUSR.indexOf: ', arrUSR.indexOf(row.fbid));
+                    arrUSRPost.push(row.fbid);
                 });
+                for (var i = 0; i < arrUSR.length; i++) {
+                    if (arrUSRPost.indexOf(arrUSR[i]) === -1) {
+                        console.log('add : ', arrUSR[i]);
+                    }
+                }
             });
             //---------insertar data 
             var textqryInsert = "INSERT INTO usuario (fbid,anonacimiento) values($1,$2)";
