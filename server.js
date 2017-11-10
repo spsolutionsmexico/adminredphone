@@ -56,11 +56,13 @@ function insertarUSRpg(idUSR) {
     console.log('recuperando datos del ususrio', idUSR);
     var ref = db.ref(REF_ALTA_DATA + idUSR);
     ref.on("value", function(snap) {
+        console.log('snap: ', snap);
         snap.forEach(function(childSnap) {
-            console.log('childSnap.fb_id= ', childSnap.fb_id);
-            console.log('childSnap.anonacimiento= ', childSnap.anonacimiento);
-            console.log('childSnap.codigo= ', childSnap.codigo);
-            console.log('childSnap.sexo= ', childSnap.sexo);
+            //console.log('childSnap.fb_id= ', childSnap.fb_id);
+            //console.log('childSnap.anonacimiento= ', childSnap.anonacimiento);
+            //console.log('childSnap.codigo= ', childSnap.codigo);
+            //console.log('childSnap.sexo= ', childSnap.sexo);
+            console.log('childSnap: ', childSnap);
             console.log('------------------------------------');
         })
     });
