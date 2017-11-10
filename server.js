@@ -65,10 +65,10 @@ function insertarUSRpg(idUSR) {
     //var textqryInsert = "INSERT INTO usuario (fbid,anonacimiento) values($1,$2)";
     //var values = ['12348', '1990'];
 
-    lib.insertardata(textqryInsert, values, function(textqryInsert, values, resDBI) {
+    /*lib.insertardata(textqryInsert, values, function(textqryInsert, values, resDBI) {
         console.log('res obtenerdata: ', JSON.stringify(resDBI));
         let queryDBI = resDBI;
-    });
+    });*/
 }
 // ACTUALIZAR API ROUTES BELOW
 
