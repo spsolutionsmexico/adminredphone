@@ -57,8 +57,8 @@ function insertarUSRpg(idUSR) {
     var ref = db.ref(REF_ALTA_DATA + idUSR);
     ref.on("value", function(snap) {
         snap.forEach(function(childSnap) {
-            var reg = childSnap.val();
-            console.log('registro= ', reg);
+            console.log('childSnap.key= ', childSnap.key);
+            console.log('childSnap.val()= ', childSnap.val());
         })
     });
     //---------insertar data 
