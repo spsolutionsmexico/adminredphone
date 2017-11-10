@@ -57,23 +57,19 @@ function insertarUSRpg(idUSR) {
     var ref = db.ref(REF_ALTA_DATA + idUSR);
     ref.on("value", function(snap) {
         var registro = snap.val();
-        console.log('snap: ', snap);
-        //snap.forEach(function(childSnap) {
         console.log('registro.fb_id= ', registro.fb_id);
         console.log('registro.anonacimiento= ', registro.anonacimiento);
         console.log('registro.codigo= ', registro.codigo);
         console.log('registro.sexo= ', registro.sexo);
         console.log('------------------------------------');
-        //})
-    });
-    //---------insertar data 
-    //var textqryInsert = "INSERT INTO usuario (fbid,anonacimiento) values($1,$2)";
-    //var values = ['12348', '1990'];
+        //---------insertar data 
+        var textqryInsert = "INSERT INTO usuario (fbid,anonacimiento,codigo,sexo) values($1,$2)";
+        var values = [registro.fb_id, registro.anonacimiento, registro.codigo, registro.sexo];
 
-    /*lib.insertardata(textqryInsert, values, function(textqryInsert, values, resDBI) {
-        console.log('res obtenerdata: ', JSON.stringify(resDBI));
-        let queryDBI = resDBI;
-    });*/
+        lib.insertardata(textqryInsert, values, function(textqryInsert, values, resDBI) {
+            console.log('res obtenerdata: ', JSON.stringify(resDBI));
+        });
+    });
 }
 // ACTUALIZAR API ROUTES BELOW
 
