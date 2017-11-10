@@ -33,7 +33,7 @@ var server = app.listen(process.env.PORT || 8080, function() {
     var port = server.address().port;
     console.log("App now running on port", port);
 });
-
+//funcion que consulta usuarios registrados en firebase 
 function listarRegsitrados(arrUSR, callback) {
     //conexion a fire base 
     //console.log('param1: ', param1)
@@ -50,7 +50,26 @@ function listarRegsitrados(arrUSR, callback) {
     });
 
 }
+//funcion que inserta nuevos registros de ususrios en postgres 
+function insertarUSRpg(idUSR) {
+    //obtener datos firebase 
+    console.log('recuperando datos del ususrio', idUSR);
+    var ref = db.ref(REF_ALTA_DATA + idUSR);
+    ref.on("value", function(snap) {
+        snap.forEach(function(childSnap) {
+            var reg = childSnap.val();
+            console.log('registro= ', reg);
+        })
+    });
+    //---------insertar data 
+    //var textqryInsert = "INSERT INTO usuario (fbid,anonacimiento) values($1,$2)";
+    //var values = ['12348', '1990'];
 
+    lib.insertardata(textqryInsert, values, function(textqryInsert, values, resDBI) {
+        console.log('res obtenerdata: ', JSON.stringify(resDBI));
+        let queryDBI = resDBI;
+    });
+}
 // ACTUALIZAR API ROUTES BELOW
 
 app.get("/api/actualizar", function(req, res) {
@@ -77,18 +96,10 @@ app.get("/api/actualizar", function(req, res) {
                 });
                 for (var i = 0; i < arrUSR.length; i++) {
                     if (arrUSRPost.indexOf(arrUSR[i]) === -1) {
-                        console.log('add : ', arrUSR[i]);
+                        insertarUSRpg(arrUSR[i]);
                     }
                 }
             });
-            //---------insertar data 
-            var textqryInsert = "INSERT INTO usuario (fbid,anonacimiento) values($1,$2)";
-            var values = ['12348', '1990'];
-            /*lib.insertardata(textqryInsert, values, function(textqryInsert, values, resDBI) {
-                console.log('res obtenerdata: ', JSON.stringify(resDBI));
-                let queryDBI = resDBI;
-            });*/
-            //------------------------------------
         } catch (err) {
             console.log('err ', err);
         }
