@@ -66,6 +66,29 @@ function listarRegsitrados(arrUSR, callback) {
     });
 
 }
+
+function insertarRETOpg(idreto) {
+    //obtener datos firebase 
+    console.log('recuperando datos del ususrio', idUSR);
+    var refreto = db.ref(REF_RETO + idreto + '/datos/');
+    refreto.on("value", function(snap) {
+        var registro = snap.val();
+        console.log('registro.cantidadInvitados= ', registro.cantidadInvitados);
+        console.log('registro.fechaEnvio= ', registro.fechaEnvio);
+        console.log('registro.horaEnvio= ', registro.horaEnvio);
+        console.log('registro.idReto= ', registro.idReto);
+        console.log('------------------------------------');
+        var tRero = new Date(registro.fechaEnvio);
+        //---------insertar data 
+        var textqryInsert = "INSERT INTO reto (idreto,horaenvio,cantidadinvitados,fechaenvio) values($1,$2,$3,$4)";
+        var values = [registro.idReto, registro.horaEnvio, registro.horaEnvio, tRero];
+        var lib = new condblib.condblib();
+        lib.insertardata(textqryInsert, values, function(textqryInsert, values, resDBI) {
+            console.log('res obtenerdata: ', JSON.stringify(resDBI));
+        });
+    });
+
+}
 //funcion que inserta nuevos registros de ususrios en postgres 
 function insertarUSRpg(idUSR) {
     //obtener datos firebase 
@@ -144,7 +167,7 @@ app.get("/api/actualizar", function(req, res) {
                 });
                 for (var j = 0; j < arrRetos.length; j++) {
                     if (arrRetoPost.indexOf(arrRetos[j]) === -1) {
-                        //insertarUSRpg(arrRetos[i]);
+                        insertarRETOpg(arrRetos[i]);
                         console.log('Reto a insertar: ', arrRetos[j]);
                     }
                 }
