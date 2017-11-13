@@ -34,6 +34,22 @@ var server = app.listen(process.env.PORT || 8080, function() {
     console.log("App now running on port", port);
 });
 //funcion que consulta usuarios registrados en firebase 
+function listarRetos(arrRETO, callback) {
+    arrRETO = [];
+    var ref = db.ref(REF_RETO);
+    ref.on("value", function(snap) {
+        snap.forEach(function(childSnap) {
+            var reg = childSnap.key;
+            console.log('reg = ', reg);
+            arrRETO.push(reg.fb_id);
+        })
+        console.log('arrRETO.length: ', arrRETO.length);
+        callback(null, arrUSR);
+    });
+
+}
+
+//funcion que consulta usuarios registrados en firebase 
 function listarRegsitrados(arrUSR, callback) {
     //conexion a fire base 
     //console.log('param1: ', param1)
@@ -106,8 +122,14 @@ app.get("/api/actualizar", function(req, res) {
         } catch (err) {
             console.log('err ', err);
         }
+
+    });
+    var arrRetos = [];
+    listarRetos(arrRetos, function(arrUSR, resp) {
+        console.log('resp listarRetos= ', resp);
         res.status(200).json('{"resultado":"OK"}');
     });
+
 });
 
 
