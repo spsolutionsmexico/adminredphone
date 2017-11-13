@@ -125,8 +125,34 @@ app.get("/api/actualizar", function(req, res) {
 
     });
     var arrRetos = [];
-    listarRetos(arrRetos, function(arrUSR, resp) {
-        console.log('resp listarRetos= ', resp);
+    listarRetos(arrRetos, function(arrRetos, resp2) {
+        console.log('resp listarRetos= ', resp2);
+        arrRetos = resp2;
+        //conexion a postgres 
+        try {
+            console.log('conectado a postgres');
+            var textqry2 = 'SELECT idreto FROM reto';
+            var lib = new condblib.condblib();
+            //---------consulta de prueba ---
+            lib.obtenerdata(textqry2, function(textqry2, resDB2) {
+                console.log('res obtenerdata: ', JSON.stringify(resDB2));
+                let queryDB2 = resDB2;
+                console.log('arrRetos.length', arrRetos.length);
+                var arrRetoPost = [];
+                queryDB2.forEach(function(row) {
+                    arrRetoPost.push(row.idreto);
+                });
+                for (var j = 0; j < arrRetos.length; j++) {
+                    if (arrRetoPost.indexOf(arrRetos[j]) === -1) {
+                        //insertarUSRpg(arrRetos[i]);
+                        console.log('Reto a insertar: ', arrRetos[j]);
+                    }
+                }
+            });
+        } catch (err) {
+            console.log('err ', err);
+        }
+
         res.status(200).json('{"resultado":"OK"}');
     });
 
