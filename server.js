@@ -41,10 +41,10 @@ function listarRetos(arrRETO, callback) {
         snap.forEach(function(childSnap) {
             var reg = childSnap.key;
             console.log('reg = ', reg);
-            arrRETO.push(reg.fb_id);
+            arrRETO.push(reg);
         })
         console.log('arrRETO.length: ', arrRETO.length);
-        callback(null, arrUSR);
+        callback(null, arrRETO);
     });
 
 }
