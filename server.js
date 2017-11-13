@@ -65,7 +65,7 @@ function insertarUSRpg(idUSR) {
         console.log('------------------------------------');
         var t = new Date(registro.fechaActualizacion);
         //---------insertar data 
-        var textqryInsert = "INSERT INTO usuario (fbid,anonacimiento,codigo,sexo,fechaactualizacion) values($1,$2,$3,$4,$4)";
+        var textqryInsert = "INSERT INTO usuario (fbid,anonacimiento,codigo,sexo,fechaactualizacion) values($1,$2,$3,$4,$5)";
         var values = [registro.fb_id, registro.anonacimiento, registro.codigo, registro.sexo, t];
         var lib = new condblib.condblib();
         lib.insertardata(textqryInsert, values, function(textqryInsert, values, resDBI) {
