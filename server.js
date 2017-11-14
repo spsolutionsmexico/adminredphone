@@ -69,7 +69,7 @@ function listarRegsitrados(arrUSR, callback) {
 
 function insertarRETOpg(idreto) {
     //obtener datos firebase 
-    console.log('recuperando datos del ususrio', idUSR);
+    console.log('recuperando datos del ususrio', idreto);
     var refreto = db.ref(REF_RETO + idreto + '/datos/');
     refreto.on("value", function(snap) {
         var registro = snap.val();
@@ -80,10 +80,10 @@ function insertarRETOpg(idreto) {
         console.log('------------------------------------');
         var tRero = new Date(registro.fechaEnvio);
         //---------insertar data 
-        var textqryInsert = "INSERT INTO reto (idreto,horaenvio,cantidadinvitados,fechaenvio) values($1,$2,$3,$4)";
+        var textqryInsertReto = "INSERT INTO reto (idreto,horaenvio,cantidadinvitados,fechaenvio) values($1,$2,$3,$4)";
         var values = [registro.idReto, registro.horaEnvio, registro.horaEnvio, tRero];
         var lib = new condblib.condblib();
-        lib.insertardata(textqryInsert, values, function(textqryInsert, values, resDBI) {
+        lib.insertardata(textqryInsertReto, values, function(textqryInsertReto, values, resDBI) {
             console.log('res obtenerdata: ', JSON.stringify(resDBI));
         });
     });
