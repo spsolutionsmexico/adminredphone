@@ -167,8 +167,8 @@ app.get("/api/actualizar", function(req, res) {
                 });
                 for (var j = 0; j < arrRetos.length; j++) {
                     if (arrRetoPost.indexOf(arrRetos[j]) === -1) {
-                        insertarRETOpg(arrRetos[i]);
                         console.log('Reto a insertar: ', arrRetos[j]);
+                        insertarRETOpg(arrRetos[j]);
                     }
                 }
             });
