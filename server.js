@@ -81,7 +81,7 @@ function insertarRETOpg(idreto) {
         var tRero = new Date(registro.fechaEnvio);
         //---------insertar data 
         var textqryInsertReto = "INSERT INTO reto (idreto,horaenvio,cantidadinvitados,fechaenvio) values($1,$2,$3,$4)";
-        var values = [registro.idReto, 'xx:77:yy', registro.cantidadInvitados, tRero];
+        var values = [registro.idReto, registro.horaEnvio, registro.cantidadInvitados, tRero];
         var lib = new condblib.condblib();
         lib.insertardata(textqryInsertReto, values, function(textqryInsertReto, values, resDBI) {
             console.log('res obtenerdata: ', JSON.stringify(resDBI));
