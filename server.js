@@ -75,13 +75,13 @@ function insertarRETOpg(idreto) {
         var registro = snap.val();
         console.log('registro.cantidadInvitados= ', registro.cantidadInvitados);
         console.log('registro.fechaEnvio= ', registro.fechaEnvio);
-        console.log('registro.horaEnvio= ', registro.horaEnvio);
+        console.log('registro.horaEnvio= ', registro.horaEnvio.toString());
         console.log('registro.idReto= ', registro.idReto);
         console.log('------------------------------------');
         var tRero = new Date(registro.fechaEnvio);
         //---------insertar data 
         var textqryInsertReto = "INSERT INTO reto (idreto,horaenvio,cantidadinvitados,fechaenvio) values($1,$2,$3,$4)";
-        var values = [registro.idReto, registro.horaEnvio, registro.horaEnvio, tRero];
+        var values = [registro.idReto, registro.horaEnvio.toString(), registro.horaEnvio, tRero];
         var lib = new condblib.condblib();
         lib.insertardata(textqryInsertReto, values, function(textqryInsertReto, values, resDBI) {
             console.log('res obtenerdata: ', JSON.stringify(resDBI));
