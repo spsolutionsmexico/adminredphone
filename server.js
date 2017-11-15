@@ -101,7 +101,7 @@ function actualizarRespuestas(idreto) {
             var lib = new condblib.condblib();
             //---------consulta de prueba ---
             lib.obtenerdata(textqryResp, function(textqryResp, resRespuestas) {
-                console.log('res query actualizar respuestas: ', JSON.stringify(resRespuestas));
+                console.log('res query actualizar respuestas: ', resRespuestas);
                 if (JSON.stringify(resRespuestas) === []) {
                     console.log('Isertar registro ' + idreto + ' - ' + reg);
                 }
