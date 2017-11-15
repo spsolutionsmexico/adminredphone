@@ -102,6 +102,9 @@ function actualizarRespuestas(idreto) {
             //---------consulta de prueba ---
             lib.obtenerdata(textqryResp, function(textqryResp, resRespuestas) {
                 console.log('res query actualizar respuestas: ', JSON.stringify(resRespuestas));
+                if (JSON.stringify(resRespuestas) === []) {
+                    console.log('Isertar registro ' + idreto + ' - ' + reg);
+                }
                 //let DBRespuestas = resRespuestas;
             });
 
