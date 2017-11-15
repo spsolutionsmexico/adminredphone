@@ -96,6 +96,15 @@ function actualizarRespuestas(idreto) {
         snap.forEach(function(childSnap) {
             var reg = childSnap.key;
             console.log('usuario ', reg + 'en respuestas');
+            var textqryResp = 'select fbid from respuesta where fbid =\'' + reg + '\' and idreto=\'' + idreto + '\'';
+            console.log('textqryResp: ', textqryResp);
+            var lib = new condblib.condblib();
+            //---------consulta de prueba ---
+            lib.obtenerdata(textqryResp, function(textqryResp, resRespuestas) {
+                console.log('res query actualizar respuestas: ', JSON.stringify(resRespuestas));
+                //let DBRespuestas = resRespuestas;
+            });
+
         })
     });
 }
