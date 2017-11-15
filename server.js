@@ -202,8 +202,6 @@ app.get("/api/actualizar/reto/:id", function(req, res) {
                 });
                 //actualizar respuestas 
                 actualizarRespuestas(idreto);
-            } else {
-                res.status(200).json('{"resultado":"Reto no existe"}');
             }
         } catch (err) {
             console.log('err ', err);
