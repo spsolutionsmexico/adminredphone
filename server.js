@@ -95,7 +95,8 @@ function actualizarRespuestas(idreto) {
     refreto.on("value", function(snap) {
         snap.forEach(function(childSnap) {
             var reg = childSnap.key;
-            console.log('usuario ', reg + 'en respuestas');
+            console.log('Respuesta childSnap.val: ', childSnap.val());
+            console.log('usuario ', reg + 'en' + idreto);
             var textqryResp = 'select fbid from respuesta where fbid =\'' + reg + '\' and idreto=\'' + idreto + '\'';
             console.log('textqryResp: ', textqryResp);
             var lib = new condblib.condblib();
@@ -103,9 +104,8 @@ function actualizarRespuestas(idreto) {
             lib.obtenerdata(textqryResp, function(textqryResp, resRespuestas) {
                 let queryDBAR = resRespuestas;
                 console.log('queryDBAR.length: ', queryDBAR.length);
-                /*queryDB.forEach(function(row) {
-                    arrUSRPost.push(row.fbid);
-                });*/
+                //insertar nueva respuesta en tabla respuestas 
+                if (queryDBAR.length === 0) {}
             });
 
         })
