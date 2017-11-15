@@ -151,14 +151,16 @@ app.get("/api/actualizar", function(req, res) {
 
 app.get("/api/actualizar/reto/:id", function(req, res) {
     console.log('---Actualizar Reto---');
-    console.log('req.params.id: ', req.params.id);
+    var idreto = req.params.id.toLowerCase();
+    console.log('-- idreto: ', idreto);
+
     var arrRetos = [];
     listarRetos(arrRetos, function(arrRetos, resp2) {
         console.log('ListarReto resp ', resp2);
         arrRetos = resp2;
         //conexion a postgres 
         try {
-            if (arrRetos.indexOf(req.params.id) > -1) {
+            if (arrRetos.indexOf(idreto) > -1) {
                 console.log('Reto existe en Firebase');
 
                 console.log('conectado a postgres');
@@ -174,7 +176,7 @@ app.get("/api/actualizar/reto/:id", function(req, res) {
                         arrRetoPost.push(row.idreto);
                     });
                     for (var j = 0; j < arrRetos.length; j++) {
-                        if (arrRetoPost.indexOf(arrRetos[j]) === -1 && arrRetos[j] === req.params.id) {
+                        if (arrRetoPost.indexOf(arrRetos[j]) === -1 && arrRetos[j] === idreto) {
                             console.log('Reto a insertar: ', arrRetos[j]);
                             insertarRETOpg(arrRetos[j]);
                         }
