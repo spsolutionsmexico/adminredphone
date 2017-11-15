@@ -48,7 +48,6 @@ function listarRetos(arrRETO, callback) {
     });
 
 }
-
 //funcion que consulta usuarios registrados en firebase 
 function listarRegsitrados(arrUSR, callback) {
     //conexion a fire base 
@@ -88,6 +87,17 @@ function insertarRETOpg(idreto) {
         });
     });
 
+}
+//funcion que actializa la tabla de respiestas a los retos 
+function actualizarRespuestas(idreto) {
+    console.log('metodo update respuestas');
+    var refreto = db.ref(REF_RETO + idreto + '/respuestas/');
+    refreto.on("value", function(snap) {
+        snap.forEach(function(childSnap) {
+            var reg = childSnap.key;
+            console.log('usuario ', reg + 'en respuestas');
+        })
+    });
 }
 //funcion que inserta nuevos registros de ususrios en postgres 
 function insertarUSRpg(idUSR) {
@@ -162,7 +172,6 @@ app.get("/api/actualizar/reto/:id", function(req, res) {
         try {
             if (arrRetos.indexOf(idreto) > -1) {
                 console.log('Reto existe en Firebase');
-
                 console.log('conectado a postgres');
                 var textqry2 = 'SELECT idreto FROM reto';
                 var lib = new condblib.condblib();
@@ -182,6 +191,8 @@ app.get("/api/actualizar/reto/:id", function(req, res) {
                         }
                     }
                 });
+                //actualizar respuestas 
+                actualizarRespuestas(idreto);
             } else {
                 res.status(200).json('{"resultado":"Reto no existe"}');
             }
