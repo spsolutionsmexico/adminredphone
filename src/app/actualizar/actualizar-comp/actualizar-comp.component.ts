@@ -19,4 +19,11 @@ export class ActualizarCompComponent implements OnInit {
     this.actualizarservice.getActualizar();
   }
 
+  public idreto: string;
+  public actualizarReto(): void {
+    console.log("Call actualizar reto button");
+    this.actualizarservice.getActualizarReto(this.idreto);
+  }
+  
+
 }

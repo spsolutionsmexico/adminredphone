@@ -145,8 +145,13 @@ app.get("/api/actualizar", function(req, res) {
         } catch (err) {
             console.log('err ', err);
         }
-
+        res.status(200).json('{"resultado":"OK"}');
     });
+});
+
+app.get("/api/actualizar/reto/:id", function(req, res) {
+    console.log('---Actualizar Reto---');
+    console.log('req.params.id: ', req.params.id);
     var arrRetos = [];
     listarRetos(arrRetos, function(arrRetos, resp2) {
         console.log('resp listarRetos= ', resp2);
@@ -175,13 +180,9 @@ app.get("/api/actualizar", function(req, res) {
         } catch (err) {
             console.log('err ', err);
         }
-
         res.status(200).json('{"resultado":"OK"}');
     });
-
 });
-
-
 
 // Generic error handler used by all endpoints.
 function handleError(res, reason, message, code) {

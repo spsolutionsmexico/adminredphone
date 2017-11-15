@@ -1,4 +1,17 @@
 <p>
-    actualizar-comp works!
+    -----Funciones de actualizacion-----
 </p>
-<button (click)="actualizar()">Actualizar</button>
+<p>
+    -----Actualizar ususrios-----
+</p>
+<button (click)="actualizar()">Actualizar Usuarios</button>
+<p>
+    -----Actualizar Reto-----
+</p>
+<form class="col-md-12">
+    <div class="form-group">
+        <label for="Reto-id">Name</label>
+        <input class="form-control" name="Reto" [(ngModel)]="idreto" placeholder="idreto" />
+    </div>
+    <button (click)="actualizarReto()">Actualizar Usuarios</button>
+</form>
