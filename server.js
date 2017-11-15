@@ -101,12 +101,11 @@ function actualizarRespuestas(idreto) {
             var lib = new condblib.condblib();
             //---------consulta de prueba ---
             lib.obtenerdata(textqryResp, function(textqryResp, resRespuestas) {
-                console.log('res query actualizar respuestas: ', resRespuestas);
-                console.log('resRespuestas.length(): ', resRespuestas);
-                if (resRespuestas.length === 0) {
-                    console.log('Isertar registro ', reg + '' + idret);
-                }
-                //let DBRespuestas = resRespuestas;
+                let queryDBAR = resRespuestas;
+                console.log('queryDBAR.length: ', queryDBAR.length);
+                /*queryDB.forEach(function(row) {
+                    arrUSRPost.push(row.fbid);
+                });*/
             });
 
         })
