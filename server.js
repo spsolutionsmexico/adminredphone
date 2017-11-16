@@ -68,8 +68,8 @@ function listarRetoRespuesta(idreto, callback) {
 //funcion que consulta los ususrios que completaron reto en firebase 
 function listarRetoTerminado(idreto, callback) {
     arrTerminados = [];
-    var ref = db.ref(REF_RETO + '/' + idreto + '/concluidas/');
-    ref.on("value", function(snap) {
+    var refCon = db.ref(REF_RETO + '/' + idreto + '/concluidas/');
+    refCon.on("value", function(snap) {
         snap.forEach(function(childSnap) {
             var reg = childSnap.key
             console.log('registro en concludas = ', reg);
