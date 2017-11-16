@@ -67,8 +67,6 @@ function listarRetoRespuesta(idreto, callback) {
 
 //funcion que consulta los ususrios que completaron reto en firebase 
 function listarRetoTerminado(idreto, callback) {
-    //conexion a fire base 
-    //console.log('param1: ', param1)
     arrTerminados = [];
     var ref = db.ref(REF_RETO + '/' + idreto + '/concluidas/');
     ref.on("value", function(snap) {
@@ -77,6 +75,7 @@ function listarRetoTerminado(idreto, callback) {
             console.log('registro en concludas = ', reg);
             arrTerminados.push(reg);
         })
+        console.log('listarRetoTerminado-arrTerminados.length: ', arrTerminados.length);
         callback(null, arrTerminados);
     });
 
@@ -128,9 +127,12 @@ function actualizarRespuestas(idreto) {
     listarRetoRespuesta(idreto, function(idreto, respuesta) {
         var arrRespuestas = respuesta;
         console.log('actualizarRespuestas-arrRespuestas.length: ', arrRespuestas.length);
+
         listarRetoTerminado(idreto, function(idreto, respuesta2) {
+            console.log('listarRetoTerminado respuesta2: ', respuesta2);
             var arrCompletados = respuesta2;
             console.log('actualizarRespuestas-arrCompletados.length: ', arrCompletados.length);
+
             var textqry = 'select fbid from respuesta where idreto =\'' + idreto + '\'';
             var lib = new condblib.condblib();
             //---------consulta de prueba ---
