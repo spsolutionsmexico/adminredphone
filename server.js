@@ -91,8 +91,8 @@ function insertarRETOpg(idreto) {
 //funcion que actializa la tabla de respiestas a los retos 
 function actualizarRespuestas(idreto) {
     console.log('metodo update respuestas');
-    var refreto = db.ref(REF_RETO + idreto + '/respuestas/');
-    refreto.on("value", function(snap) {
+    var refretoRes = db.ref(REF_RETO + idreto + '/respuestas/');
+    refretoRes.on("value", function(snap) {
         snap.forEach(function(childSnap) {
             var reg = childSnap.key;
             console.log('Respuesta childSnap.val: ', childSnap.val());
@@ -100,12 +100,26 @@ function actualizarRespuestas(idreto) {
             var textqryResp = 'select fbid from respuesta where fbid =\'' + reg + '\' and idreto=\'' + idreto + '\'';
             console.log('textqryResp: ', textqryResp);
             var lib = new condblib.condblib();
+            //verificar que el reto este erminado
+            var refretoTermiado = db.ref(REF_RETO + idreto + '/concluidas/' + reg);
+            on("value", function(snap) {
+                console.log(snap.val());
+            });
             //---------consulta de prueba ---
             lib.obtenerdata(textqryResp, function(textqryResp, resRespuestas) {
                 let queryDBAR = resRespuestas;
                 console.log('queryDBAR.length: ', queryDBAR.length);
                 //insertar nueva respuesta en tabla respuestas 
-                if (queryDBAR.length === 0) {}
+                if (queryDBAR.length === 0) {
+                    var refDataResp = db.ref(REF_RETO + idreto + '/respuestas/' + reg + '/');
+                    refreto.on("value", function(snap) {
+                        snap.forEach(function(childSnap) {
+                            console.log('Contexto de api ai: ', childSnap.key);
+                            console.log('Valor contexto api ai: ', childSnap.val());
+                        });
+                    });
+
+                }
             });
 
         })
