@@ -60,7 +60,7 @@ function listarRetoRespuesta(idreto, callback) {
             console.log('registro en concludas = ', reg);
             arrRespuestas.push(reg);
         })
-        console.log('arrUSR.length: ', arrUSR.length);
+        console.log('arrRespuestas.length: ', arrRespuestas.length);
         callback(null, arrRespuestas);
     });
 
