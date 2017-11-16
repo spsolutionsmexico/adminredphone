@@ -132,7 +132,7 @@ function actualizarRespuestas(idreto) {
     listarRetoRespuesta(idreto, function(idreto, respuesta) {
         var arrRespuestas = respuesta;
         console.log('actualizarRespuestas-arrRespuestas.length: ', arrRespuestas.length);
-
+        console.log('idreto= ', idreto);
         listarRetoTerminado(idreto, function(idreto, respuesta2) {
             console.log('listarRetoTerminado respuesta2: ', respuesta2);
             var arrCompletados = respuesta2;
