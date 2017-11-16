@@ -78,7 +78,7 @@ function listarRetoTerminado(idreto, callback) {
             console.log('registro en concludas = ', reg);
             arrTerminados.push(reg);
         })
-        console.log('arrUSR.length: ', arrUSR.length);
+        console.log('arrTerminados.length: ', arrTerminados.length);
         callback(null, arrTerminados);
     });
 
