@@ -132,8 +132,9 @@ function actualizarRespuestas(idreto) {
             console.log('listarRetoTerminado respuesta2: ', respuesta2);
             var arrCompletados = respuesta2;
             console.log('actualizarRespuestas-arrCompletados.length: ', arrCompletados.length);
-
+            console.log('idretovar', idretovar);
             var textqry = 'select fbid from respuesta where idreto =\'' + idretovar + '\'';
+            console.log('textqry: ', textqry);
             var lib = new condblib.condblib();
             //---------consulta de prueba ---
             lib.obtenerdata(textqry, function(textqry, resDB) {
