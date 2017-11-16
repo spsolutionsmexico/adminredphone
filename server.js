@@ -130,10 +130,11 @@ function actualizarRespuestas(idreto) {
     listarRetoRespuesta(idreto, function(idreto, respuesta) {
         var arrRespuestas = [];
         arrRespuestas = respuesta;
-        listarRetoRespuesta(idreto, function(idreto, respuesta2) {
+        console.log('arrRespuestas.length: ', arrRespuestas.length);
+        listarRetoTerminado(idreto, function(idreto, respuesta2) {
             var arrCompletados = [];
             arrCompletados = respuesta2;
-
+            console.log('arrCompletados.length: ', arrCompletados.length);
             var textqry = 'select fbid from respuesta where idreto =\'' + idreto + '\'';
             var lib = new condblib.condblib();
             //---------consulta de prueba ---
