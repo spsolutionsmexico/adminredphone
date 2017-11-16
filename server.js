@@ -67,10 +67,13 @@ function listarRetoRespuesta(idreto, callback) {
 
 //funcion que consulta los ususrios que completaron reto en firebase 
 function listarRetoTerminado(idreto, callback) {
+    var rutaFireBase = REF_RETO + idreto + '/concluidas/';
+    console.log('rutaFireBase terminados: ', rutaFireBase);
     arrTerminados = [];
-    var refCon = db.ref(REF_RETO + idreto + '/concluidas/');
+    var refCon = db.ref(rutaFireBase);
     refCon.on("value", function(snap) {
         snap.forEach(function(childSnap) {
+            console.log('Terminado-childSnap.val(): ', childSnap.val());
             console.log('listarRetoTerminado-childSnap.key: ', childSnap.key);
             console.log('listarRetoTerminado-childSnap.val: ', childSnap.val());
             var reg = childSnap.key
