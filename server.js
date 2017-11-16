@@ -56,7 +56,7 @@ function listarRetoRespuesta(idreto, callback) {
     ref.on("value", function(snap) {
         snap.forEach(function(childSnap) {
             var reg = childSnap.key
-            console.log('registro en concludas = ', reg);
+            console.log('registro en respuestas = ', reg);
             arrRespuestas.push(reg);
         })
         console.log('listarRetoRespuesta-arrRespuestas.length: ', arrRespuestas.length);
