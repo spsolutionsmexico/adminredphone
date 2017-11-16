@@ -128,12 +128,13 @@ function insertarRETOpg(idreto) {
 }
 //funcion que actializa la tabla de respiestas a los retos 
 function actualizarRespuestas(idreto) {
+    let idretovar = idreto;
     console.log('metodo update respuestas');
     listarRetoRespuesta(idreto, function(idreto, respuesta) {
         var arrRespuestas = respuesta;
         console.log('actualizarRespuestas-arrRespuestas.length: ', arrRespuestas.length);
-        console.log('idreto= ', idreto);
-        listarRetoTerminado(idreto, function(idreto, respuesta2) {
+        console.log('idretovar= ', idretovar);
+        listarRetoTerminado(idretovar, function(idretovar, respuesta2) {
             console.log('listarRetoTerminado respuesta2: ', respuesta2);
             var arrCompletados = respuesta2;
             console.log('actualizarRespuestas-arrCompletados.length: ', arrCompletados.length);
