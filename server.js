@@ -51,7 +51,6 @@ function listarRetos(arrRETO, callback) {
 //funcion que consulta respuestas a retos por id reto 
 function listarRetoRespuesta(idreto, callback) {
     //conexion a fire base 
-    //console.log('param1: ', param1)
     arrRespuestas = [];
     var ref = db.ref(REF_RETO + '/' + idreto + '/respuestas/');
     ref.on("value", function(snap) {
@@ -60,7 +59,7 @@ function listarRetoRespuesta(idreto, callback) {
             console.log('registro en concludas = ', reg);
             arrRespuestas.push(reg);
         })
-        console.log('arrRespuestas.length: ', arrRespuestas.length);
+        console.log('listarRetoRespuesta-arrRespuestas.length: ', arrRespuestas.length);
         callback(null, arrRespuestas);
     });
 
@@ -78,7 +77,6 @@ function listarRetoTerminado(idreto, callback) {
             console.log('registro en concludas = ', reg);
             arrTerminados.push(reg);
         })
-        console.log('arrTerminados.length: ', arrTerminados.length);
         callback(null, arrTerminados);
     });
 
@@ -128,13 +126,11 @@ function insertarRETOpg(idreto) {
 function actualizarRespuestas(idreto) {
     console.log('metodo update respuestas');
     listarRetoRespuesta(idreto, function(idreto, respuesta) {
-        var arrRespuestas = [];
-        arrRespuestas = respuesta;
-        console.log('arrRespuestas.length: ', arrRespuestas.length);
+        var arrRespuestas = respuesta;
+        console.log('actualizarRespuestas-arrRespuestas.length: ', arrRespuestas.length);
         listarRetoTerminado(idreto, function(idreto, respuesta2) {
-            var arrCompletados = [];
-            arrCompletados = respuesta2;
-            console.log('arrCompletados.length: ', arrCompletados.length);
+            var arrCompletados = respuesta2;
+            console.log('actualizarRespuestas-arrCompletados.length: ', arrCompletados.length);
             var textqry = 'select fbid from respuesta where idreto =\'' + idreto + '\'';
             var lib = new condblib.condblib();
             //---------consulta de prueba ---
