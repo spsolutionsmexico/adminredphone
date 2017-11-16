@@ -71,6 +71,8 @@ function listarRetoTerminado(idreto, callback) {
     var refCon = db.ref(REF_RETO + idreto + '/concluidas/');
     refCon.on("value", function(snap) {
         snap.forEach(function(childSnap) {
+            console.log('listarRetoTerminado-childSnap.key: ', childSnap.key);
+            console.log('listarRetoTerminado-childSnap.val: ', childSnap.val());
             var reg = childSnap.key
             console.log('registro en concludas = ', reg);
             arrTerminados.push(reg);
