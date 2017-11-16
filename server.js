@@ -129,11 +129,12 @@ function actualizarRespuestas(idreto) {
         var arrRespuestas = respuesta;
         console.log('actualizarRespuestas-arrRespuestas.length: ', arrRespuestas.length);
         listarRetoTerminado(idretovar, function(idretovar, respuesta2) {
+            let idretovar2 = idretovar;
             console.log('listarRetoTerminado respuesta2: ', respuesta2);
             var arrCompletados = respuesta2;
             console.log('actualizarRespuestas-arrCompletados.length: ', arrCompletados.length);
-            console.log('idretovar', idretovar);
-            var textqry = 'select fbid from respuesta where idreto =\'' + idretovar + '\'';
+            console.log('idretovar2', idretovar2);
+            var textqry = 'select fbid from respuesta where idreto =\'' + idretovar2 + '\'';
             console.log('textqry: ', textqry);
             var lib = new condblib.condblib();
             //---------consulta de prueba ---
