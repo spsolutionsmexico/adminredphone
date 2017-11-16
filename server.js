@@ -52,7 +52,7 @@ function listarRetos(arrRETO, callback) {
 function listarRetoRespuesta(idreto, callback) {
     //conexion a fire base 
     arrRespuestas = [];
-    var ref = db.ref(REF_RETO + '/' + idreto + '/respuestas/');
+    var ref = db.ref(REF_RETO + idreto + '/respuestas/');
     ref.on("value", function(snap) {
         snap.forEach(function(childSnap) {
             var reg = childSnap.key
@@ -68,7 +68,7 @@ function listarRetoRespuesta(idreto, callback) {
 //funcion que consulta los ususrios que completaron reto en firebase 
 function listarRetoTerminado(idreto, callback) {
     arrTerminados = [];
-    var refCon = db.ref(REF_RETO + '/' + idreto + '/concluidas/');
+    var refCon = db.ref(REF_RETO + idreto + '/concluidas/');
     refCon.on("value", function(snap) {
         snap.forEach(function(childSnap) {
             var reg = childSnap.key
