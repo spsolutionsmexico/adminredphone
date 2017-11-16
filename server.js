@@ -67,15 +67,10 @@ function listarRetoRespuesta(idreto, callback) {
 
 //funcion que consulta los ususrios que completaron reto en firebase 
 function listarRetoTerminado(idreto, callback) {
-    var rutaFireBase = REF_RETO + idreto + '/concluidas/';
-    console.log('rutaFireBase terminados: ', rutaFireBase);
     arrTerminados = [];
-    var refCon = db.ref(rutaFireBase);
+    var refCon = db.ref(REF_RETO + idreto + '/concluidas/');
     refCon.on("value", function(snap) {
         snap.forEach(function(childSnap) {
-            console.log('Terminado-childSnap.val(): ', childSnap.val());
-            console.log('listarRetoTerminado-childSnap.key: ', childSnap.key);
-            console.log('listarRetoTerminado-childSnap.val: ', childSnap.val());
             var reg = childSnap.key
             console.log('registro en concludas = ', reg);
             arrTerminados.push(reg);
@@ -133,13 +128,12 @@ function actualizarRespuestas(idreto) {
     listarRetoRespuesta(idreto, function(idreto, respuesta) {
         var arrRespuestas = respuesta;
         console.log('actualizarRespuestas-arrRespuestas.length: ', arrRespuestas.length);
-        console.log('idretovar= ', idretovar);
         listarRetoTerminado(idretovar, function(idretovar, respuesta2) {
             console.log('listarRetoTerminado respuesta2: ', respuesta2);
             var arrCompletados = respuesta2;
             console.log('actualizarRespuestas-arrCompletados.length: ', arrCompletados.length);
 
-            var textqry = 'select fbid from respuesta where idreto =\'' + idreto + '\'';
+            var textqry = 'select fbid from respuesta where idreto =\'' + idretovar + '\'';
             var lib = new condblib.condblib();
             //---------consulta de prueba ---
             lib.obtenerdata(textqry, function(textqry, resDB) {
@@ -151,7 +145,7 @@ function actualizarRespuestas(idreto) {
                 });
                 for (var i = 0; i < arrRespuestas.length; i++) {
                     if (arrRespuestas.indexOf(arrRespPost[i]) === -1 && arrCompletados.indexOf(arrRespuestas[i]) === 0) {
-                        console.log('Insertar respuestas -> ', idreto + ' -> ' + arrRespPost[i]);
+                        console.log('Insertar respuestas -> ', idretovar + ' -> ' + arrRespPost[i]);
                     }
                 }
             });
