@@ -121,19 +121,23 @@ function insertarRETOpg(idreto) {
     });
 
 }
+var retoID;
 //funcion que actializa la tabla de respiestas a los retos 
 function actualizarRespuestas(idreto) {
     let idretovar = idreto;
+    this.retoID = idreto;
     console.log('metodo update respuestas');
     listarRetoRespuesta(idreto, function(idreto, respuesta) {
         var arrRespuestas = respuesta;
         let idretovar2 = idretovar;
         console.log('actualizarRespuestas-arrRespuestas.length: ', arrRespuestas.length);
+        console.log('this.retoID - 1:', this.retoID);
         listarRetoTerminado(idretovar, function(idretovar, respuesta2) {
             console.log('listarRetoTerminado respuesta2: ', respuesta2);
             var arrCompletados = respuesta2;
             console.log('actualizarRespuestas-arrCompletados.length: ', arrCompletados.length);
             console.log('idretovar2', idretovar2);
+            console.log('this.retoID - 2:', this.retoID);
             var textqry = 'select fbid from respuesta where idreto =\'' + idretovar2 + '\'';
             console.log('textqry: ', textqry);
             var lib = new condblib.condblib();
@@ -147,6 +151,7 @@ function actualizarRespuestas(idreto) {
                 });
                 for (var i = 0; i < arrRespuestas.length; i++) {
                     if (arrRespuestas.indexOf(arrRespPost[i]) === -1 && arrCompletados.indexOf(arrRespuestas[i]) === 0) {
+                        console.log('this.retoID - 3:', this.retoID);
                         console.log('Insertar respuestas -> ', idretovar2 + ' -> ' + arrRespPost[i]);
                     }
                 }
