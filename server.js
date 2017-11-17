@@ -106,8 +106,15 @@ function insertarRespuestaPG(idreto, fbid) {
     var refRespuesta = db.ref(REF_RETO + idreto + '/respuestas/' + fbid + '/');
     refRespuesta.on("value", function(snap) {
         snap.forEach(function(childSnap) {
-            console.log('contexto = ', childSnap.key);
-            console.log('valor = ', childSnap.val());
+            var contexto = childSnap.key;
+            var valor = childSnap.val();
+            //---------insertar data 
+            var textqryInsertReto = "INSERT INTO respuesta (idreto,idpreguntaai,fbid,respuesta) values($1,$2,$3,$4)";
+            var values = [idreto, contexto, fbid, valor];
+            var lib = new condblib.condblib();
+            lib.insertardata(textqryInsertReto, values, function(textqryInsertReto, values, resDBI) {
+                console.log('res obtenerdata: ', JSON.stringify(resDBI));
+            });
         })
     });
 }
