@@ -147,7 +147,7 @@ function actualizarRespuestas(idreto) {
                 });
                 for (var i = 0; i < arrRespuestas.length; i++) {
                     if (arrRespuestas.indexOf(arrRespPost[i]) === -1 && arrCompletados.indexOf(arrRespuestas[i]) === 0) {
-                        console.log('Insertar respuestas -> ', idretovar + ' -> ' + arrRespPost[i]);
+                        console.log('Insertar respuestas -> ', idretovar2 + ' -> ' + arrRespPost[i]);
                     }
                 }
             });
