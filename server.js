@@ -98,6 +98,19 @@ function listarRegsitrados(arrUSR, callback) {
     });
 
 }
+//metodo para insertar respuestas por reto en postgres 
+function insertarRespuestaPG(idreto, fbid) {
+    //obtener datos firebase 
+    console.log('insertarRespuestaPG - idreto: ', idreto);
+    console.log('insertarRespuestaPG - fbid: ', fbid);
+    var refRespuesta = db.ref(REF_RETO + idreto + '/respuestas/' + fbid + '/');
+    refRespuesta.on("value", function(snap) {
+        snap.forEach(function(childSnap) {
+            console.log('contexto = ', childSnap.key);
+            console.log('valor = ', childSnap.val());
+        })
+    });
+}
 
 function insertarRETOpg(idreto) {
     //obtener datos firebase 
@@ -146,6 +159,7 @@ function actualizarRespuestas(idreto) {
                 for (var i = 0; i < arrRespuestas.length; i++) {
                     if (arrRespuestas.indexOf(arrRespPost[i]) === -1 && arrCompletados.indexOf(arrRespuestas[i]) === 0) {
                         console.log('Insertar respuestas -> ', this.retoID + ' -> ' + arrRespuestas[i]);
+                        insertarRespuestaPG(this.retoID, arrRespuestas[i]);
                     }
                 }
             });
