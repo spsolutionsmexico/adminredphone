@@ -153,23 +153,19 @@ function actualizarRespuestas(idreto) {
             console.log('listarRetoTerminado respuesta2: ', respuesta2);
             var arrCompletados = respuesta2;
             console.log('actualizarRespuestas-arrCompletados.length: ', arrCompletados.length);
-            //var textqry = 'select fbid from respuesta where idreto =\'' + this.retoID + '\'';
+            //borrar los registros del reto para su actualizacion 
             var textqry = 'DELETE FROM respuesta WHERE idreto = \'' + this.retoID + '\'';
             var lib = new condblib.condblib();
             //---------consulta de prueba ---
             lib.obtenerdata(textqry, function(textqry, resDB) {
                 console.log('res obtenerdata: ', JSON.stringify(resDB));
-                /*let queryDB = resDB;
-                var arrRespPost = [];
-                queryDB.forEach(function(row) {
-                    arrRespPost.push(row.fbid);
-                });
+
                 for (var i = 0; i < arrRespuestas.length; i++) {
-                    if (arrRespuestas.indexOf(arrRespPost[i]) === -1 && arrCompletados.indexOf(arrRespuestas[i]) === 0) {
+                    if (arrCompletados.indexOf(arrRespuestas[i]) === 0) {
                         console.log('Insertar respuestas -> ', this.retoID + ' -> ' + arrRespuestas[i]);
                         insertarRespuestaPG(this.retoID, arrRespuestas[i]);
                     }
-                }*/
+                }
             });
 
         });
