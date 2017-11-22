@@ -154,7 +154,7 @@ function actualizarRespuestas(idreto) {
             var arrCompletados = respuesta2;
             console.log('actualizarRespuestas-arrCompletados.length: ', arrCompletados.length);
             //var textqry = 'select fbid from respuesta where idreto =\'' + this.retoID + '\'';
-            var textqry = 'DELETE * FROM respuesta WHERE idreto = \'' + this.retoID + '\'';
+            var textqry = 'DELETE FROM respuesta WHERE idreto = \'' + this.retoID + '\'';
             var lib = new condblib.condblib();
             //---------consulta de prueba ---
             lib.obtenerdata(textqry, function(textqry, resDB) {
