@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-retos-comp',
+  selector: 'retos-comp',
   templateUrl: './retos-comp.component.html',
   styleUrls: ['./retos-comp.component.css']
 })
