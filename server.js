@@ -275,6 +275,20 @@ app.get("/api/actualizar/reto/:id", function(req, res) {
     });
 });
 
+
+app.get("/api/retos", function(req, res) {
+    // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
+    var textqry = 'select * from reto';
+    var lib = new condblib.condblib();
+    lib.obtenerdata(textqry, function(textqry, resDB) {
+        console.log('res obtenerdata: ', JSON.stringify(resDB));
+        let queryDB = resDB;
+        //return data base query 
+        res.status(200).json(queryDB);
+    });
+
+});
+
 // Generic error handler used by all endpoints.
 function handleError(res, reason, message, code) {
     console.log("ERROR: " + reason);

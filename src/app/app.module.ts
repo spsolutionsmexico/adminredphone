@@ -5,11 +5,13 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { ChartsModule } from 'ng2-charts';
 import { ActualizarCompComponent } from './actualizar/actualizar-comp/actualizar-comp.component';
+import { RetosCompComponent } from './retos/retos-comp/retos-comp.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ActualizarCompComponent
+    ActualizarCompComponent,
+    RetosCompComponent
   ],
   imports: [
     BrowserModule,
