@@ -1,7 +1,10 @@
 {
     "name": "admin-redphone-angular2",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "license": "MIT",
+	"engines": {
+    "node": "6.11.2"
+	},
     "scripts": {
         "ng": "ng",
         "start": "node server.js",
