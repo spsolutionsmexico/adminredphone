@@ -11,6 +11,7 @@
         "e2e": "ng e2e",
         "postinstall": "ng build"
     },
+
     "private": true,
     "dependencies": {
         "@angular/cli": "1.4.5",
