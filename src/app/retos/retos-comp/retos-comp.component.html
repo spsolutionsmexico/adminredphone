@@ -9,6 +9,15 @@
         <h2>Retos</h2>
         <table style="width:100%">
             <ul class="list-group">
+                <th>
+                    Id Reto
+                </th>
+                <th>
+                    Descripcion
+                </th>
+                <th>
+                    Opciones
+                </th>
                 <tr>
                     <th>
                         <li class="list-group-item" *ngFor="let retos of retos">
@@ -19,6 +28,12 @@
                         <li class="list-group-item" *ngFor="let retos of retos">
                             {{retos.descripcion}}
                         </li>
+                    </th>
+                    <th>
+                        <button> Ver estadisticas </button>
+                    </th>
+                    <th>
+                        <button>Ver resultados</button>
                     </th>
                 </tr>
             </ul>
