@@ -31,7 +31,7 @@
                     </th>
                     <th>
                         <li class="list-group-item" *ngFor="let retos of retos" style="height:50px">
-                            <button>Estadisticas</button>
+                            <button class="btn btn-primary" (click)="selectReto(retos)" [class.active]="retos === selectedReto">Estadisticas</button>
                         </li>
                     </th>
                     <th>
@@ -42,5 +42,9 @@
                 </tr>
             </ul>
         </table>
+    </div>
+    <div class="col-md-5 col-md-offset-2">
+        <reto-detalle [reto]="selectedReto">
+        </reto-detalle>
     </div>
 </div>

@@ -10,7 +10,7 @@ import { RetosServService } from '../retos-serv.service';
 })
 export class RetosCompComponent implements OnInit {
   retos: Retos[]
-  selectedRetos: Retos
+  selectedReto: Retos
 
   constructor(private retosService: RetosServService) { }
 
@@ -21,6 +21,10 @@ export class RetosCompComponent implements OnInit {
         return retos;
       });
     });
+  }
+
+  selectReto(reto: Retos) {
+    this.selectedReto = reto
   }
 
 }

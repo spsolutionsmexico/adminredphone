@@ -1,3 +1,8 @@
-<p>
-    ------------reto-detalle works!------------
-</p>
+<div *ngIf="reto" class="row">
+    <form class="col-md-12">
+        <div class="form-group">
+            <label for="contact-name">idreto</label>
+            <input class="form-control" name="reto-idreto" [(ngModel)]="reto.idreto" placeholder="Name" />
+        </div>
+    </form>
+</div>
