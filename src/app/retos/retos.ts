@@ -4,7 +4,7 @@ export class Retos {
     descripcion: string;
     cantidadinvitados: number;
     cantidadrespuestas: number;
-    fechaactualizacion: Date;
+    fechaactualizacion: string;
     estado: string;
-    fechaenvio: Date;
+    fechaenvio: string;
 }
