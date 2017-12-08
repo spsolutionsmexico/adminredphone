@@ -17,10 +17,10 @@ export class RetosCompComponent implements OnInit {
   ngOnInit() {
     this.retosService
     .getRetos().then((retos: Retos[]) => {
-      retos.array.forEach(element => {
-      element.fechaenvio = element.fechaenvio.substr(0, 10);  
-      });
       this.retos = retos.map((retos) => {
+        this.retos.array.forEach(element => {
+          console.console.log('element: ',element);
+        });
         return retos;
       });
     });
