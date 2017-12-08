@@ -284,7 +284,7 @@ app.get("/api/retos", function(req, res) {
         console.log('res obtenerdata: ', JSON.stringify(resDB));
         let queryDB = resDB;
         resDB.forEach(
-            resDB.fechaEnvio = resDB.fechaEnvio.substr(0, 19)
+            resDB.fechaEnvio = resDB.toISOString().replace('T', ' ').substr(0, 19)
         );
         //return data base query 
         res.status(200).json(queryDB);
