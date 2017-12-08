@@ -283,9 +283,6 @@ app.get("/api/retos", function(req, res) {
     lib.obtenerdata(textqry, function(textqry, resDB) {
         console.log('res obtenerdata: ', JSON.stringify(resDB));
         let queryDB = resDB;
-        resDB.forEach(
-            resDB.fechaEnvio = resDB.fechaEnvio.toString().substr(0, 19)
-        );
         //return data base query 
         res.status(200).json(queryDB);
     });
