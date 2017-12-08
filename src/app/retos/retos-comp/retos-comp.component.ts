@@ -18,9 +18,7 @@ export class RetosCompComponent implements OnInit {
     this.retosService
     .getRetos().then((retos: Retos[]) => {
       this.retos = retos.map((retos) => {
-        this.retos.array.forEach(element => {
-          console.console.log('element: ',element);
-        });
+        console.log('--retos: ',retos+'--');
         return retos;
       });
     });
