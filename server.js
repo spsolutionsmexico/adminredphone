@@ -166,7 +166,7 @@ function actualizarRespuestas(idreto) {
 
                 for (var i = 0; i < arrRespuestas.length; i++) {
                     console.log('arrCompletados.indexOf(arrRespuestas en ', +i + ' -> ' + arrCompletados.indexOf(arrRespuestas[i]));
-                    if (arrCompletados.indexOf(arrRespuestas[i]) === 0) {
+                    if (arrCompletados.indexOf(arrRespuestas[i]) >= 0) {
                         console.log('Insertar respuestas -> ', this.retoID + ' -> ' + arrRespuestas[i]);
                         insertarRespuestaPG(this.retoID, arrRespuestas[i]);
                     }
