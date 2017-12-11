@@ -151,10 +151,12 @@ function actualizarRespuestas(idreto) {
     listarRetoRespuesta(idreto, function(idreto, respuesta) {
         var arrRespuestas = respuesta;
         console.log('actualizarRespuestas-arrRespuestas.length: ', arrRespuestas.length);
+        console.log('arrRespuestas: ', arrRespuestas);
         listarRetoTerminado(this.retoID, function(idretovar, respuesta2) {
             console.log('listarRetoTerminado respuesta2: ', respuesta2);
             var arrCompletados = respuesta2;
             console.log('actualizarRespuestas-arrCompletados.length: ', arrCompletados.length);
+            console.log('arrCompletados: ', arrCompletados);
             //borrar los registros del reto para su actualizacion 
             var textqry = 'DELETE FROM respuesta WHERE idreto = \'' + this.retoID + '\'';
             var lib = new condblib.condblib();
@@ -163,6 +165,7 @@ function actualizarRespuestas(idreto) {
                 console.log('res obtenerdata: ', JSON.stringify(resDB));
 
                 for (var i = 0; i < arrRespuestas.length; i++) {
+                    console.log('arrCompletados.indexOf(arrRespuestas en ', +i + ' -> ' + arrCompletados.indexOf(arrRespuestas[i]));
                     if (arrCompletados.indexOf(arrRespuestas[i]) === 0) {
                         console.log('Insertar respuestas -> ', this.retoID + ' -> ' + arrRespuestas[i]);
                         insertarRespuestaPG(this.retoID, arrRespuestas[i]);
@@ -279,6 +282,22 @@ app.get("/api/actualizar/reto/:id", function(req, res) {
 app.get("/api/retos", function(req, res) {
     // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
     var textqry = 'select * from reto';
+    var lib = new condblib.condblib();
+    lib.obtenerdata(textqry, function(textqry, resDB) {
+        console.log('res obtenerdata: ', JSON.stringify(resDB));
+        let queryDB = resDB;
+        //return data base query 
+        res.status(200).json(queryDB);
+    });
+
+});
+
+app.get("/api/respuestas/:id", function(req, res) {
+
+    var idreto = req.params.id.toLowerCase();
+    console.log('-- idreto: ', idreto);
+
+    var textqry = 'select * from respuesta where idreto = \'' + idreto + '\'';
     var lib = new condblib.condblib();
     lib.obtenerdata(textqry, function(textqry, resDB) {
         console.log('res obtenerdata: ', JSON.stringify(resDB));
