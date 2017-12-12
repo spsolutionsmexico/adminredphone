@@ -27,10 +27,6 @@ export class RetosPreguntaComponent {//implements OnInit {
       });
     });
    }
-  }
-    
-    
-
   /*ngOnInit() {
   }*/
 
