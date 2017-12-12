@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Retos } from '../retos';
 import { RetosServService } from '../retos-serv.service';
+import{RetosPreguntaComponent} from'../retos-pregunta/retos-pregunta.component'
 
 @Component({
   selector: 'retos-comp',
@@ -11,6 +12,7 @@ import { RetosServService } from '../retos-serv.service';
 export class RetosCompComponent implements OnInit {
   retos: Retos[]
   selectedReto: Retos
+  private retospregunta:RetosPreguntaComponent
 
   constructor(private retosService: RetosServService) { }
 
@@ -30,5 +32,6 @@ export class RetosCompComponent implements OnInit {
 
   selectRespuestas(reto: Retos) {
     this.selectedReto = reto
+    this.retospregunta.cargarpreguntas();
   }
 }

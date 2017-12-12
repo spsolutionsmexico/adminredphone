@@ -18,14 +18,18 @@ export class RetosPreguntaComponent {//implements OnInit {
   @Input()
   reto: Retos;
 
-  constructor(private retosService: RetosServService) {
-    
-    retosService.getPreguntas(this.reto.idreto).then((preguntas: Pregunta[]) => {
+  constructor(private retosService: RetosServService) {}
+
+  cargarpreguntas (){
+    this.retosService.getPreguntas(this.reto.idreto).then((preguntas: Pregunta[]) => {
       this.preguntas = preguntas.map((preguntas) => {
         return preguntas;
       });
     });
    }
+  }
+    
+    
 
   /*ngOnInit() {
   }*/
