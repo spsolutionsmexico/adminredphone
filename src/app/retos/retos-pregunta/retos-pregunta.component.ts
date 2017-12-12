@@ -8,7 +8,8 @@ import { RetosServService } from '../retos-serv.service';
 @Component({
   selector: 'retos-pregunta',
   templateUrl: './retos-pregunta.component.html',
-  styleUrls: ['./retos-pregunta.component.css']
+  styleUrls: ['./retos-pregunta.component.css'],
+  providers: [RetosServService]
 })
 export class RetosPreguntaComponent {//implements OnInit {
   preguntas: Pregunta[]
