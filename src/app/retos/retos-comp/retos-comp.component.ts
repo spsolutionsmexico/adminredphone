@@ -12,7 +12,7 @@ import{RetosPreguntaComponent} from'../retos-pregunta/retos-pregunta.component'
 export class RetosCompComponent implements OnInit {
   retos: Retos[]
   selectedReto: Retos
-  private retospregunta:RetosPreguntaComponent
+  
 
   constructor(private retosService: RetosServService) { }
 
@@ -32,6 +32,7 @@ export class RetosCompComponent implements OnInit {
 
   selectRespuestas(reto: Retos) {
     this.selectedReto = reto
-    this.retospregunta.cargarpreguntas(reto.idreto);
+    let retospregunta:RetosPreguntaComponent;
+    retospregunta.cargarpreguntas(reto.idreto);
   }
 }
