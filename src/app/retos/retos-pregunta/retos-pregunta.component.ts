@@ -16,7 +16,7 @@ export class RetosPreguntaComponent {//implements OnInit {
   selectedPregunta: Pregunta
 
   @Input()
-  reto: Retos;
+  selectedRP:String
 
   constructor(private retosService: RetosServService) {}
 

@@ -12,7 +12,7 @@ import{RetosPreguntaComponent} from'../retos-pregunta/retos-pregunta.component'
 export class RetosCompComponent implements OnInit {
   retos: Retos[]
   selectedReto: Retos
-  idretoSelected:String
+  selectedRP:String
 
   private retospregunta:RetosPreguntaComponent
 
@@ -33,6 +33,6 @@ export class RetosCompComponent implements OnInit {
   }
 
   selectRespuestas(reto: Retos) {
-    this.selectedReto = reto
+    this.selectedRP = reto.idreto
   }
 }
