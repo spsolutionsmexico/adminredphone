@@ -20,8 +20,8 @@ export class RetosPreguntaComponent {//implements OnInit {
 
   constructor(private retosService: RetosServService) {}
 
-  cargarpreguntas (){
-    this.retosService.getPreguntas(this.reto.idreto).then((preguntas: Pregunta[]) => {
+  cargarpreguntas (idreto){
+    this.retosService.getPreguntas(idreto).then((preguntas: Pregunta[]) => {
       this.preguntas = preguntas.map((preguntas) => {
         return preguntas;
       });

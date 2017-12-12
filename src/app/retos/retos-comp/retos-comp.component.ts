@@ -32,6 +32,6 @@ export class RetosCompComponent implements OnInit {
 
   selectRespuestas(reto: Retos) {
     this.selectedReto = reto
-    this.retospregunta.cargarpreguntas();
+    this.retospregunta.cargarpreguntas(reto.idreto);
   }
 }
