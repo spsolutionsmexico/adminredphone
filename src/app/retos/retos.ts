@@ -1,5 +1,5 @@
 export class Retos {
-    idreto?: string;
+    idreto: string;
     horaenvio: string;
     descripcion: string;
     cantidadinvitados: number;

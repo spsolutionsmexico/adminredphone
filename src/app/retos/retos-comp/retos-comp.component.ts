@@ -28,4 +28,7 @@ export class RetosCompComponent implements OnInit {
     this.selectedReto = reto
   }
 
+  selectRespuestas(reto: Retos) {
+    this.selectedReto = reto
+  }
 }
