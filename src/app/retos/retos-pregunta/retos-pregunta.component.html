@@ -1,13 +1,15 @@
 <p>
     retos-pregunta works!
 </p>
-<div class="row">
-    <div class="col-md-5">
-        <h2>Preguntas</h2>
-        <ul class="list-group">
-            <li class="list-group-item" *ngFor="let pregunta of preguntas">
-                {{pregunta.descripcion}}
-            </li>
-        </ul>
-    </div>
+<div *ngIf="reto" class="row">
+    <form class="col-md-12">
+        <div class="form-group">
+            <label for="reto-idreto">Preguntas de  {{reto.idreto}} </label>
+            <p>
+            </p>
+            <p>
+            </p>
+
+        </div>
+    </form>
 </div>
