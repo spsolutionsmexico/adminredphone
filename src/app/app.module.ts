@@ -8,6 +8,8 @@ import { ActualizarCompComponent } from './actualizar/actualizar-comp/actualizar
 import { RetosCompComponent } from './retos/retos-comp/retos-comp.component';
 import { RetoDetalleComponent } from './retos/reto-detalle/reto-detalle.component';
 import { RetosPreguntaComponent } from './retos/retos-pregunta/retos-pregunta.component';
+import { HeaderComponent } from './header/header/header.component';
+import { GraficoComponent } from './grafico/grafico.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { RetosPreguntaComponent } from './retos/retos-pregunta/retos-pregunta.co
     ActualizarCompComponent,
     RetosCompComponent,
     RetoDetalleComponent,
-    RetosPreguntaComponent
+    RetosPreguntaComponent,
+    HeaderComponent,
+    GraficoComponent
   ],
   imports: [
     BrowserModule,
