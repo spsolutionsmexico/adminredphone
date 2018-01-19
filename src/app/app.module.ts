@@ -8,6 +8,7 @@ import { ActualizarCompComponent } from './actualizar/actualizar-comp/actualizar
 import { RetosCompComponent } from './retos/retos-comp/retos-comp.component';
 import { RetoDetalleComponent } from './retos/reto-detalle/reto-detalle.component';
 import { RetosPreguntaComponent } from './retos/retos-pregunta/retos-pregunta.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { RetosPreguntaComponent } from './retos/retos-pregunta/retos-pregunta.co
     ActualizarCompComponent,
     RetosCompComponent,
     RetoDetalleComponent,
-    RetosPreguntaComponent
+    RetosPreguntaComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
