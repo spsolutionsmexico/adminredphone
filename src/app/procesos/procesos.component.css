@@ -1,0 +1,14 @@
+hr{
+	border-width: 3px;
+	border-color: blue;
+}
+
+.container{
+	padding-top: 15px;
+	text-align: center;
+}
+
+.form-curve{
+	width: 80%;
+	
+}

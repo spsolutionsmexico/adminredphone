@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GraficoComponent } from './grafico.component';
+import { ProcesosComponent } from './procesos.component';
 
-describe('GraficoComponent', () => {
-  let component: GraficoComponent;
-  let fixture: ComponentFixture<GraficoComponent>;
+describe('ProcesosComponent', () => {
+  let component: ProcesosComponent;
+  let fixture: ComponentFixture<ProcesosComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GraficoComponent ]
+      declarations: [ ProcesosComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GraficoComponent);
+    fixture = TestBed.createComponent(ProcesosComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -23,5 +23,3 @@ describe('GraficoComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-
-

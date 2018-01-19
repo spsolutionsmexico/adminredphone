@@ -10,6 +10,7 @@ import { RetoDetalleComponent } from './retos/reto-detalle/reto-detalle.componen
 import { RetosPreguntaComponent } from './retos/retos-pregunta/retos-pregunta.component';
 import { HeaderComponent } from './header/header/header.component';
 import { GraficoComponent } from './grafico/grafico.component';
+import { ProcesosComponent } from './procesos/procesos.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { GraficoComponent } from './grafico/grafico.component';
     RetoDetalleComponent,
     RetosPreguntaComponent,
     HeaderComponent,
-    GraficoComponent
+    GraficoComponent,
+    ProcesosComponent
   ],
   imports: [
     BrowserModule,
