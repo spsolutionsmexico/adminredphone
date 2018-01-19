@@ -8,9 +8,12 @@ import { ActualizarCompComponent } from './actualizar/actualizar-comp/actualizar
 import { RetosCompComponent } from './retos/retos-comp/retos-comp.component';
 import { RetoDetalleComponent } from './retos/reto-detalle/reto-detalle.component';
 import { RetosPreguntaComponent } from './retos/retos-pregunta/retos-pregunta.component';
+<<<<<<< HEAD
 import { HeaderComponent } from './header/header/header.component';
 import { GraficoComponent } from './grafico/grafico.component';
 import { ProcesosComponent } from './procesos/procesos.component';
+=======
+>>>>>>> parent of d080179... Modify Views
 
 @NgModule({
   declarations: [
@@ -18,10 +21,14 @@ import { ProcesosComponent } from './procesos/procesos.component';
     ActualizarCompComponent,
     RetosCompComponent,
     RetoDetalleComponent,
+<<<<<<< HEAD
     RetosPreguntaComponent,
     HeaderComponent,
     GraficoComponent,
     ProcesosComponent
+=======
+    RetosPreguntaComponent
+>>>>>>> parent of d080179... Modify Views
   ],
   imports: [
     BrowserModule,
