@@ -9,6 +9,7 @@ import { RetosCompComponent } from './retos/retos-comp/retos-comp.component';
 import { RetoDetalleComponent } from './retos/reto-detalle/reto-detalle.component';
 import { RetosPreguntaComponent } from './retos/retos-pregunta/retos-pregunta.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { GraficoComponent } from './grafico/grafico.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     RetosCompComponent,
     RetoDetalleComponent,
     RetosPreguntaComponent,
-    NavbarComponent
+    NavbarComponent,
+    GraficoComponent
   ],
   imports: [
     BrowserModule,

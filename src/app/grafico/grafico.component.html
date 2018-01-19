@@ -1,0 +1,34 @@
+<h4>RESULTADOS DE ENCUESTA - CONSOLIDADO</h4>
+<hr>
+<div class="row">
+	<div class="col-4 offset-2">
+		ENCUESTA: PRIMERA ENCUESTA FEB 2018
+	</div>
+	<div class="col-4">
+		FECHA: 12/02/2018 
+	</div>
+	<div class="col-8 form-group offset-2">
+		<label>Pregunta:</label>
+		<select class="form-curve" ng-model="data.model">
+			<option value="option-1">En general, ¿Está usted de acuerdo o en desacuerdo con la manera en que está trabajando el presidente ENRIQUE PEÑA NIETO?</option>
+			<option value="option-2">¿Cuál cree usted que es el principal problema que enfrenta el país en estos momentos? </option>
+			<option value="option-3">Comparada con el año anterior, ¿Cómo cree usted que está la SITUACIÓN ECONÓMICA del país actualmente, mejor o peor?</option>
+			<option value="option-4">Comparada con el año anterior, ¿Cómo cree usted que está la SITUACIÓN DE LA SEGURIDAD PÚBLICA del país actualmente, mejor o peor?</option>
+			<option value="option-5">En 2015 ¿Por cuál partido votó usted para DIPUTADO FEDERAL?</option>
+			<option value="option-6">Podría decirme, ¿Hay algún partido con el cuál se sienta más cercano que a los demás?</option>
+			<option value="option-7">Si pudiera REGRESAR EL TIEMPO A 2012, y hoy hubiera elecciones para Presidente, ¿Usted por quién votaría? </option>
+			<option value="option-8">¿Quién le gustaría más que fuera el próximo presidente?</option>
+			<option value="option-9">De los partidos que existen actualmente ¿Por cuál NUNCA VOTARÍA?</option>
+			<option value="option-10">Considerando lo que hoy existe ¿a qué partido pertenece la persona que ganará la elección en 2018?</option>
+		</select>
+	</div>
+</div>
+<hr>
+<div style="display: block">
+  <canvas baseChart
+          [data]="pieChartData"
+          [labels]="pieChartLabels"
+          [chartType]="pieChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+</div>
