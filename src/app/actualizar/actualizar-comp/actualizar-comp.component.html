@@ -1,17 +1,19 @@
-<p>
-    -----Funciones de actualizacion-----
-</p>
-<p>
-    -----Actualizar ususrios-----
-</p>
-<button (click)="actualizar()">Actualizar Usuarios</button>
-<p>
-    -----Actualizar Reto-----
-</p>
-<form class="col-md-12">
-    <div class="form-group">
-        <label for="Reto-id">Name</label>
-        <input class="form-control" name="Reto" [(ngModel)]="idreto" placeholder="idreto" />
-    </div>
-    <button (click)="actualizarReto()">Actualizar Reto</button>
-</form>
+<h4>SINCRONIZAR INFORMACION DE REPORTES</h4>
+<hr>
+<div class="row">
+	<div class="col-12">
+		<div class="form-grup">
+			<label for="fecha-encuesta">Encuesta:</label>
+			<select class="form-curve" name="reto">
+				<option idreto="reto10">PRIMERA ENCUESTA FEB 2018</option>
+				<option idreto="reto10">SEGUNDA ENCUESTA MAR 2018</option>
+				<option idreto="reto10">TERCERA ENCUESTA MAY 2018</option>
+				<option idreto="reto10">CUARTA ENCUESTA JUN 2018</option>
+				<option idreto="reto10">QUINTA ENCUESTA JUL 2018</option>
+			</select>
+		</div>
+		<br>
+		<button class="btn btn-secondary" (click)="actualizarReto()">SINCRONIZAR</button>
+	</div>
+	
+</div>
