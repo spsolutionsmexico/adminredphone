@@ -10,6 +10,7 @@ import { RetoDetalleComponent } from './retos/reto-detalle/reto-detalle.componen
 import { RetosPreguntaComponent } from './retos/retos-pregunta/retos-pregunta.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { GraficoComponent } from './grafico/grafico.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { GraficoComponent } from './grafico/grafico.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    ChartsModule
+    ChartsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
