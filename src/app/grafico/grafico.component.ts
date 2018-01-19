@@ -13,6 +13,7 @@ export class GraficoComponent implements OnInit {
   }
 
 
+
   public pieChartLabels:string[] = ['Acuerdo', 'Acuerdo en parte', 'Desacuerdo en parte', 'Desacuerdo', 'No deseo responder'];
   public pieChartData:number[] = [100, 130, 300, 450,30];
   public pieChartType:string = 'pie';
