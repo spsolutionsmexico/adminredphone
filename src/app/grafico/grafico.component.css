@@ -2,3 +2,7 @@
 	width: 90%;
 	
 }
+hr{
+	border-width: 3px;
+	border-color: blue;
+}
