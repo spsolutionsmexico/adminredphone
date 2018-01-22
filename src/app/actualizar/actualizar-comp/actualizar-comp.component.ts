@@ -14,9 +14,6 @@ export class ActualizarCompComponent implements OnInit {
   ngOnInit() {
   }
 
-  var select = document.getElementById("Reto");
-  var idreto = select.options[select .selectedIndex].value;
-
   public actualizar(): void {
     console.log("Call actualizar button");
     this.actualizarservice.getActualizar();
