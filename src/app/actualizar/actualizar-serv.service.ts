@@ -21,7 +21,6 @@ export class ActualizarServService {
   //get("/api/reto")
   getActualizarReto(idreto) {
     console.log('Iniciando getActualizar');
-    var idreto = document.getElementById("Reto").value;
     console.log('id-reto: ',idreto);
     return this.http.get(this.actualizarRetoUrl+ '/' +idreto)
                .toPromise()
