@@ -293,7 +293,7 @@ app.get("/api/retos", function(req, res) {
 });
 
 app.get("/api/preguntas/:id", function(req, res) {
-    
+
     var idreto = req.params.id.toLowerCase();
     console.log('-- idreto: ', idreto);
 
@@ -312,18 +312,29 @@ app.get("/api/preguntas/:id", function(req, res) {
 //Consulta respuestas para graficos
 
 app.get("/api/respuestagrap", function(req, res) {
-    
+
     console.log('Consulta sql');
-    
+
     var textqry = 'SELECT distinct respuesta.respuesta, idpreguntaai, COUNT( * ) as rep FROM respuesta where idreto = \'reto10\' GROUP BY idpreguntaai , respuesta.respuesta, idpreguntaai HAVING count(*) > 0  order by idpreguntaai';
     var lib = new condblib.condblib();
     lib.obtenerdata(textqry, function(textqry, resDB) {
         console.log('res obtenerdata: ', JSON.stringify(resDB));
         let queryDB = resDB;
-        //return data base query 
-        var data = bodyParser.text(queryDB);
-        console.log(data);
-
+        var arrIdPreguntaAI = [];
+        queryDB.forEach(function(row) {
+            console.log('------------------------------------');
+            console.log('row.idpreguntaai:', row.idpreguntaai);
+            console.log('------------------------------------\n');
+            if (arrIdPreguntaAI.length == 0) {
+                arrIdPreguntaAI.push();
+            }
+            for (var k = 0; k < arrIdPreguntaAI.length; k++) {
+                if (arrIdPreguntaAI[k] != row.idpreguntaai) {
+                    arrIdPreguntaAI.push(row.idpreguntaai);
+                }
+            }
+        });
+        console.log('arrIdPreguntaAI: ', arrIdPreguntaAI);
         res.status(200).json(queryDB);
     });
 
