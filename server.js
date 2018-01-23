@@ -1,6 +1,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var condblib = require(__dirname + '/condblib');
+const JSONbig = require('json-bigint');
 
 //firebase 
 var firebase = require('firebase');
