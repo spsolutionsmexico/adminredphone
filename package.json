@@ -28,7 +28,6 @@
         "body-parser": "^1.17.1",
         "core-js": "^2.4.1",
         "express": "^4.15.2",
-        "json-bigint": "^0.2.0",
         "firebase": "4.5.2",
         "mongodb": "^2.2.26",
         "ng2-charts": "1.6.0",
