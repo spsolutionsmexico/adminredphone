@@ -315,7 +315,7 @@ app.get("/api/preguntas/:idpreguntaai", function(req, res) {
     
     console.log('Consulta sql');
     
-    var textqry = 'SELECT distinct respuesta.respuesta, idpreguntaai, COUNT( * ) as rep FROM respuesta where idreto = 'reto10' GROUP BY idpreguntaai , respuesta.respuesta, idpreguntaai HAVING count(*) > 0  order by idpreguntaai';
+    var textqry = 'SELECT distinct respuesta.respuesta, idpreguntaai, COUNT( * ) as rep FROM respuesta where idreto = \'reto10\' GROUP BY idpreguntaai , respuesta.respuesta, idpreguntaai HAVING count(*) > 0  order by idpreguntaai;';
     var lib = new condblib.condblib();
     lib.obtenerdata(textqry, function(textqry, resDB) {
         console.log('res obtenerdata: ', JSON.stringify(resDB));
