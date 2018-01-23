@@ -311,7 +311,7 @@ app.get("/api/preguntas/:id", function(req, res) {
 
 //Consulta respuestas para graficos
 
-app.get("/api/preguntas/:idpreguntaai", function(req, res) {
+app.get("/api/respuestagrap", function(req, res) {
     
     console.log('Consulta sql');
     
