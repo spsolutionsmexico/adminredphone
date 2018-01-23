@@ -328,13 +328,7 @@ app.get("/api/respuestagrap", function(req, res) {
 
 });
 
-app.get("/api/respuestagrap/detalle", function(req, res) {
-    
-    console.log('Detalle');
-    var dir = ''
-    });
 
-});
 
 
 
