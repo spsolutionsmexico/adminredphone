@@ -322,7 +322,6 @@ app.get("/api/respuestagrap", function(req, res) {
         console.log('res obtenerdata: ', JSON.stringify(resDB));
         let queryDB = resDB;
         //return data base query 
-        var data = JSONbig.parse(queryDB);
 
         res.status(200).json(queryDB);
     });
