@@ -309,23 +309,7 @@ app.get("/api/preguntas/:id", function(req, res) {
 });
 
 
-//Consulta respuestas para grafico
 
-app.get("/api/preguntas/:idpreguntaai", function(req, res) {
-    
-    var idpregunta = req.params.id.toLowerCase();
-    console.log('-- idpregunta: ', idpreguntaai);
-    
-    var textqry = 'SELECT distinct respuesta.respuesta, idpreguntaai, COUNT( * ) as dif FROM respuesta where idreto = 'reto10' and  idpreguntaai = \'' + idpregunta + '\' GROUP BY idpreguntaai , respuesta.respuesta, idpreguntaai HAVING count(*) > 0  order by idpreguntaai';
-    var lib = new condblib.condblib();
-    lib.obtenerdata(textqry, function(textqry, resDB) {
-        console.log('res obtenerdata: ', JSON.stringify(resDB));
-        let queryDB = resDB;
-        //return data base query 
-        res.status(200).json(queryDB);
-    });
-
-});
 
 
 
