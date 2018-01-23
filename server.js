@@ -325,16 +325,9 @@ app.get("/api/respuestagrap", function(req, res) {
             console.log('------------------------------------');
             console.log('row.idpreguntaai:', row.idpreguntaai);
             console.log('------------------------------------\n');
-            if (arrIdPreguntaAI.length == 0) {
-                arrIdPreguntaAI.push();
-            }
-            for (var k = 0; k < arrIdPreguntaAI.length; k++) {
-                if (arrIdPreguntaAI[k] != row.idpreguntaai) {
-                    arrIdPreguntaAI.push(row.idpreguntaai);
-                }
-            }
+            arrIdPreguntaAI.push(row.idpreguntaai);
         });
-        console.log('arrIdPreguntaAI: ', arrIdPreguntaAI);
+        console.log('arrIdPreguntaAI.unique(): ', arrIdPreguntaAI.unique());
         res.status(200).json(queryDB);
     });
 
