@@ -322,13 +322,24 @@ app.get("/api/respuestagrap", function(req, res) {
         let queryDB = resDB;
         var arrIdPreguntaAI = [];
         queryDB.forEach(function(row) {
-            console.log('------------------------------------');
             console.log('row.idpreguntaai:', row.idpreguntaai);
-            console.log('------------------------------------\n');
             arrIdPreguntaAI.push(row.idpreguntaai);
         });
         arrIdPreguntaAI = eliminateDuplicates(arrIdPreguntaAI);
         console.log('arrIdPreguntaAI: ', arrIdPreguntaAI);
+        //cosntruir response 
+        var resPreguntas = '['
+        for (var contP; contP < arrIdPreguntaAI.length; contP++) {
+            resPreguntas = resPreguntas + '{"idpreguntaai":"' + arrIdPreguntaAI[contP] + '"'
+            queryDB.forEach(function(row) {
+                if (row.idpreguntaai === arrIdPreguntaAI[contP]) {
+                    resPreguntas = resPreguntas + ',"respuesta:"' + row.respuesta + '","rep":"' + row.rep + '"'
+                }
+                resPreguntas = resPreguntas + '}';
+            });
+        }
+        resPreguntas = resPreguntas + ']';
+        console.log(resPreguntas);
         res.status(200).json(queryDB);
     });
 
