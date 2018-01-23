@@ -327,13 +327,27 @@ app.get("/api/respuestagrap", function(req, res) {
             console.log('------------------------------------\n');
             arrIdPreguntaAI.push(row.idpreguntaai);
         });
-        console.log('arrIdPreguntaAI.unique(): ', arrIdPreguntaAI.unique());
+        arrIdPreguntaAI = eliminateDuplicates(arrIdPreguntaAI);
+        console.log('arrIdPreguntaAI: ', arrIdPreguntaAI);
         res.status(200).json(queryDB);
     });
 
 });
 
+function eliminateDuplicates(arr) {
+    var i,
+        len = arr.length,
+        out = [],
+        obj = {};
 
+    for (i = 0; i < len; i++) {
+        obj[arr[i]] = 0;
+    }
+    for (i in obj) {
+        out.push(i);
+    }
+    return out;
+}
 
 
 
