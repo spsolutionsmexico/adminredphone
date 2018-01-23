@@ -292,9 +292,12 @@ app.get("/api/retos", function(req, res) {
 
 });
 
-app.get("/api/respuesta", function(req, res) {
+app.get("/api/preguntas/:id", function(req, res) {
     
-    var textqry = 'SELECT distinct respuesta.respuesta, idpreguntaai, COUNT( * ) as dif FROM respuesta where idreto = 'reto10' GROUP BY idpreguntaai , respuesta.respuesta, idpreguntaai HAVING count(*) > 0  order by idpreguntaai';
+    var idreto = req.params.id.toLowerCase();
+    console.log('-- idreto: ', idreto);
+
+    var textqry = 'select DISTINCT ON (idpreguntaai) respuesta.idpreguntaai, plantillapregunta.descripcion from respuesta INNER JOIN plantillapregunta ON plantillapregunta.idpreguntaai = respuesta.idpreguntaai  where idreto=\'' + idreto + '\'';
     var lib = new condblib.condblib();
     lib.obtenerdata(textqry, function(textqry, resDB) {
         console.log('res obtenerdata: ', JSON.stringify(resDB));
@@ -306,14 +309,13 @@ app.get("/api/respuesta", function(req, res) {
 });
 
 
-//Consulta respuestas para grafico
+//Consulta respuestas para graficos
 
 app.get("/api/preguntas/:idpreguntaai", function(req, res) {
     
-    var idpregunta = req.params.id.toLowerCase();
-    console.log('-- idpregunta: ', idpreguntaai);
+    console.log('Consulta sql');
     
-    var textqry = 'SELECT distinct respuesta.respuesta, idpreguntaai, COUNT( * ) as dif FROM respuesta where idreto = 'reto10' and  idpreguntaai = \'' + idpregunta + '\' GROUP BY idpreguntaai , respuesta.respuesta, idpreguntaai HAVING count(*) > 0  order by idpreguntaai';
+    var textqry = 'SELECT distinct respuesta.respuesta, idpreguntaai, COUNT( * ) as rep FROM respuesta where idreto = 'reto10' GROUP BY idpreguntaai , respuesta.respuesta, idpreguntaai HAVING count(*) > 0  order by idpreguntaai';
     var lib = new condblib.condblib();
     lib.obtenerdata(textqry, function(textqry, resDB) {
         console.log('res obtenerdata: ', JSON.stringify(resDB));
