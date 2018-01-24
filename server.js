@@ -328,7 +328,7 @@ app.get("/api/respuestagrap", function(req, res) {
         arrIdPreguntaAI = eliminateDuplicates(arrIdPreguntaAI);
         console.log('arrIdPreguntaAI:', arrIdPreguntaAI);
         //construir response 
-        
+
         var resRespuesta = '['
         var resPreguntas = '['
 
@@ -342,16 +342,33 @@ app.get("/api/respuestagrap", function(req, res) {
                 resPreguntas = resPreguntas + '},{idpreguntaai:' + arrIdPreguntaAI[contP] + ',['
             }
             queryDB.forEach(function(row) {
+
+            var i = 0
+
                 if (row.idpreguntaai === arrIdPreguntaAI[contP]) {
-                    nomPreguntas = nomPreguntas + row.respuesta +','
+                    if (i === 0) {
+                        nomPreguntas = nomPreguntas + row.respuesta 
+                    }
+                    else {
+                        nomPreguntas = ',' + nomPreguntas + row.respuesta 
+                    }
+                    i++;
                 }
                 
             });
             nomPreguntas = nomPreguntas + '],';
 
             queryDB.forEach(function(row) {
+
+            var i = 0
+
                 if (row.idpreguntaai === arrIdPreguntaAI[contP]) {
-                    nomRep = nomRep + row.rep +','
+                    if (i === 0) { 
+                        nomRep = nomRep + row.rep
+                    }
+                    else {
+                        nomRep = ',' + nomRep + row.rep
+                    }
                 }
                 
             });
