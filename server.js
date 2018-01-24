@@ -356,7 +356,7 @@ app.get("/api/respuestagrap", function(req, res) {
             });
             nomRep = nomRep + '],'
 
-            resPreguntas = resPreguntas + 'respuesta: ' + nomPreguntas + ', rep: ' + nomRep;
+            resPreguntas = resPreguntas + 'respuesta: ' + nomPreguntas + ' rep: ' + nomRep;
         }
         resPreguntas = resPreguntas + '}]';
         console.log('res response: ', JSON.stringify(resPreguntas));
