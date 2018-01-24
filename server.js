@@ -338,18 +338,28 @@ app.get("/api/respuestagrap", function(req, res) {
 });
 
 function obtenerFormatoRespuesta(arrIdPreguntaAI, queryDB) {
+    console.log('obtenerFormatoRespuesta');
+    console.log('arrIdPreguntaAI:', arrIdPreguntaAI);
+    console.log('queryDB: ', queryDB);
     var resPreguntas = '[';
+    console.log('arrIdPreguntaAI.length: ', arrIdPreguntaAI.length);
     for (var contP = 0; contP < arrIdPreguntaAI.length; contP++) {
-        var idreguntaai = arrIdPreguntaAI[contP];
-        resPreguntas.concat('{"idpreguntaai":"' + idreguntaai + '"' + ',"respuestas:"{');
+        var idpreguntaai = arrIdPreguntaAI[contP];
+        console.log('idpreguntaai: ' + idpreguntaai);
+        resPreguntas.concat('{"idpreguntaai":"' + idpreguntaai + '"' + ',"respuestas:"{');
+        console.log(resPreguntas);
         var labeResp = [];
         var cantidadR = [];
         queryDB.forEach(function(row) {
             if (row.idpreguntaai === arrIdPreguntaAI[contP]) {
+                console.log('row.respuesta: ', row.respuesta);
+                console.log('row.rep: ', row.rep);
                 labeResp.push(row.respuesta);
                 cantidadR.push(row.rep);
             }
         });
+        console.log('labeResp: ', labeResp);
+        console.log('cantidadR: ', cantidadR);
         resPreguntas.concat('"respuesta":"' + labeResp + '",');
         resPreguntas.concat('"rep":"' + cantidadR + '",');
         resPreguntas.concat('}},');
