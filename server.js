@@ -345,7 +345,7 @@ app.get("/api/respuestagrap", function(req, res) {
         }
         resPreguntas = resPreguntas + '}]';
         console.log(resPreguntas);
-        res.status(200).json(queryDB);
+        res.status(200).json(resPreguntas);
     });
 
 });
