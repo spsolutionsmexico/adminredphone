@@ -331,6 +331,7 @@ app.get("/api/respuestagrap", function(req, res) {
 
         var resRespuesta = '['
         var resPreguntas = '['
+        var count = 0;
 
         for (var contP = 0; contP < arrIdPreguntaAI.length; contP++) {
             var nomPreguntas = '[';
@@ -341,33 +342,17 @@ app.get("/api/respuestagrap", function(req, res) {
             else {
                 resPreguntas = resPreguntas + '},{idpreguntaai:' + arrIdPreguntaAI[contP] + ',['
             }
-            var i = 0
             queryDB.forEach(function(row) {
-
                 if (row.idpreguntaai === arrIdPreguntaAI[contP]) {
-                    if (i == 0) {
-                        nomPreguntas = nomPreguntas + row.respuesta 
-                    }
-                    else {
-                        nomPreguntas = ',' + nomPreguntas + row.respuesta 
-                    }
-                    i++;
+                    nomPreguntas = nomPreguntas + row.respuesta +','
                 }
                 
             });
             nomPreguntas = nomPreguntas + '],';
-            i = 0 ;
 
             queryDB.forEach(function(row) {
-
                 if (row.idpreguntaai === arrIdPreguntaAI[contP]) {
-                    if (i == 0) { 
-                        nomRep = nomRep + row.rep
-                    }
-                    else {
-                        nomRep = ',' + nomRep + row.rep
-                    }
-                    i++;
+                    nomRep = nomRep + row.rep +','
                 }
                 
             });
