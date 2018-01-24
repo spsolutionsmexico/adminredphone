@@ -322,52 +322,41 @@ app.get("/api/respuestagrap", function(req, res) {
         let queryDB = resDB;
         var arrIdPreguntaAI = [];
         queryDB.forEach(function(row) {
-            console.log('row.idpreguntaai:',row.idpreguntaai);
+            console.log('row.idpreguntaai:', row.idpreguntaai);
             arrIdPreguntaAI.push(row.idpreguntaai);
         });
         arrIdPreguntaAI = eliminateDuplicates(arrIdPreguntaAI);
         console.log('arrIdPreguntaAI:', arrIdPreguntaAI);
         //construir response 
-
-        var resRespuesta = '['
-        var resPreguntas = '['
-        var count = 0;
-
-        for (var contP = 0; contP < arrIdPreguntaAI.length; contP++) {
-            var nomPreguntas = '[';
-            var nomRep = '[';
-            if (contP === 0) {
-                resPreguntas = resPreguntas + '{idpreguntaai:' + arrIdPreguntaAI[contP] + ',[' 
-            }
-            else {
-                resPreguntas = resPreguntas + '},{idpreguntaai:' + arrIdPreguntaAI[contP] + ',['
-            }
-            queryDB.forEach(function(row) {
-                if (row.idpreguntaai === arrIdPreguntaAI[contP]) {
-                    nomPreguntas = nomPreguntas + row.respuesta +','
-                }
-                
-            });
-            nomPreguntas = nomPreguntas + '],';
-
-            queryDB.forEach(function(row) {
-                if (row.idpreguntaai === arrIdPreguntaAI[contP]) {
-                    nomRep = nomRep + row.rep +','
-                }
-                
-            });
-            nomRep = nomRep + '],'
-
-            resPreguntas = resPreguntas + 'respuesta: ' + nomPreguntas + ' rep: ' + nomRep;
-        }
-        resPreguntas = resPreguntas + '}]';
+        var resPreguntas = obtenerFormatoRespuesta(arrIdPreguntaAI, queryDB);
         console.log('res response: ', JSON.stringify(resPreguntas));
+
         res.status(200).json(resPreguntas);
         //res.status(200).json(resDB);
     });
 
 });
 
+function obtenerFormatoRespuesta(arrIdPreguntaAI, queryDB) {
+    var resPreguntas = '[';
+    for (var contP = 0; contP < arrIdPreguntaAI.length; contP++) {
+        var idreguntaai = arrIdPreguntaAI[contP];
+        resPreguntas.concat('{"idpreguntaai":"' + idreguntaai + '"' + ',"respuestas:"{');
+        var labeResp = [];
+        var cantidadR = [];
+        queryDB.forEach(function(row) {
+            if (row.idpreguntaai === arrIdPreguntaAI[contP]) {
+                labeResp.push(row.respuesta);
+                cantidadR.push(row.rep);
+            }
+        });
+        resPreguntas.concat('"respuesta":"' + labeResp + '",');
+        resPreguntas.concat('"rep":"' + cantidadR + '",');
+        resPreguntas.concat('}},');
+    }
+    resPreguntas.concat(']');
+    return resPreguntas;
+}
 
 function eliminateDuplicates(arr) {
     var i,
