@@ -331,14 +331,14 @@ app.get("/api/respuestagrap", function(req, res) {
         var resPreguntas = '['
         for (var contP = 0; contP < arrIdPreguntaAI.length; contP++) {
             if (contP === 0) {
-                resPreguntas = resPreguntas + '{"idpreguntaai":"' + arrIdPreguntaAI[contP] + '"'
+                resPreguntas = resPreguntas + '{idpreguntaai:' + arrIdPreguntaAI[contP] + ''
             }
             else {
-                resPreguntas = resPreguntas + '},{"idpreguntaai":"' + arrIdPreguntaAI[contP] + '"'
+                resPreguntas = resPreguntas + '},{idpreguntaai:' + arrIdPreguntaAI[contP] + ''
             }
             queryDB.forEach(function(row) {
                 if (row.idpreguntaai === arrIdPreguntaAI[contP]) {
-                    resPreguntas = resPreguntas + ',"respuesta:"' + row.respuesta + '","rep":"' + row.rep + '"'
+                    resPreguntas = resPreguntas + ',respuesta:' + row.respuesta + ',rep":' + row.rep + ''
                 }
             });
         }
