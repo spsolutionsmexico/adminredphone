@@ -11,6 +11,7 @@ export class GraficoComponent implements OnInit {
   constructor(private chartService: GraficoComponent) { 
     console.log('constructor inChartComponent');*/
    }
+  constructor() { }
 
   ngOnInit() {
 /*
