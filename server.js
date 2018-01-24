@@ -328,6 +328,7 @@ app.get("/api/respuestagrap", function(req, res) {
         arrIdPreguntaAI = eliminateDuplicates(arrIdPreguntaAI);
         console.log('arrIdPreguntaAI:', arrIdPreguntaAI);
         //construir response 
+        var resRespuesta = '['
         var resPreguntas = '['
         for (var contP = 0; contP < arrIdPreguntaAI.length; contP++) {
             if (contP === 0) {
@@ -338,8 +339,9 @@ app.get("/api/respuestagrap", function(req, res) {
             }
             queryDB.forEach(function(row) {
                 if (row.idpreguntaai === arrIdPreguntaAI[contP]) {
-                    resPreguntas = resPreguntas + ',respuesta:' + row.respuesta + ',rep:' + row.rep + ''
+                    resPreguntas = resRespuesta + 'respuesta:' + row.respuesta + ',rep:' + row.rep + ','
                 }
+                resRespuesta = resRespuesta + ']'
             });
         }
         resPreguntas = resPreguntas + '}]';
@@ -348,6 +350,7 @@ app.get("/api/respuestagrap", function(req, res) {
     });
 
 });
+
 
 function eliminateDuplicates(arr) {
     var i,
