@@ -330,19 +330,29 @@ app.get("/api/respuestagrap", function(req, res) {
         //construir response 
         var resRespuesta = '['
         var resPreguntas = '['
+
         for (var contP = 0; contP < arrIdPreguntaAI.length; contP++) {
+            var nomPreguntas = '[';
+            var nomRep = '[';
             if (contP === 0) {
-                resPreguntas = resPreguntas + '{idpreguntaai:' + arrIdPreguntaAI[contP] + ''
+                resPreguntas = resPreguntas + '{idpreguntaai:' + arrIdPreguntaAI[contP] + '['
             }
             else {
-                resPreguntas = resPreguntas + '},{idpreguntaai:' + arrIdPreguntaAI[contP] + ''
+                resPreguntas = resPreguntas + '},{idpreguntaai:' + arrIdPreguntaAI[contP] + '['
             }
             queryDB.forEach(function(row) {
                 if (row.idpreguntaai === arrIdPreguntaAI[contP]) {
-                    resPreguntas = resRespuesta + 'respuesta:' + row.respuesta + ',rep:' + row.rep + ','
+                    nomPreguntas = nomPreguntas + row.respuesta +','
                 }
-                resRespuesta = resRespuesta + ']'
+                nomPreguntas = nomPreguntas + ']'
             });
+            queryDB.forEach(function(row) {
+                if (row.idpreguntaai === arrIdPreguntaAI[contP]) {
+                    nomRep = nomRep + row.Rep +','
+                }
+                nomRep = nomRep + ']'
+            });
+            resPreguntas = resPreguntas + 'respuesta: "' + nomPreguntas + '", rep: ' + nomRep;
         }
         resPreguntas = resPreguntas + '}]';
         console.log('res response: ', JSON.stringify(resPreguntas));
