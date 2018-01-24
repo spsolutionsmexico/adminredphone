@@ -320,25 +320,30 @@ app.get("/api/respuestagrap", function(req, res) {
     lib.obtenerdata(textqry, function(textqry, resDB) {
         console.log('res obtenerdata: ', JSON.stringify(resDB));
         let queryDB = resDB;
+        console.log(resDB);
         var arrIdPreguntaAI = [];
         queryDB.forEach(function(row) {
-            console.log('row.idpreguntaai:', row.idpreguntaai);
+            console.log('row.idpreguntaai:',row.idpreguntaai);
             arrIdPreguntaAI.push(row.idpreguntaai);
         });
         arrIdPreguntaAI = eliminateDuplicates(arrIdPreguntaAI);
-        console.log('arrIdPreguntaAI: ', arrIdPreguntaAI);
-        //cosntruir response 
+        console.log('arrIdPreguntaAI:', arrIdPreguntaAI);
+        //construir response 
         var resPreguntas = '['
-        for (var contP; contP < arrIdPreguntaAI.length; contP++) {
-            resPreguntas = resPreguntas + '{"idpreguntaai":"' + arrIdPreguntaAI[contP] + '"'
+        for (var contP = 0; contP < arrIdPreguntaAI.length; contP++) {
+            if (contP === 0) {
+                resPreguntas = resPreguntas + '{"idpreguntaai":"' + arrIdPreguntaAI[contP] + '"'
+            }
+            else {
+                resPreguntas = resPreguntas + '},{"idpreguntaai":"' + arrIdPreguntaAI[contP] + '"'
+            }
             queryDB.forEach(function(row) {
                 if (row.idpreguntaai === arrIdPreguntaAI[contP]) {
                     resPreguntas = resPreguntas + ',"respuesta:"' + row.respuesta + '","rep":"' + row.rep + '"'
                 }
-                resPreguntas = resPreguntas + '}';
             });
         }
-        resPreguntas = resPreguntas + ']';
+        resPreguntas = resPreguntas + '}]';
         console.log(resPreguntas);
         res.status(200).json(queryDB);
     });
