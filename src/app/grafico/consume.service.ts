@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
-import { Data } from ./Data
+//import { Data } from ./Data
 @Injectable()
 export class GrapServService {
-
+/*
   private GrapUrl = '/api/respuestagrap';
   
       constructor (private http: Http) {}
@@ -22,5 +22,5 @@ export class GrapServService {
         error.status ? `${error.status} - ${error.statusText}` : 'Server error';
         console.error(errMsg); // log to console
         return Promise.reject(errMsg);
-      }
+      }*/
 }
