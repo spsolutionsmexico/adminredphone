@@ -368,6 +368,7 @@ function obtenerFormatoRespuesta(arrIdPreguntaAI, queryDB) {
         resPreguntas = resPreguntas + '}},';
     }
     resPreguntas = resPreguntas + ']';
+
     return resPreguntas;
 }
 
