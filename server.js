@@ -346,7 +346,7 @@ app.get("/api/respuestagrap", function(req, res) {
             var i = 0
 
                 if (row.idpreguntaai === arrIdPreguntaAI[contP]) {
-                    if (i === 0) {
+                    if (i == 0) {
                         nomPreguntas = nomPreguntas + row.respuesta 
                     }
                     else {
@@ -360,15 +360,16 @@ app.get("/api/respuestagrap", function(req, res) {
 
             queryDB.forEach(function(row) {
 
-            var i = 0
+            i = 0 ;
 
                 if (row.idpreguntaai === arrIdPreguntaAI[contP]) {
-                    if (i === 0) { 
+                    if (i == 0) { 
                         nomRep = nomRep + row.rep
                     }
                     else {
                         nomRep = ',' + nomRep + row.rep
                     }
+                    i++;
                 }
                 
             });
