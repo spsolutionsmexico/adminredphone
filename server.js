@@ -318,7 +318,7 @@ app.get("/api/respuestagrap", function(req, res) {
     var textqry = 'SELECT distinct respuesta.respuesta, idpreguntaai, COUNT( * ) as rep FROM respuesta where idreto = \'reto10\' GROUP BY idpreguntaai , respuesta.respuesta, idpreguntaai HAVING count(*) > 0  order by idpreguntaai';
     var lib = new condblib.condblib();
     lib.obtenerdata(textqry, function(textqry, resDB) {
-        //console.log('res obtenerdata: ', JSON.stringify(resDB));
+        console.log('res obtenerdata: ', JSON.stringify(resDB));
         let queryDB = resDB;
         var arrIdPreguntaAI = [];
         queryDB.forEach(function(row) {
@@ -359,8 +359,9 @@ app.get("/api/respuestagrap", function(req, res) {
             resPreguntas = resPreguntas + 'respuesta: ' + nomPreguntas + ' rep: ' + nomRep;
         }
         resPreguntas = resPreguntas + '}]';
-        console.log('res response: ', JSON.stringify(resPreguntas));
-        res.status(200).json(resPreguntas);
+        //console.log('res response: ', JSON.stringify(resPreguntas));
+        //res.status(200).json(resPreguntas);
+        res.status(200).json(resDB);
     });
 
 });
