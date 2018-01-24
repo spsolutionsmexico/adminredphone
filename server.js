@@ -338,13 +338,12 @@ app.get("/api/respuestagrap", function(req, res) {
             }
             queryDB.forEach(function(row) {
                 if (row.idpreguntaai === arrIdPreguntaAI[contP]) {
-                    resPreguntas = resPreguntas + ',respuesta:' + row.respuesta + ',rep":' + row.rep + ''
+                    resPreguntas = resPreguntas + ',respuesta:' + row.respuesta + ',rep:' + row.rep + ''
                 }
             });
         }
         resPreguntas = resPreguntas + '}]';
         console.log('res response: ', JSON.stringify(resPreguntas));
-        console.log(resPreguntas);
         res.status(200).json(resPreguntas);
     });
 
