@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GraficoComponent implements OnInit {
 
-  constructor() { }
+  chartsdata: ChartData[]
+  selectedchardata: ChartData
+  constructor(private chartService: GraficoComponent) { 
+    console.log('constructor inChartComponent');
+   }
 
   ngOnInit() {
   }
