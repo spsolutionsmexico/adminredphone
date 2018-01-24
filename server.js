@@ -318,9 +318,9 @@ app.get("/api/respuestagrap", function(req, res) {
     var textqry = 'SELECT distinct respuesta.respuesta, idpreguntaai, COUNT( * ) as rep FROM respuesta where idreto = \'reto10\' GROUP BY idpreguntaai , respuesta.respuesta, idpreguntaai HAVING count(*) > 0  order by idpreguntaai';
     var lib = new condblib.condblib();
     lib.obtenerdata(textqry, function(textqry, resDB) {
+        console.log('res obtenerdata: ', resDB);
         console.log('res obtenerdata: ', JSON.stringify(resDB));
         let queryDB = resDB;
-        console.log(resDB);
         var arrIdPreguntaAI = [];
         queryDB.forEach(function(row) {
             console.log('row.idpreguntaai:',row.idpreguntaai);
