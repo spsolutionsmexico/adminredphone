@@ -329,6 +329,9 @@ app.get("/api/respuestagrap", function(req, res) {
         console.log('arrIdPreguntaAI:', arrIdPreguntaAI);
         //construir response 
         var resPreguntas = obtenerFormatoRespuesta(arrIdPreguntaAI, queryDB);
+        console.log('<---------------------------------------------------->')
+        console.log('resPreguntas: ', resPreguntas)
+        console.log('<---------------------------------------------------->')
         console.log('res response: ', JSON.stringify(resPreguntas));
 
         res.status(200).json(resPreguntas);
