@@ -341,9 +341,8 @@ app.get("/api/respuestagrap", function(req, res) {
             else {
                 resPreguntas = resPreguntas + '},{idpreguntaai:' + arrIdPreguntaAI[contP] + ',['
             }
-            queryDB.forEach(function(row) {
-
             var i = 0
+            queryDB.forEach(function(row) {
 
                 if (row.idpreguntaai === arrIdPreguntaAI[contP]) {
                     if (i == 0) {
@@ -357,10 +356,9 @@ app.get("/api/respuestagrap", function(req, res) {
                 
             });
             nomPreguntas = nomPreguntas + '],';
+            i = 0 ;
 
             queryDB.forEach(function(row) {
-
-            i = 0 ;
 
                 if (row.idpreguntaai === arrIdPreguntaAI[contP]) {
                     if (i == 0) { 
