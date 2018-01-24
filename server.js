@@ -332,13 +332,13 @@ app.get("/api/respuestagrap", function(req, res) {
         var resPreguntas = '['
 
         for (var contP = 0; contP < arrIdPreguntaAI.length; contP++) {
-            var nomPreguntas = ',[';
-            var nomRep = ',[';
+            var nomPreguntas = '[';
+            var nomRep = '[';
             if (contP === 0) {
-                resPreguntas = resPreguntas + '{idpreguntaai:' + arrIdPreguntaAI[contP] + '['
+                resPreguntas = resPreguntas + '{idpreguntaai:' + arrIdPreguntaAI[contP] + ',[' 
             }
             else {
-                resPreguntas = resPreguntas + '},{idpreguntaai:' + arrIdPreguntaAI[contP] + '['
+                resPreguntas = resPreguntas + '},{idpreguntaai:' + arrIdPreguntaAI[contP] + ',['
             }
             queryDB.forEach(function(row) {
                 if (row.idpreguntaai === arrIdPreguntaAI[contP]) {
@@ -346,15 +346,15 @@ app.get("/api/respuestagrap", function(req, res) {
                 }
                 
             });
-            nomPreguntas = nomPreguntas + ']';
-            
+            nomPreguntas = nomPreguntas + '],';
+
             queryDB.forEach(function(row) {
                 if (row.idpreguntaai === arrIdPreguntaAI[contP]) {
                     nomRep = nomRep + row.Rep +','
                 }
                 
             });
-            nomRep = nomRep + ']'
+            nomRep = nomRep + '],'
 
             resPreguntas = resPreguntas + 'respuesta: ' + nomPreguntas + ', rep: ' + nomRep;
         }
