@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ServGraficoService } from './serv-grafico.service';
 import { GraficoDatos } from './graficodatos';
+import { BaseChartDirective } from 'ng2-charts/ng2-charts';
 
 @Component({
   selector: 'grafico',
@@ -8,6 +9,7 @@ import { GraficoDatos } from './graficodatos';
   styleUrls: ['./grafico.component.css'],
   providers: [ServGraficoService]
 })
+
 export class GraficoComponent {
   chartsData: GraficoDatos[]
   constructor(private chartService: ServGraficoService) {}
@@ -29,6 +31,7 @@ export class GraficoComponent {
       });
     });
   }
+  
   
   }
 
