@@ -347,6 +347,7 @@ function obtenerFormatoRespuesta(arrIdPreguntaAI, queryDB) {
     console.log('arrIdPreguntaAI:', arrIdPreguntaAI);
     console.log('queryDB: ', queryDB);
     var resPreguntas = '[';
+    var i = 0;
     console.log('arrIdPreguntaAI.length: ', arrIdPreguntaAI.length);
     for (var contP = 0; contP < arrIdPreguntaAI.length; contP++) {
         var idpreguntaai = arrIdPreguntaAI[contP];
@@ -365,11 +366,20 @@ function obtenerFormatoRespuesta(arrIdPreguntaAI, queryDB) {
         });
         console.log('labeResp: ', labeResp);
         console.log('cantidadR: ', cantidadR);
-        resPreguntas = resPreguntas + 'respuesta:' + labeResp + ',';
-        resPreguntas = resPreguntas + 'rep:' + cantidadR + ',';
-        resPreguntas = resPreguntas + '}},';
+        if (i === 0) {
+            resPreguntas = resPreguntas + 'respuesta:' + labeResp + ',';
+            resPreguntas = resPreguntas + ',' + 'rep:' + cantidadR  ;
+            resPreguntas = resPreguntas + '}}';
+
+        } else {
+            resPreguntas = resPreguntas + 'respuesta:' + labeResp + ',';
+            resPreguntas = resPreguntas + 'rep:' + cantidadR  ;
+            resPreguntas = resPreguntas + '}}';
+        }
+       
+        i++;
     }
-    console.log('resFunctionPreguntas',resPreguntas);
+
     resPreguntas = resPreguntas + ']';
 
     return resPreguntas;
@@ -389,7 +399,6 @@ function eliminateDuplicates(arr) {
     }
     return out;
 }
-
 
 
 // Generic error handler used by all endpoints.
