@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServGraficoService } from ./serv-grafico.service
+import { GraficoDatos } from './graficodatos';
+import { Grespuestas } from './grespuestas';
 
 @Component({
   selector: 'grafico',
