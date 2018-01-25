@@ -342,6 +342,7 @@ app.get("/api/respuestagrap", function(req, res) {
 
 });
 
+
 function obtenerFormatoRespuesta(arrIdPreguntaAI, queryDB) {
     console.log('obtenerFormatoRespuesta');
     console.log('arrIdPreguntaAI:', arrIdPreguntaAI);
@@ -366,16 +367,16 @@ function obtenerFormatoRespuesta(arrIdPreguntaAI, queryDB) {
         });
         console.log('labeResp: ', labeResp);
         console.log('cantidadR: ', cantidadR);
-        if (i === 0) {
-            resPreguntas = resPreguntas + 'respuesta:' + labeResp + ',';
-            resPreguntas = resPreguntas + ',' + 'rep:' + cantidadR  ;
-            resPreguntas = resPreguntas + '}}';
+        resPreguntas = resPreguntas + 'respuesta:' + labeResp + ',';
+        resPreguntas = resPreguntas + 'rep:' + cantidadR  ;
+
+        if (i === arrIdPreguntaAI.length - 1 ) {
+        resPreguntas = resPreguntas + '}}';
 
         } else {
-            resPreguntas = resPreguntas + 'respuesta:' + labeResp + ',';
-            resPreguntas = resPreguntas + 'rep:' + cantidadR  ;
-            resPreguntas = resPreguntas + '}}';
+        resPreguntas = resPreguntas + '}},';
         }
+       
        
         i++;
     }
