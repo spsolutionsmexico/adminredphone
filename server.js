@@ -332,7 +332,7 @@ app.get("/api/respuestagrap", function(req, res) {
         console.log('<---------------------------------------------------->')
         console.log('resPreguntas: ', resPreguntas)
         console.log('<---------------------------------------------------->')
-        console.log('res response: ', JSON.stringify(resPreguntas));
+        console.log('res response: ', JSON(resPreguntas));
 
         res.status(200).json(resPreguntas);
         //res.status(200).json(resDB);
