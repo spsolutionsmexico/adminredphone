@@ -333,12 +333,8 @@ app.get("/api/respuestagrap", function(req, res) {
         console.log('resPreguntas: ', resPreguntas)
         console.log('<---------------------------------------------------->')
 
-        var tmp = Array.prototype.toJSON;
-        delete Array.prototype.toJSON;
 
         console.log('res response: ', JSON.stringify(resPreguntas));
-
-        Array.prototype.toJSON = tmp;
 
         res.status(200).json(resPreguntas);
         //res.status(200).json(resDB);
