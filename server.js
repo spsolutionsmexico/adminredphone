@@ -332,7 +332,13 @@ app.get("/api/respuestagrap", function(req, res) {
         console.log('<---------------------------------------------------->')
         console.log('resPreguntas: ', resPreguntas)
         console.log('<---------------------------------------------------->')
+
+        var tmp = Array.prototype.toJSON;
+        delete Array.prototype.toJSON;
+
         console.log('res response: ', JSON.stringify(resPreguntas));
+        
+        Array.prototype.toJSON = tmp;
 
         res.status(200).json(resPreguntas);
         //res.status(200).json(resDB);
@@ -364,7 +370,7 @@ function obtenerFormatoRespuesta(arrIdPreguntaAI, queryDB) {
         console.log('labeResp: ', labeResp);
         console.log('cantidadR: ', cantidadR);
         resPreguntas = resPreguntas + 'respuesta:' + labeResp + ',';
-        resPreguntas = resPreguntas + 'rep:' + cantidadR + '",';
+        resPreguntas = resPreguntas + 'rep:' + cantidadR + ',';
         resPreguntas = resPreguntas + '}},';
     }
     console.log('resFunctionPreguntas',resPreguntas);
