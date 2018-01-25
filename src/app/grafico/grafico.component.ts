@@ -12,7 +12,7 @@ import { Grespuestas } from './grespuestas';
 export class GraficoComponent implements OnInit {
 
   chartsData: GraficoDatos[]
-  constructor(private chartService: ServGraficoService) { 
+  constructor(private chartService: ServGraficoService) {} 
   console.log('constructor Chart');
   ngOnInit() {
 
@@ -45,5 +45,5 @@ export class GraficoComponent implements OnInit {
 
 
 }
-}
+
 
