@@ -10,14 +10,13 @@ import { Grespuestas } from './grespuestas';
   providers: [ServGraficoService]
 })
 export class GraficoComponent implements OnInit {
-
-  chartsData: GraficoDatos[];
+  chartsData: GraficoDatos[]
   constructor(private chartService: ServGraficoService) {}
 
   ngOnInit() {
     this.chartService.getDatosGrap()
-      .then((cData: GraficoDatos[]) => {
-        this.chartsData = cData.map((chartsData) => {
+      .then((chartsData: GraficoDatos[]) => {
+        this.chartsData = chartsData.map((chartsData) => {
           console.log('this.chartsData: ',this.chartsData);
           return chartsData;
         });
