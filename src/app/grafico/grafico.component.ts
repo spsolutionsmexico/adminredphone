@@ -14,29 +14,16 @@ export class GraficoComponent implements OnInit {
   chartsData: GraficoDatos[];
   constructor(private chartService: ServGraficoService) {}
   console.log('constructor Chart');
+
   ngOnInit() {
-
-  	console.log('ngOnInit start');
-
-    const _pieChartData: Array<any> = new Array();
-    this.chartService
-     .getDatosGrap()
-     .then((chartsData: GraficoDatos[]) => {
-      setTimeout( () => {
-
-
-        this.chartsData =chartsData.map((graficodatos) => {  
-        console.log('chartdemo: ',graficodatos.idpreguntaai); 
-        console.log('chartdemo: ',graficodatos.respuestas);
-        
-        return "";
-       });
+    this.chartService.
+    .then((retos: Retos[]) => {
+      this.retos = retos.map((retos) => {
+        retos.fechaenvio=retos.fechaenvio.substr(0, 10);
+        return retos;
       });
-     })
-     .catch((err) => console.log("Error:", err));
-
-
-  };
+    });
+  }
 
 
   public pieChartLabels:string[] = ['Acuerdo', 'Acuerdo en parte', 'Desacuerdo en parte', 'Desacuerdo', 'No deseo responder'];
