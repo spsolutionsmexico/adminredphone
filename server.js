@@ -311,33 +311,19 @@ app.get("/api/preguntas/:id", function(req, res) {
 
 //Consulta respuestas para graficos
 
-app.get("/api/respuestagrap", function(req, res) {
+app.get("/api/respuestagrap/:id", function(req, res) {
 
     console.log('Consulta sql');
+    var idpreguntaai = req.params.id.toLowerCase();
+    console.log('-- idpreguntaai: ', idpreguntaai);
 
-    var textqry = 'SELECT distinct respuesta.respuesta, idpreguntaai, COUNT( * ) as rep FROM respuesta where idreto = \'reto10\' GROUP BY idpreguntaai , respuesta.respuesta, idpreguntaai HAVING count(*) > 0  order by idpreguntaai';
+    var textqry = 'SELECT distinct respuesta.respuesta, idpreguntaai, COUNT( * ) as rep FROM respuesta where idreto = \'reto10\' and and idpreguntaai=\'' + idpreguntaai + '\' GROUP BY idpreguntaai , respuesta.respuesta, idpreguntaai HAVING count(*) > 0  order by idpreguntaai';
     var lib = new condblib.condblib();
     lib.obtenerdata(textqry, function(textqry, resDB) {
-        //console.log('res obtenerdata: ', JSON.stringify(resDB));
+        console.log('res obtenerdata: ', JSON.stringify(resDB));
         let queryDB = resDB;
-        var arrIdPreguntaAI = [];
-        queryDB.forEach(function(row) {
-            console.log('row.idpreguntaai:', row.idpreguntaai);
-            arrIdPreguntaAI.push(row.idpreguntaai);
-        });
-        arrIdPreguntaAI = eliminateDuplicates(arrIdPreguntaAI);
-        console.log('arrIdPreguntaAI:', arrIdPreguntaAI);
-        //construir response 
-        var resPreguntas = obtenerFormatoRespuesta(arrIdPreguntaAI, queryDB);
-        console.log('<---------------------------------------------------->')
-        console.log('resPreguntas: ', resPreguntas)
-        console.log('<---------------------------------------------------->')
-
-        console.log('res response: ', JSON.stringify(resPreguntas));
-
-
-        res.status(200).json(resPreguntas);
-        //res.status(200).json(resDB);
+        //return data base query 
+        res.status(200).json(queryDB);
     });
 
 });
@@ -368,16 +354,16 @@ function obtenerFormatoRespuesta(arrIdPreguntaAI, queryDB) {
         console.log('labeResp: ', labeResp);
         console.log('cantidadR: ', cantidadR);
         resPreguntas = resPreguntas + 'respuesta:' + labeResp + ',';
-        resPreguntas = resPreguntas + 'rep:' + cantidadR  ;
+        resPreguntas = resPreguntas + 'rep:' + cantidadR;
 
-        if (i === arrIdPreguntaAI.length - 1 ) {
-        resPreguntas = resPreguntas + '}}';
+        if (i === arrIdPreguntaAI.length - 1) {
+            resPreguntas = resPreguntas + '}}';
 
         } else {
-        resPreguntas = resPreguntas + '}},';
+            resPreguntas = resPreguntas + '}},';
         }
-       
-       
+
+
         i++;
     }
 
