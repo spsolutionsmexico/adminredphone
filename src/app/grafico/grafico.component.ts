@@ -43,4 +43,5 @@ export class GraficoComponent implements OnInit {
 
 
 }
+}
 
