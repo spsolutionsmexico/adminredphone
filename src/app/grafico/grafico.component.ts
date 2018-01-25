@@ -17,9 +17,9 @@ export class GraficoComponent {
   public obtenerDatoGrap(): void {
     console.log("Call actualizar reto button");
     this.chartService.getDatosGrap('situacionseguridad').then((chartsData: GraficoDatos[]) => {
-      this.chartsData = chartsData.map((retos) => {
-        console.log('this.chartsData: ',this.chartsData);
-        return retos;
+      this.chartsData = chartsData.map((chartsData) => {
+        console.log('this.chartsData: ',chartsData);
+        return chartsData;
       });
     });
   }
