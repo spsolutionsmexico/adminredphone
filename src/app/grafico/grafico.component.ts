@@ -13,6 +13,10 @@ export class GraficoComponent {
   constructor(private chartService: ServGraficoService) {}
 
   public idpreguntaai: string;
+  public pieChartLabels: string[]; //= ['Acuerdo', 'Acuerdo en parte', 'Desacuerdo en parte', 'Desacuerdo', 'No deseo responder'];
+  public pieChartData: number[]; //= [100, 130, 300, 450, 30];
+  public pieChartType: string = 'pie';
+  public verGraf=false;
 
   public obtenerDatoGrap(): void {
     console.log("Call actualizar reto button");
@@ -22,15 +26,12 @@ export class GraficoComponent {
         this.pieChartLabels.push(chartsData.respuesta);
         console.log('this.chartsData: ',chartsData.rep);
         this.pieChartData.push(chartsData.rep);
+        this.verGraf=true;
         return chartsData;
       });
     });
   }
   
-
-  public pieChartLabels: string[] //= ['Acuerdo', 'Acuerdo en parte', 'Desacuerdo en parte', 'Desacuerdo', 'No deseo responder'];
-  public pieChartData: number[] //= [100, 130, 300, 450, 30];
-  public pieChartType: string = 'pie';
   }
 
 
