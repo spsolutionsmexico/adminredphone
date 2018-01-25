@@ -370,7 +370,7 @@ function obtenerFormatoRespuesta(arrIdPreguntaAI, queryDB) {
         console.log('labeResp: ', labeResp);
         console.log('cantidadR: ', cantidadR);
         if (contP === 0) {
-            resPreguntas = resPreguntas + 'respuesta:' + labeResp;
+            resPreguntas = resPreguntas + 'respuesta:' + labeResp + ',';
             resPreguntas = resPreguntas + 'rep:' + cantidadR;
             resPreguntas = resPreguntas + '}}';
         }
