@@ -11,8 +11,8 @@ import { Grespuestas } from './grespuestas';
 })
 export class GraficoComponent implements OnInit {
 
-  chartsData: GraficoDatos[]
-  constructor(private chartService: ServGraficoService) {} 
+  chartsData: GraficoDatos[];
+  constructor(private chartService: ServGraficoService) {}
   console.log('constructor Chart');
   ngOnInit() {
 
@@ -29,7 +29,7 @@ export class GraficoComponent implements OnInit {
         console.log('chartdemo: ',graficodatos.idpreguntaai); 
         console.log('chartdemo: ',graficodatos.respuestas);
         
-        return chartdemo;
+        return "";
        });
       });
      })
