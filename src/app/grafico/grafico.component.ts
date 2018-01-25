@@ -16,9 +16,9 @@ export class GraficoComponent implements OnInit {
 
   ngOnInit() {
     this.chartService.getDatosGrap()
-      .then((chartsData: GraficoDatos[]) => {
-        console.log('chartsData: ',chartsData);
-        this.chartsData = chartsData.map((chartsData) => {
+      .then((cData: GraficoDatos[]) => {
+        this.chartsData = cData.map((chartsData) => {
+          console.log('this.chartsData: ',this.chartsData);
           return chartsData;
         });
       });
@@ -26,9 +26,6 @@ export class GraficoComponent implements OnInit {
  
   onSelect(pregunta){
     console.log('pregunta',pregunta);
-    
-    
-
   }
   public pieChartLabels: string[] = ['Acuerdo', 'Acuerdo en parte', 'Desacuerdo en parte', 'Desacuerdo', 'No deseo responder'];
   public pieChartData: number[] = [100, 130, 300, 450, 30];
