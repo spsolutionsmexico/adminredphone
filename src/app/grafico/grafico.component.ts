@@ -18,9 +18,18 @@ export class GraficoComponent implements OnInit {
     this.chartService.getDatosGrap()
       .then((chartsData: GraficoDatos[]) => {
         console.log('chartsData: ',chartsData);
-        return '';
+        this.chartsData = chartsData.map((chartsData) => {
+          return chartsData;
+        });
       });
     }
+ 
+  onSelect(pregunta){
+    console.log('pregunta',pregunta);
+    
+    
+
+  }
   public pieChartLabels: string[] = ['Acuerdo', 'Acuerdo en parte', 'Desacuerdo en parte', 'Desacuerdo', 'No deseo responder'];
   public pieChartData: number[] = [100, 130, 300, 450, 30];
   public pieChartType: string = 'pie';
