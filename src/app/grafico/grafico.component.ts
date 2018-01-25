@@ -18,7 +18,10 @@ export class GraficoComponent {
     console.log("Call actualizar reto button");
     this.chartService.getDatosGrap('situacionseguridad').then((chartsData: GraficoDatos[]) => {
       this.chartsData = chartsData.map((chartsData) => {
-        console.log('this.chartsData: ',chartsData);
+        console.log('this.chartsData: ',chartsData.respuesta);
+        this.pieChartLabels.push(chartsData.respuesta);
+        console.log('this.chartsData: ',chartsData.rep);
+        this.pieChartData.push(chartsData.rep);
         return chartsData;
       });
     });
