@@ -367,6 +367,7 @@ function obtenerFormatoRespuesta(arrIdPreguntaAI, queryDB) {
         resPreguntas = resPreguntas + '"rep":"' + cantidadR + '",';
         resPreguntas = resPreguntas + '}},';
     }
+    console.log('resFunctionPreguntas',resPreguntas);
     resPreguntas = resPreguntas + ']';
 
     return resPreguntas;
