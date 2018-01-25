@@ -13,8 +13,8 @@ export class GraficoComponent {
   constructor(private chartService: ServGraficoService) {}
 
   public idpreguntaai: string;
-  public pieChartLabels: string[]; //= ['Acuerdo', 'Acuerdo en parte', 'Desacuerdo en parte', 'Desacuerdo', 'No deseo responder'];
-  public pieChartData: number[]; //= [100, 130, 300, 450, 30];
+  public pieChartLabels:Array<any> = new Array(); //string[]; //= ['Acuerdo', 'Acuerdo en parte', 'Desacuerdo en parte', 'Desacuerdo', 'No deseo responder'];
+  public pieChartData:Array<any> = new Array(); //number[]; //= [100, 130, 300, 450, 30];
   public pieChartType: string = 'pie';
 
   public obtenerDatoGrap(): void {
