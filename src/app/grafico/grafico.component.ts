@@ -36,12 +36,10 @@ export class GraficoComponent {
   
   
   }
-
-  var select = document.getElementById('idpregunta');
-  select.addEventListener('change',
-    function(){
-      var selectedOption = this.options[select.selectedIndex];
-      console.log(selectedOption.value + ': ' + selectedOption.text);
-    });
-
+function muestraSelect(){
+  var select = document.getElementById('idpregunta').nodeValue;
+  console.log('muestraselect:',select)
+}
+  
+  
 
