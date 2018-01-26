@@ -24,7 +24,8 @@ export class GraficoComponent {
   
   public obtenerDatoGrap(): void {
     console.log("Call actualizar reto button");
-    this.chartService.getDatosGrap('situacionseguridad').then((chartsData: GraficoDatos[]) => {
+    var verSeleccion = this.idpregunta;
+    this.chartService.getDatosGrap(verSeleccion).then((chartsData: GraficoDatos[]) => {
       this.chartsData = chartsData.map((chartsData) => {
         console.log('this.chartsData: ',chartsData.respuesta);
         this.pieChartLabels.push(chartsData.respuesta);
@@ -35,11 +36,7 @@ export class GraficoComponent {
     });
   }
   
-  muestraSelect(){
-    var verSeleccion = this.idpregunta;
-    console.log('verSeleccion:', verSeleccion);
-    return verSeleccion;
-  }
+ 
 
 }
   
