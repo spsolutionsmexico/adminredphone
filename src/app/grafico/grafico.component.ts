@@ -22,9 +22,17 @@ export class GraficoComponent {
   public pieChartType: string = 'pie';
   
   
+  /**
+   * obtenerid del combo
+   */
+  public obtenerid() {
+    var verSeleccion = this.idpregunta;
+    console.log("Call value select");
+  }
+
+
   public obtenerDatoGrap(): void {
     console.log("Call actualizar reto button");
-    var verSeleccion = this.idpregunta;
     this.chartService.getDatosGrap(verSeleccion).then((chartsData: GraficoDatos[]) => {
       this.chartsData = chartsData.map((chartsData) => {
         console.log('this.chartsData: ',chartsData.respuesta);
