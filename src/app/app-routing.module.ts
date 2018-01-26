@@ -7,6 +7,7 @@ import { GraficoComponent }   from './grafico/grafico.component';
 
 
 const routes: Routes = [
+  { path: '', redirectTo: 'resultados', pathMatch: 'full' }
   { path: 'Procesos', component:  ActualizarCompComponent },
   { path: 'resultados', component: GraficoComponent }
 ];
