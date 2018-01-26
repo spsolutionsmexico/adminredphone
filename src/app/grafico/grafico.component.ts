@@ -18,7 +18,8 @@ export class GraficoComponent {
   public pieChartLabels:Array<any> = new Array(); //string[]; //= ['Acuerdo', 'Acuerdo en parte', 'Desacuerdo en parte', 'Desacuerdo', 'No deseo responder'];
   public pieChartData:Array<any> = new Array(); //number[]; //= [100, 130, 300, 450, 30];
   public pieChartType: string = 'pie';
-
+  
+  
   public obtenerDatoGrap(): void {
     console.log("Call actualizar reto button");
     this.chartService.getDatosGrap('situacionseguridad').then((chartsData: GraficoDatos[]) => {
@@ -33,6 +34,14 @@ export class GraficoComponent {
   }
   
   
+  
   }
+
+  var select = document.getElementById('idpregunta');
+  select.addEventListener('change',
+    function(){
+      var selectedOption = this.options[select.selectedIndex];
+      console.log(selectedOption.value + ': ' + selectedOption.text);
+    });
 
 
