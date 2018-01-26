@@ -14,7 +14,7 @@ export class GraficoComponent {
   chartsData: GraficoDatos[]
   constructor(private chartService: ServGraficoService) {}
   public idpregunta: string  = '0'; // Iniciamos
-  public verSeleccion: string  = '';
+
 
   public idpreguntaai: string;
   public pieChartLabels:Array<any> = new Array(); //string[]; //= ['Acuerdo', 'Acuerdo en parte', 'Desacuerdo en parte', 'Desacuerdo', 'No deseo responder'];
@@ -35,9 +35,10 @@ export class GraficoComponent {
     });
   }
   
-  muestraSelect():void{
-    this.verSeleccion = this.idpregunta;
-    console.log('verSeleccion:')
+  muestraSelect(){
+    var verSeleccion = this.idpregunta;
+    console.log('verSeleccion:', verSeleccion);
+    return verSeleccion;
   }
 
 }
