@@ -33,12 +33,12 @@ export class GraficoComponent {
     });
   }
   
-  
+  public muestraSelect():void{
+    var select = document.getElementById('idpregunta').nodeValue;
+    console.log('muestraselect:',select)
   
   }
-function muestraSelect(){
-  var select = document.getElementById('idpregunta').nodeValue;
-  console.log('muestraselect:',select)
+
 }
   
   
