@@ -32,6 +32,8 @@ export class GraficoComponent {
 
 
   public obtenerDatoGrap(): void {
+    this.pieChartData = [];
+    this.pieChartLabels = [];
     console.log("Call actualizar reto button",this.verSeleccion);
     this.chartsData = null;
     console.log('Wipe chartsData:',this.chartsData);
