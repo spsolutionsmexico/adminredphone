@@ -11,16 +11,15 @@
     <div class="col-8 form-group offset-2">
         <label>Pregunta:</label>
         <select class="form-curve" (change)="obtenerid()" id="idpregunta" [(ngModel)]="idpregunta">
-			<option value="trabajopresidente">En general, ¿Está usted de acuerdo o en desacuerdo con la manera en que está trabajando el presidente ENRIQUE PEÑA NIETO?</option>
-			<option value="problemapais">¿Cuál cree usted que es el principal problema que enfrenta el país en estos momentos? </option>
-			<option value="situacioneconomica">Comparada con el año anterior, ¿Cómo cree usted que está la SITUACIÓN ECONÓMICA del país actualmente, mejor o peor?</option>
-			<option value="situacionseguridad">Comparada con el año anterior, ¿Cómo cree usted que está la SITUACIÓN DE LA SEGURIDAD PÚBLICA del país actualmente, mejor o peor?</option>
-			<option value="diputadofederal">En 2015 ¿Por cuál partido votó usted para DIPUTADO FEDERAL?</option>
-			<option value="partidocercano">Podría decirme, ¿Hay algún partido con el cuál se sienta más cercano que a los demás?</option>
-			<option value="eleccion2012">Si pudiera REGRESAR EL TIEMPO A 2012, y hoy hubiera elecciones para Presidente, ¿Usted por quién votaría? </option>
-			<option value="proximopresidente">¿Quién le gustaría más que fuera el próximo presidente?</option>
-			<option value="nuncavotaria">De los partidos que existen actualmente ¿Por cuál NUNCA VOTARÍA?</option>
-			<option value="partidoganador">Considerando lo que hoy existe ¿a qué partido pertenece la persona que ganará la elección en 2018?</option>
+			<option value="trabajopresidente">¿Cuál es su posición  con la manera de trabajar del presidente ENRIQUE PEÑA NIETO?</option>
+			<option value="problemapais">¿Cuál cree que es el principal problema que enfrenta el país en estos momentos?</option>
+			<option value="situacioneconomica">Comparando con el año pasado, ¿cómo cree que está la SITUACIÓN ECONÓMICA del país actualmente?</option>
+			<option value="situacionseguridad">Comparada con el año pasado, ¿cómo cree que está la SITUACIÓN DE LA SEGURIDAD PÚBLICA del país actualmente?</option>
+			<option value="diputadofederal">¿Por cuál partido votó en el 2015 para DIPUTADO FEDERAL?</option>
+			<option value="partidocercano">Podría decirme, ¿Cuál es el partido político con el que se identifica?</option>
+			<option value="proximopresidente">¿Quién le gustaría que fuera el próximo presidente?</option>
+			<option value="nuncavotaria">¿Por cuál partido NUNCA VOTARÍA?</option>
+			<option value="partidoganador">¿Qué partido cree que ganará la elección del 2018?</option>
         </select>
         <button class="btn btn-secondary" (click)="obtenerDatoGrap()">Actualizar</button>
     </div>
