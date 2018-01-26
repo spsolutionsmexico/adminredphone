@@ -10,7 +10,7 @@
     <button class="btn btn-secondary" (click)="obtenerDatoGrap()">DatosGraficos</button>
     <div class="col-8 form-group offset-2">
         <label>Pregunta:</label>
-        <select class="form-curve" (onchange)="muestraSelect()" id="idpregunta" [(ngModel)]="idpregunta">
+        <select class="form-curve" (change)="muestraSelect()" id="idpregunta" [(ngModel)]="idpregunta">
 			<option value="trabajopresidente">En general, ¿Está usted de acuerdo o en desacuerdo con la manera en que está trabajando el presidente ENRIQUE PEÑA NIETO?</option>
 			<option value="problemapais">¿Cuál cree usted que es el principal problema que enfrenta el país en estos momentos? </option>
 			<option value="situacioneconomica">Comparada con el año anterior, ¿Cómo cree usted que está la SITUACIÓN ECONÓMICA del país actualmente, mejor o peor?</option>
