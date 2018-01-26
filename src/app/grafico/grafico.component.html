@@ -25,6 +25,8 @@
     </div>
 </div>
 <hr>
+{verSeleccion}
+<hr>
 <div *ngIf="chartsData" style="display: block">
 
     <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
