@@ -27,13 +27,13 @@ export class GraficoComponent {
    */
   public obtenerid() {
     this.verSeleccion = this.idpregunta;
-    console.log("Call value select");
+    console.log("Call value select",this.verSeleccion);
   }
 
 
   public obtenerDatoGrap(): void {
-    console.log("Call actualizar reto button");
-    this.chartService.getDatosGrap(this.obtenerid).then((chartsData: GraficoDatos[]) => {
+    console.log("Call actualizar reto button",this.);
+    this.chartService.getDatosGrap(this.verSeleccion).then((chartsData: GraficoDatos[]) => {
       this.chartsData = chartsData.map((chartsData) => {
         console.log('this.chartsData: ',chartsData.respuesta);
         this.pieChartLabels.push(chartsData.respuesta);
