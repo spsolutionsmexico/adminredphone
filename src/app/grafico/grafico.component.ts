@@ -13,7 +13,7 @@ import { BaseChartDirective } from 'ng2-charts/ng2-charts';
 export class GraficoComponent {
   chartsData: GraficoDatos[]
   constructor(private chartService: ServGraficoService) {}
-  opcionSeleccionado: string  = '0'; // Iniciamos
+  public idpregunta: string  = '0'; // Iniciamos
 
   public idpreguntaai: string;
   public pieChartLabels:Array<any> = new Array(); //string[]; //= ['Acuerdo', 'Acuerdo en parte', 'Desacuerdo en parte', 'Desacuerdo', 'No deseo responder'];
@@ -35,7 +35,7 @@ export class GraficoComponent {
   }
   
   public muestraSelect():void{
-    var verSeleccion = this.opcionSeleccionado;
+    var verSeleccion = this.idpregunta;
     console.log('verSeleccion:',verSeleccion)
   }
 
