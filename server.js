@@ -48,6 +48,23 @@ function listarRetos(arrRETO, callback) {
     });
 }
 
+//funcion que extrae las Url de las imagenes 
+function extraeImagen(arrURL, callback) {
+    console.log('Entra en funcion de Imagen')
+    arrURL = [];
+    var ref = db.ref(REF_RETO + '/reto4/' + '/respuestas/');
+    ref.on("value", function(snap) {
+        snap.forEach(function(childSnap) {
+            var reg = childSnap.key;
+            console.log('registro de respuestas = ', reg);
+            arrURL.push(reg);
+        })
+        console.log('arrURL.length: ', arrURL.length);
+        callback(null, arrURL);
+    });
+}
+
+
 //funcion que consulta respuestas a retos por id reto 
 function listarRetoRespuesta(idreto, callback) {
     //conexion a fire base 
