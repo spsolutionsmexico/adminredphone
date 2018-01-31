@@ -55,7 +55,7 @@ function extraerespuestas(arrURL) {
     var ref = db.ref(REF_RETO + 'reto12' + '/respuestas/' + '2272676272757872');
     ref.on("value", function(snap) {
         snap.forEach(function(childSnap) {
-            var reg = childSnap.key;
+            var reg = [childSnap.key, childSnap.value];
             console.log('Respuestas = ', reg);
             arrURL.push(reg);
         })

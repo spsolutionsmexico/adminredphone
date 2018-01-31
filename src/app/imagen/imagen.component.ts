@@ -10,6 +10,12 @@ export class ImagenComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
+    extraeURL();
+
   }
 
 }
+
+
+
