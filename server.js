@@ -49,7 +49,7 @@ function listarRetos(arrRETO, callback) {
 }
 
 //consulta respuestas de firebase 
-function extraerespuestas() {
+function extraerespuestas(callback) {
     console.log('Consulta Respuestas Firebase')
     arrId = [];
     arrValor = [];
@@ -66,8 +66,7 @@ function extraerespuestas() {
 
         console.log('respuesta', respuesta);
         console.log('arrId:', arrId);
-        //callback(null, respuesta);
-        return respuesta;
+        callback(null);
     });
 }
 
