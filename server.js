@@ -62,12 +62,14 @@ function extraerespuestas(callback) {
             arrValor.push(reg);
             arrId.push(reg1);
         }, )
-        var respuesta = "{ 'id':[" + arrId + '],valor:[' + arrValor + ']}';
 
-        console.log('respuesta', respuesta);
-        console.log('arrId:', arrId);
-        callback(null);
+
     });
+
+    var respuesta = "{ 'id':[" + arrId + '],valor:[' + arrValor + ']}';
+
+    console.log('respuesta', respuesta);
+    ref.off();
 }
 
 //API consulta 
