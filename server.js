@@ -75,7 +75,9 @@ function extraerespuestas() {
 app.get("/api/respuestas/", function(req, res) {
     var idreto = "reto12" //solo para el demo
     console.log("-- idreto:", idreto);
-    console.log(extraerespuestas())
+    //console.log(extraerespuestas())
+    var res = extraerespuestas();
+    console.log('res obtenerdata: ', JSON.stringify(res));
 
 });
 
