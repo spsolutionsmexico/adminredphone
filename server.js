@@ -56,12 +56,15 @@ function extraerespuestas(callback) {
     var ref = db.ref(REF_RETO + 'reto12' + '/respuestas/' + '2272676272757872');
     ref.on("value", function(snap) {
         snap.forEach(function(childSnap) {
-            var reg = childSnap.val();
-            var reg1 = childSnap.key;
-            //console.log('Respuestas = ', reg)
-            arrValor.push(reg);
-            arrId.push(reg1);
-        })
+                var reg = childSnap.val();
+                console.log('Respuestas = ', reg)
+                arrValor.push(reg);
+            }),
+            snap.forEach(function(childSnap) {
+                var reg1 = childSnap.key;
+                console.log('Respuestas = ', reg1)
+                arrId.push(reg1);
+            });
         var respuesta = "{ 'id':[" + reg1 + '],valor:[' + reg + ']}';
 
         console.log('respuesta', respuesta);
