@@ -4,15 +4,15 @@ import { ImagenComponent } from './imagen.component';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
-export class ServGraficoService {
-  private datosGraficas = '/api/respuestas';
+export class ServImagenService {
+  private datosRespuestas = '/api/respuestas';
 
   constructor(private http: Http) { }
 
-  getDatosGrap(idpreguntaai): Promise<GraficoDatos[]> {
-    return this.http.get(this.datosGraficas + '/' + idpreguntaai)
+  getRespuestas( ){
+    return this.http.get(this.datosRespuestas)
       .toPromise()
-      .then(response => response.json() as GraficoDatos[])
+      .then(response => response.json())
       .catch(this.handleError);
   }
 
