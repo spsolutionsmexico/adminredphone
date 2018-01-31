@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { ImagenComponent } from './imagen.component';
-import {  } from "./imagenDatos";
+import { RespuestaDatos } from "./RespuestaDatos";
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()

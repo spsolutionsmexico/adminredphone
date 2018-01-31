@@ -49,28 +49,31 @@ function listarRetos(arrRETO, callback) {
 }
 
 //consulta respuestas de firebase 
-function extraerespuestas(arrURL) {
+function extraerespuestas(callback) {
     console.log('Consulta Respuestas Firebase')
-    arrURL = [];
+    arrId = [];
+    arrValor = [];
     var ref = db.ref(REF_RETO + 'reto12' + '/respuestas/' + '2272676272757872');
     ref.on("value", function(snap) {
         snap.forEach(function(childSnap) {
             var reg = childSnap.val();
-            console.log('Respuestas = ', reg);
+            var reg1 = childSnap.key;
+            //console.log('Respuestas = ', reg)
             arrURL.push(reg);
         })
-        console.log('arrURL.length: ', arrURL.length);
-        console.log('arrURL:', arrURL)
-        return (arrURL);
+        var respuesta = "{ 'id':[" + reg1 + '],valor:[' + reg + ']}';
+
+        console.log('respuesta', respuesta);
+        console.log('arrId:', arrId);
+        callback(null, respuesta);
     });
 }
 
 //API consulta 
 app.get("/api/respuestas/", function(req, res) {
     var idreto = "reto12" //solo para el demo
-    var arrURL = [];
     console.log("-- idreto:", idreto);
-    console.log(extraerespuestas(arrURL))
+    console.log(extraerespuestas())
 
 });
 
