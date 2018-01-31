@@ -48,7 +48,7 @@ function listarRetos(arrRETO, callback) {
     });
 }
 
-//funcion que extrae las Url de las imagenes 
+/*//consulta respuestas de firebase 
 function extraeImagen(arrURL, callback) {
     console.log('Entra en funcion de Imagen')
     arrURL = [];
@@ -62,7 +62,7 @@ function extraeImagen(arrURL, callback) {
         console.log('arrURL.length: ', arrURL.length);
         callback(null, arrURL);
     });
-}
+}*/
 
 
 //funcion que consulta respuestas a retos por id reto 
@@ -308,6 +308,14 @@ app.get("/api/retos", function(req, res) {
         //return data base query 
         res.status(200).json(queryDB);
     });
+
+});
+
+//API consulta 
+app.get("/api/respuestas/", function(req, res) {
+    var idreto = "reto12" //solo para el demo
+    console.log("-- idreto:", idreto);
+    console.log(listarRetoRespuesta(idreto))
 
 });
 
