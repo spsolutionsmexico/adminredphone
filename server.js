@@ -69,7 +69,7 @@ function extraerespuestas(callback) {
 
         console.log('respuesta', respuesta);
         console.log('arrId:', arrId);
-        callback(null, respuesta);
+        callback(respuesta);
     });
 }
 
