@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { ImagenComponent } from './imagen.component';
+import {  } from "./imagenDatos";
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
@@ -9,7 +10,7 @@ export class ServImagenService {
 
   constructor(private http: Http) { }
 
-  getRespuestas( ){
+  getRespuestas( ) : Promise <RespuestasDatos []> {
     return this.http.get(this.datosRespuestas)
       .toPromise()
       .then(response => response.json())
