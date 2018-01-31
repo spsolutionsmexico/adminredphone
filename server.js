@@ -49,18 +49,18 @@ function listarRetos(arrRETO, callback) {
 }
 
 //consulta respuestas de firebase 
-function extraerespuestas(arrURL, callback) {
-    console.log('Entra en funcion de Imagen')
+function extraerespuestas(arrURL) {
+    console.log('Consulta Respuestas Firebase')
     arrURL = [];
     var ref = db.ref(REF_RETO + 'reto12' + '/respuestas/' + '2272676272757872');
     ref.on("value", function(snap) {
         snap.forEach(function(childSnap) {
             var reg = childSnap.key;
-            console.log('registro de respuestas = ', reg);
+            console.log('Respuestas = ', reg);
             arrURL.push(reg);
         })
         console.log('arrURL.length: ', arrURL.length);
-        callback(null, arrURL);
+        return (arrURL);
     });
 }
 
