@@ -48,11 +48,11 @@ function listarRetos(arrRETO, callback) {
     });
 }
 
-/*//consulta respuestas de firebase 
-function extraeImagen(arrURL, callback) {
+//consulta respuestas de firebase 
+function extraerespuestas(arrURL, callback) {
     console.log('Entra en funcion de Imagen')
     arrURL = [];
-    var ref = db.ref(REF_RETO + 'reto12' + '/respuestas/');
+    var ref = db.ref(REF_RETO + 'reto12' + '/respuestas/' + '2272676272757872');
     ref.on("value", function(snap) {
         snap.forEach(function(childSnap) {
             var reg = childSnap.key;
@@ -62,7 +62,17 @@ function extraeImagen(arrURL, callback) {
         console.log('arrURL.length: ', arrURL.length);
         callback(null, arrURL);
     });
-}*/
+}
+
+//API consulta 
+app.get("/api/respuestas/", function(req, res) {
+    var idreto = "reto12" //solo para el demo
+    var arrURL =
+        console.log("-- idreto:", idreto);
+    console.log(extraerespuestas(arrURL))
+
+});
+
 
 
 //funcion que consulta respuestas a retos por id reto 
@@ -311,13 +321,7 @@ app.get("/api/retos", function(req, res) {
 
 });
 
-//API consulta 
-app.get("/api/respuestas/", function(req, res) {
-    var idreto = "reto12" //solo para el demo
-    console.log("-- idreto:", idreto);
-    console.log(listarRetoRespuesta(idreto))
 
-});
 
 app.get("/api/preguntas/:id", function(req, res) {
 
