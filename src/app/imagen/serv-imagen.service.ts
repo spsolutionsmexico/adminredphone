@@ -10,10 +10,10 @@ export class ServImagenService {
 
   constructor(private http: Http) { }
 
-  getRespuestas( ) : Promise <RespuestasDatos []> {
+  getRespuestas( ) : Promise < RespuestaDatos []> {
     return this.http.get(this.datosRespuestas)
       .toPromise()
-      .then(response => response.json())
+      .then(response => response.json() )
       .catch(this.handleError);
   }
 
