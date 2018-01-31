@@ -65,11 +65,10 @@ function extraerespuestas(callback) {
 
         var respuesta = "{ 'id':[" + arrId + '],valor:[' + arrValor + ']}';
 
+        console.log('respuesta', respuesta);
+        console.log('arrId:', arrId);
+        callback(null, respuesta);
     });
-
-    callback(respuesta);
-    console.log('respuesta', respuesta);
-    ref.off();
 }
 
 //API consulta 
