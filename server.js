@@ -59,7 +59,8 @@ function extraerespuestas(callback) {
             var reg = childSnap.val();
             var reg1 = childSnap.key;
             //console.log('Respuestas = ', reg)
-            arrURL.push(reg);
+            arrValor.push(reg);
+            arrId.push(reg1);
         })
         var respuesta = "{ 'id':[" + reg1 + '],valor:[' + reg + ']}';
 
