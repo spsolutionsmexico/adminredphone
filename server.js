@@ -63,11 +63,11 @@ function extraerespuestas(callback) {
             arrId.push(reg1);
         }, )
 
+        var respuesta = "{ 'id':[" + arrId + '],valor:[' + arrValor + ']}';
 
     });
 
-    var respuesta = "{ 'id':[" + arrId + '],valor:[' + arrValor + ']}';
-
+    callback(respuesta);
     console.log('respuesta', respuesta);
     ref.off();
 }
