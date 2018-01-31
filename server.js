@@ -55,11 +55,12 @@ function extraerespuestas(arrURL) {
     var ref = db.ref(REF_RETO + 'reto12' + '/respuestas/' + '2272676272757872');
     ref.on("value", function(snap) {
         snap.forEach(function(childSnap) {
-            var reg = [childSnap.key, childSnap.value];
+            var reg = [childSnap.value];
             console.log('Respuestas = ', reg);
             arrURL.push(reg);
         })
         console.log('arrURL.length: ', arrURL.length);
+        console.log('arrURL:', arrURL)
         return (arrURL);
     });
 }
@@ -67,8 +68,8 @@ function extraerespuestas(arrURL) {
 //API consulta 
 app.get("/api/respuestas/", function(req, res) {
     var idreto = "reto12" //solo para el demo
-    var arrURL =
-        console.log("-- idreto:", idreto);
+    var arrURL = [];
+    console.log("-- idreto:", idreto);
     console.log(extraerespuestas(arrURL))
 
 });
