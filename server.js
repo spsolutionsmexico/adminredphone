@@ -253,13 +253,6 @@ app.get("/api/actualizar", function(req, res) {
     });
 });
 
-app.get("/api/imagen") {
-    var arrURL = [];
-    extraeImagen(arrURL, function(arrURL, res) {
-        console.log('--Extrae imagenes de firebase--', arrURL)
-
-    })
-}
 
 
 app.get("/api/actualizar/reto/:id", function(req, res) {
