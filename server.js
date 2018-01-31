@@ -52,7 +52,7 @@ function listarRetos(arrRETO, callback) {
 function extraeImagen(arrURL, callback) {
     console.log('Entra en funcion de Imagen')
     arrURL = [];
-    var ref = db.ref(REF_RETO + '/reto4/' + '/respuestas/');
+    var ref = db.ref(REF_RETO + 'reto12' + '/respuestas/');
     ref.on("value", function(snap) {
         snap.forEach(function(childSnap) {
             var reg = childSnap.key;
@@ -252,6 +252,15 @@ app.get("/api/actualizar", function(req, res) {
         res.status(200).json('{"resultado":"OK"}');
     });
 });
+
+app.get("/api/imagen") {
+    var arrURL = [];
+    extraeImagen(arrURL, function(arrURL, res) {
+        console.log('--Extrae imagenes de firebase--', arrURL)
+
+    })
+}
+
 
 app.get("/api/actualizar/reto/:id", function(req, res) {
     console.log('---Actualizar Reto---');
