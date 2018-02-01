@@ -70,7 +70,7 @@ function extraerespuestas(callback) {
         callback(null, respuesta);
     });
 }
-
+/*
 //API consulta 
 app.get("/api/respuestas/", function(req, res) {
     var idreto = "reto12" //solo para el demo
@@ -81,7 +81,7 @@ app.get("/api/respuestas/", function(req, res) {
 
 });
 
-
+*/
 
 //funcion que consulta respuestas a retos por id reto 
 function listarRetoRespuesta(idreto, callback) {
