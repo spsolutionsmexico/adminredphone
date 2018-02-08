@@ -1,8 +1,6 @@
 <navbar></navbar>
 
 <retos-comp></retos-comp>
-<retos-pregunta></retos-pregunta>
-
 <h4>SINCRONIZAR INFORMACION DE REPORTES</h4>
 <hr>
 <div class="row">
@@ -10,11 +8,7 @@
         <div class="form-grup">
             <label for="Reto-id">Encuesta:</label>
             <select class="form-curve" name="Reto" id="Reto" [(ngModel)]="idreto">
-				<option value="reto10">PRIMERA ENCUESTA FEB 2018</option>
-				<option value="reto10">SEGUNDA ENCUESTA MAR 2018</option>
-				<option value="reto10">TERCERA ENCUESTA MAY 2018</option>
-				<option value="reto10">CUARTA ENCUESTA JUN 2018</option>
-				<option value="reto10">QUINTA ENCUESTA JUL 2018</option>
+				<option *ngFor="let retos of retos" value="{{retos.idreto}}">{{retos.descripcion}}</option>
 			</select>
         </div>
 
