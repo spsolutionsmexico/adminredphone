@@ -11,10 +11,14 @@ import { BrowserModule } from '@angular/platform-browser/src/browser';
 import { NavbarComponent } from 'app/navbar/navbar.component';
 
 
+
+
 const AppRoutingModule: Routes = [
   { path: '',component: LoginComponent},
-  { path: 'Actualizar', component: ActualizarCompComponent },
-  { path: 'resultados', component: GraficoComponent },
+  {
+    path: 'resultados',
+     component: GraficoComponent 
+  },
   { path: 'imagen', component: ImagenComponent },
   { path: 'navbar', component: NavbarComponent},
   {
