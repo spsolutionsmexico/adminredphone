@@ -4,6 +4,7 @@ import { GraficoDatos } from './graficodatos';
 import { BaseChartDirective } from 'ng2-charts/ng2-charts';
 import { RetosServService } from 'app/retos/retos-serv.service';
 import { Retos } from 'app/retos/retos';
+import { Pregunta } from 'app/retos/pregunta';
 
 @Component({
   selector: 'grafico',
@@ -14,6 +15,7 @@ import { Retos } from 'app/retos/retos';
 
 export class GraficoComponent {
 
+  pregunta : Pregunta [];
   retos: Retos[];
   chartsData: GraficoDatos[];
 
@@ -21,6 +23,7 @@ export class GraficoComponent {
   
   public idpregunta: string  = '0'; // Iniciamos
   public verSeleccion: string;
+  public verIdReto: string;
 
   public idpreguntaai: string;
   public pieChartLabels:Array<any> = new Array(); //string[]; //= ['Acuerdo', 'Acuerdo en parte', 'Desacuerdo en parte', 'Desacuerdo', 'No deseo responder'];
@@ -37,6 +40,16 @@ export class GraficoComponent {
       });
   }
 
+  public obtenerPreguntas(){
+    console.log('reto id:',this.verIdReto)
+    this.retosService
+      .getPreguntas(this.verIdReto).then((pregunta: Pregunta[]) => {
+        this.pregunta = pregunta.map((pregunta) => {
+          pregunta.descripcion = pregunta.descripcion.substr(0, 10);
+          return pregunta;
+        });
+      });
+  }
   
   /**
    * obtenerid del combo

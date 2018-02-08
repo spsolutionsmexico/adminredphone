@@ -7,32 +7,28 @@
         <form class="col-md-12">
             <div class="form-group">
                 <label for="Reto-id">Encuesta:</label>
-                <select class="form-curve" name="Reto" id="Reto" [(ngModel)]="idreto">
+                <select class="form-curve" name="Reto" id="Reto" (change)="obtenerPreguntas()" [(ngModel)]="idreto">
 			        <option *ngFor="let retos of retos" value="{{retos.idreto}}">{{retos.descripcion}}</option>
-		        </select>
-                <label [(ngModel)]="idreto">Fecha de envio: {{reto.fechaenvio}} {{reto.horaenvio}} </label>
-                <label [(ngModel)]="idreto">Enviados: {{reto.cantidadinvitados}} </label>
-                <label [(ngModel)]="idreto">Contestados: {{reto.cantidadrespuestas}} </label>
+                </select>
+
             </div>
         </form>
     </div>
-    <!--
-    <div class="col-3 offset-2">
-        <label for="Reto-id">Encuesta:</label>
-        <select class="form-curve" name="Reto" id="Reto" [(ngModel)]="idreto">
-			<option *ngFor="let retos of retos" value="{{retos.idreto}}">{{retos.descripcion}}</option>
-		</select>
-    </div>
-
-    <div class="col-3">
-        Fecha de envio : {{reto.fechaenvio}} {{reto.horaenvio}}
-        <label for="reto-idreto">enviados: {{reto.cantidadinvitados}} </label>
-    </div>
-    -->
 </div>
-
+<!--            <label [(ngModel)]="idreto">Fecha de envio: {{reto.fechaenvio}} {{reto.horaenvio}} </label>
+                <label [(ngModel)]="idreto">Enviados: {{reto.cantidadinvitados}} </label>
+                <label [(ngModel)]="idreto">Contestados: {{reto.cantidadrespuestas}} </label>-->
 <hr>
-
+<div class="row">
+    <div class="col-8 form-group offset-2">
+        <label>Pregunta:</label>
+        <select class="form-curve" (change)="obtenerid()" id="idpregunta" [(ngModel)]="idpregunta">
+			<option *ngFor="let pregunta of pregunta" value="{{pregunta.idpreguntaai}}">{{pregunta.descripcion}}</option>
+        </select>
+        <button class="btn btn-secondary" (click)="obtenerDatoGrap()">Actualizar</button>
+    </div>
+</div>
+<!--   Estatico
 <div class="row">
     <div class="col-8 form-group offset-2">
         <label>Pregunta:</label>
@@ -49,6 +45,7 @@
         <button class="btn btn-secondary" (click)="obtenerDatoGrap()">Actualizar</button>
     </div>
 </div>
+-->
 <hr>
 
 <div *ngIf="chartsData" style="display: block">
