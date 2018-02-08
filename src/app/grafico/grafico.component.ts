@@ -23,7 +23,7 @@ export class GraficoComponent {
   
   public idpregunta: string  = '0'; // Iniciamos
   public verSeleccion: string;
-  public verIdReto: string;
+  public idreto: string;
 
   public idpreguntaai: string;
   public pieChartLabels:Array<any> = new Array(); //string[]; //= ['Acuerdo', 'Acuerdo en parte', 'Desacuerdo en parte', 'Desacuerdo', 'No deseo responder'];
@@ -41,9 +41,9 @@ export class GraficoComponent {
   }
 
   public obtenerPreguntas(){
-    console.log('reto id:',this.verIdReto)
+    console.log('reto id:',this.idreto)
     this.retosService
-      .getPreguntas(this.verIdReto).then((pregunta: Pregunta[]) => {
+      .getPreguntas(this.idreto).then((pregunta: Pregunta[]) => {
         this.pregunta = pregunta.map((pregunta) => {
           pregunta.descripcion = pregunta.descripcion.substr(0, 10);
           return pregunta;
