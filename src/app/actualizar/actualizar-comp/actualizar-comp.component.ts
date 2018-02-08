@@ -1,17 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { ActualizarServService } from '../actualizar-serv.service';
+import { RetosServService } from 'app/retos/retos-serv.service';
+import { Retos } from 'app/retos/retos';
 
 @Component({
   selector: 'actualizar-comp',
   templateUrl: './actualizar-comp.component.html',
   styleUrls: ['./actualizar-comp.component.css'],
-  providers: [ActualizarServService]
+  providers: [ActualizarServService, RetosServService]
 })
 export class ActualizarCompComponent implements OnInit {
+  
+  retos: Retos[];
 
-  constructor(private actualizarservice: ActualizarServService) { }
+  constructor(private actualizarservice: ActualizarServService, private retosService: RetosServService) { }
 
   ngOnInit() {
+    this.retosService
+      .getRetos().then((retos: Retos[]) => {
+        this.retos = retos.map((retos) => {
+          retos.fechaenvio = retos.fechaenvio.substr(0, 10);
+          return retos;
+        });
+      });    
   }
 
   public actualizar(): void {
@@ -24,6 +35,9 @@ export class ActualizarCompComponent implements OnInit {
     console.log("Call actualizar reto button");
     this.actualizarservice.getActualizarReto(this.idreto);
   }
+
   
 
 }
+
+
