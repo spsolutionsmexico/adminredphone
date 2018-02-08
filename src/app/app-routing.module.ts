@@ -13,13 +13,12 @@ import { NavbarComponent } from 'app/navbar/navbar.component';
 
 const AppRoutingModule: Routes = [
   { path: '',component: LoginComponent},
-  { path: 'Procesos', component: ActualizarCompComponent },
-  { path: 'resultados', canActivate: [AuthGuard], component: GraficoComponent },
+  { path: 'Actualizar', component: ActualizarCompComponent },
+  { path: 'resultados', component: GraficoComponent },
   { path: 'imagen', component: ImagenComponent },
   { path: 'navbar', component: NavbarComponent},
   {
-    path: 'Procesos',
-    canActivate: [AuthGuard],
+    path: 'Actualizar',
     component: ActualizarCompComponent
   }
 ];

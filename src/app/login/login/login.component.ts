@@ -22,8 +22,7 @@ export class LoginComponent implements OnInit {
 
     this.authService.signInRegular(this.user.email, this.user.password)
       .then((res) => {
-        console.log('Estas loggeado',res);
-        this.router.navigate(['Procesos']);
+        this.router.navigate(['Actualizar']);
       })
       .catch((err) => console.log('error: ' + err));
   }
