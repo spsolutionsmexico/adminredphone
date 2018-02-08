@@ -2,17 +2,23 @@ import { Component, Input } from '@angular/core';
 import { ServGraficoService } from './serv-grafico.service';
 import { GraficoDatos } from './graficodatos';
 import { BaseChartDirective } from 'ng2-charts/ng2-charts';
+import { RetosServService } from 'app/retos/retos-serv.service';
+import { Retos } from 'app/retos/retos';
 
 @Component({
   selector: 'grafico',
   templateUrl: './grafico.component.html',
   styleUrls: ['./grafico.component.css'],
-  providers: [ServGraficoService]
+  providers: [ServGraficoService , RetosServService]
 })
 
 export class GraficoComponent {
-  chartsData: GraficoDatos[]
-  constructor(private chartService: ServGraficoService) {}
+
+  retos: Retos[];
+  chartsData: GraficoDatos[];
+
+  constructor(private chartService: ServGraficoService, private retosService: RetosServService) {}
+
   public idpregunta: string  = '0'; // Iniciamos
   public verSeleccion: string;
 
@@ -21,6 +27,15 @@ export class GraficoComponent {
   public pieChartData:Array<any> = new Array(); //number[]; //= [100, 130, 300, 450, 30];
   public pieChartType: string = 'pie';
   
+  public obtenerRetos(){
+    this.retosService
+      .getRetos().then((retos: Retos[]) => {
+        this.retos = retos.map((retos) => {
+          retos.fechaenvio = retos.fechaenvio.substr(0, 10);
+          return retos;
+        });
+      });   
+  }
   
   /**
    * obtenerid del combo

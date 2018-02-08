@@ -2,13 +2,37 @@
 <h4>RESULTADOS DE ENCUESTA - CONSOLIDADO</h4>
 <hr>
 <div class="row">
-    <div class="col-4 offset-2">
-        ENCUESTA: PRIMERA ENCUESTA FEB 2018
+    <div class='col-8 offset-2'>
+        <form class="col-md-12">
+            <div class="form-group">
+                <label for="Reto-id">Encuesta:</label>
+                <select class="form-curve" name="Reto" id="Reto" [(ngModel)]="idreto">
+			        <option *ngFor="let retos of retos" value="{{retos.idreto}}">{{retos.descripcion}}</option>
+		        </select>
+                <label for="reto-idreto">fecha de envio: {{reto.fechaenvio}} {{reto.horaenvio}} </label>
+                <label for="reto-idreto">Enviados: {{reto.cantidadinvitados}} </label>
+                <label for="reto-idreto">Contestados: {{reto.cantidadrespuestas}} </label>
+            </div>
+        </form>
     </div>
-    <div class="col-4">
-        FECHA: 26/01/2018
+    <!--
+    <div class="col-3 offset-2">
+        <label for="Reto-id">Encuesta:</label>
+        <select class="form-curve" name="Reto" id="Reto" [(ngModel)]="idreto">
+			<option *ngFor="let retos of retos" value="{{retos.idreto}}">{{retos.descripcion}}</option>
+		</select>
     </div>
 
+    <div class="col-3">
+        Fecha de envio : {{reto.fechaenvio}} {{reto.horaenvio}}
+        <label for="reto-idreto">enviados: {{reto.cantidadinvitados}} </label>
+    </div>
+    -->
+</div>
+
+<hr>
+
+<div class="row">
     <div class="col-8 form-group offset-2">
         <label>Pregunta:</label>
         <select class="form-curve" (change)="obtenerid()" id="idpregunta" [(ngModel)]="idpregunta">
