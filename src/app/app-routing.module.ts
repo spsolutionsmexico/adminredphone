@@ -14,7 +14,7 @@ import { NavbarComponent } from 'app/navbar/navbar.component';
 const AppRoutingModule: Routes = [
   { path: '',component: LoginComponent},
   { path: 'Procesos', component: ActualizarCompComponent },
-  { path: 'resultados', component: GraficoComponent },
+  { path: 'resultados', canActivate: [AuthGuard], component: GraficoComponent },
   { path: 'imagen', component: ImagenComponent },
   { path: 'navbar', component: NavbarComponent},
   {
