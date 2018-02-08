@@ -10,8 +10,15 @@ import { RetoDetalleComponent } from './retos/reto-detalle/reto-detalle.componen
 import { RetosPreguntaComponent } from './retos/retos-pregunta/retos-pregunta.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { GraficoComponent } from './grafico/grafico.component';
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutes } from './app-routing.module';
 import { ImagenComponent } from './imagen/imagen.component';
+import { LoginComponent } from './login/login/login.component';
+import { AuthService } from "./login/auth.service";
+import { AuthGuard } from "./login/auth-guard.service";
+import { environment } from '../environments/environment';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 @NgModule({
   declarations: [
@@ -22,16 +29,20 @@ import { ImagenComponent } from './imagen/imagen.component';
     RetosPreguntaComponent,
     NavbarComponent,
     GraficoComponent,
-    ImagenComponent
+    ImagenComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     ChartsModule,
-    AppRoutingModule
+    AppRoutes,
+    AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
