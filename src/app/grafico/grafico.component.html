@@ -1,4 +1,5 @@
 <navbar></navbar>
+
 <h4>RESULTADOS DE ENCUESTA - CONSOLIDADO</h4>
 <hr>
 <div class="row">
@@ -9,9 +10,9 @@
                 <select class="form-curve" name="Reto" id="Reto" [(ngModel)]="idreto">
 			        <option *ngFor="let retos of retos" value="{{retos.idreto}}">{{retos.descripcion}}</option>
 		        </select>
-                <label for="reto-idreto">fecha de envio: {{reto.fechaenvio}} {{reto.horaenvio}} </label>
-                <label for="reto-idreto">Enviados: {{reto.cantidadinvitados}} </label>
-                <label for="reto-idreto">Contestados: {{reto.cantidadrespuestas}} </label>
+                <label [(ngModel)]="idreto">Fecha de envio: {{reto.fechaenvio}} {{reto.horaenvio}} </label>
+                <label [(ngModel)]="idreto">Enviados: {{reto.cantidadinvitados}} </label>
+                <label [(ngModel)]="idreto">Contestados: {{reto.cantidadrespuestas}} </label>
             </div>
         </form>
     </div>
