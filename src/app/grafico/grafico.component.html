@@ -10,12 +10,7 @@
                 <select class="form-curve" name="Reto" id="Reto" (change)="obtenerPreguntas()" [(ngModel)]="idreto">
 			        <option *ngFor="let retos of retos" value="{{retos.idreto}}">{{retos.descripcion}}</option>
                 </select>
-                <div *ngIf="">
-                    <label>Detalle:</label>
-                    <label>Fecha de envio: {{reto.fechaenvio}} {{reto.horaenvio}} </label>
-                    <label>Enviados: {{reto.cantidadinvitados}} </label>
-                    <label>Contestados: {{reto.cantidadrespuestas}} </label>
-                </div>
+
             </div>
         </form>
     </div>
