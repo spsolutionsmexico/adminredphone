@@ -7,7 +7,7 @@ import 'rxjs/add/operator/toPromise';
 export class RetosServService {
 
   private retosUrl = '/api/retos';
-  private preguntasUrl = '/api/retos';
+  private preguntasUrl = '/api/preguntas';
   
       constructor (private http: Http) {}
   
