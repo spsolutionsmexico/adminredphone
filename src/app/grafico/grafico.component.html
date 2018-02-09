@@ -18,7 +18,7 @@
 <!--            <label [(ngModel)]="idreto">Fecha de envio: {{reto.fechaenvio}} {{reto.horaenvio}} </label>
                 <label [(ngModel)]="idreto">Enviados: {{reto.cantidadinvitados}} </label>
                 <label [(ngModel)]="idreto">Contestados: {{reto.cantidadrespuestas}} </label>-->
-<hr>
+
 <div class="row">
     <div class="col-8 form-group offset-2">
         <label>Pregunta:</label>
@@ -28,24 +28,7 @@
         <button class="btn btn-secondary" (click)="obtenerDatoGrap()">Actualizar</button>
     </div>
 </div>
-<!--   Estatico
-<div class="row">
-    <div class="col-8 form-group offset-2">
-        <label>Pregunta:</label>
-        <select class="form-curve" (change)="obtenerid()" id="idpregunta" [(ngModel)]="idpregunta">
-			<option value="trabajopresidente">¿Cuál es su posición  con la manera de trabajar del presidente ENRIQUE PEÑA NIETO?</option>
-			<option value="problemapais">¿Cuál cree que es el principal problema que enfrenta el país en estos momentos?</option>
-			<option value="situacioneconomica">Comparando con el año pasado, ¿cómo cree que está la SITUACIÓN ECONÓMICA del país actualmente?</option>
-			<option value="diputadofederal">¿Por cuál partido votó en el 2015 para DIPUTADO FEDERAL?</option>
-			<option value="partidocercano">Podría decirme, ¿Cuál es el partido político con el que se identifica?</option>
-			<option value="proximopresidente">¿Quién le gustaría que fuera el próximo presidente?</option>
-			<option value="nuncavotaria">¿Por cuál partido NUNCA VOTARÍA?</option>
-			<option value="partidoganador">¿Qué partido cree que ganará la elección del 2018?</option>
-        </select>
-        <button class="btn btn-secondary" (click)="obtenerDatoGrap()">Actualizar</button>
-    </div>
-</div>
--->
+
 <hr>
 
 <div *ngIf="chartsData" style="display: block">
