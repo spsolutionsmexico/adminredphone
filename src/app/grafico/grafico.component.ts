@@ -45,7 +45,6 @@ export class GraficoComponent {
     this.retosService
       .getPreguntas(this.idreto).then((pregunta: Pregunta[]) => {
         this.pregunta = pregunta.map((pregunta) => {
-          pregunta.descripcion = pregunta.descripcion.substr(0, 10);
           return pregunta;
         });
       });
