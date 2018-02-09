@@ -1,4 +1,5 @@
 <navbar></navbar>
+
 <div class="container">
     <h4>RESULTADOS DE ENCUESTA - CONSOLIDADO</h4>
     <hr>
@@ -14,33 +15,28 @@
                     <label>Detalle:</label>
                     <label>Fecha de envio: {{reto[idreto].fechaenvio}} {{reto[idreto].horaenvio}} </label>
                     <label>Enviados: {{reto[idreto].cantidadinvitados}} </label>
-                    <label>Contestados: {{reto[idreto].cantidadrespuestas}} </label>
+                    <label>Contestados: {{reto[idereto].cantidadrespuestas}} </label>
                 </div>
                 <br>
-                <label>Pregunta:</label>
-                <select class="form-curve" (change)="obtenerid()" id="idpregunta" [(ngModel)]="idpregunta">
-			        <option *ngFor="let pregunta of pregunta" value="{{pregunta.idpreguntaai}}">{{pregunta.descripcion}}</option>
-            </select>
-                <br>
-                <button class="btn btn-secondary " (click)="obtenerDatoGrap()">Actualizar</button>
 
             </form>
         </div>
     </div>
 
-    <!--
-<div class="row">
-    <div class="col-8 form-group offset-2 form-curve">
-        <form class="col-md-12">
-            <label>Pregunta:</label>
-            <select class="form-curve" (change)="obtenerid()" id="idpregunta" [(ngModel)]="idpregunta">
+
+    <div class="row">
+        <div class="col-8 form-group offset-2 form-curve">
+            <form class="col-md-12">
+                <label>Pregunta:</label>
+                <select class="form-curve" (change)="obtenerid()" id="idpregunta" [(ngModel)]="idpregunta">
 			    <option *ngFor="let pregunta of pregunta" value="{{pregunta.idpreguntaai}}">{{pregunta.descripcion}}</option>
             </select>
-            <button class="btn btn-secondary " (click)="obtenerDatoGrap()">Actualizar</button>
-        </form>
+                <br>
+                <button class="btn btn-secondary " (click)="obtenerDatoGrap()">Actualizar</button>
+            </form>
+        </div>
     </div>
-</div>
--->
+
     <hr>
 
     <div *ngIf="chartsData" style="display: block">
