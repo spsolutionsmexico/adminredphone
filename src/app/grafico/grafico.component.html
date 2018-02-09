@@ -1,37 +1,50 @@
 <navbar></navbar>
+<div class="container">
+    <h4>RESULTADOS DE ENCUESTA - CONSOLIDADO</h4>
+    <hr>
+    <div class="row">
+        <div class='col-8 form-group offset-2'>
+            <form class="col-md-12">
 
-<h4>RESULTADOS DE ENCUESTA - CONSOLIDADO</h4>
-<hr>
-<div class="row">
-    <div class='col-8 form-group offset-2'>
-        <form class="col-md-12">
-            <div class="form-curve">
                 <label>Encuesta:</label>
                 <select class="form-curve" name="Reto" id="Reto" (change)="obtenerPreguntas()" [(ngModel)]="idreto">
 			        <option *ngFor="let retos of retos" value="{{retos.idreto}}">{{retos.descripcion}}</option>
                 </select>
+                <div *ngIf="reto">
+                    <label>Detalle:</label>
+                    <label>Fecha de envio: {{reto[idreto].fechaenvio}} {{reto[idreto].horaenvio}} </label>
+                    <label>Enviados: {{reto[idreto].cantidadinvitados}} </label>
+                    <label>Contestados: {{reto[idreto].cantidadrespuestas}} </label>
+                </div>
+                <br>
+                <label>Pregunta:</label>
+                <select class="form-curve" (change)="obtenerid()" id="idpregunta" [(ngModel)]="idpregunta">
+			        <option *ngFor="let pregunta of pregunta" value="{{pregunta.idpreguntaai}}">{{pregunta.descripcion}}</option>
+            </select>
+                <br>
+                <button class="btn btn-secondary " (click)="obtenerDatoGrap()">Actualizar</button>
 
-            </div>
+            </form>
+        </div>
+    </div>
+
+    <!--
+<div class="row">
+    <div class="col-8 form-group offset-2 form-curve">
+        <form class="col-md-12">
+            <label>Pregunta:</label>
+            <select class="form-curve" (change)="obtenerid()" id="idpregunta" [(ngModel)]="idpregunta">
+			    <option *ngFor="let pregunta of pregunta" value="{{pregunta.idpreguntaai}}">{{pregunta.descripcion}}</option>
+            </select>
+            <button class="btn btn-secondary " (click)="obtenerDatoGrap()">Actualizar</button>
         </form>
     </div>
 </div>
-<!--            <label [(ngModel)]="idreto">Fecha de envio: {{reto.fechaenvio}} {{reto.horaenvio}} </label>
-                <label [(ngModel)]="idreto">Enviados: {{reto.cantidadinvitados}} </label>
-                <label [(ngModel)]="idreto">Contestados: {{reto.cantidadrespuestas}} </label>-->
+-->
+    <hr>
 
-<div class="row">
-    <div class="col-8 form-group offset-2">
-        <label>Pregunta:</label>
-        <select class="form-curve" (change)="obtenerid()" id="idpregunta" [(ngModel)]="idpregunta">
-			<option *ngFor="let pregunta of pregunta" value="{{pregunta.idpreguntaai}}">{{pregunta.descripcion}}</option>
-        </select>
-        <button class="btn btn-secondary" (click)="obtenerDatoGrap()">Actualizar</button>
+    <div *ngIf="chartsData" style="display: block">
+
+        <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
     </div>
-</div>
-
-<hr>
-
-<div *ngIf="chartsData" style="display: block">
-
-    <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
 </div>
