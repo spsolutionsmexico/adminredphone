@@ -55,7 +55,7 @@ export class GraficoComponent {
    */
   public obtenerid() {
     this.verSeleccion = this.idpregunta;
-    console.log("Call value select", this.verSeleccion);
+    console.log("Call value select", this.idpregunta);
   }
 
 
