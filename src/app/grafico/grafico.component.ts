@@ -21,7 +21,7 @@ export class GraficoComponent {
 
   constructor(private chartService: ServGraficoService, private retosService: RetosServService) { }
 
-  public idpregunta: string = '0'; // Iniciamos
+  public idpregunta: string; // Iniciamos
   public verSeleccion: string;
   public idreto: string;
 
