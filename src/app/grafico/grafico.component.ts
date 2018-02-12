@@ -35,13 +35,18 @@ export class GraficoComponent {
       .getRetos().then((retos: Retos[]) => {
         this.retos = retos.map((retos) => {
           retos.fechaenvio = retos.fechaenvio.substr(0, 10);
-          return retos;
+          console.log("retos",this.retos);
+          return retos
+
         });
       });
   }
 
   public obtenerPreguntas() {
     console.log('reto id:', this.idreto)
+    
+
+
     this.retosService
       .getPreguntas(this.idreto).then((pregunta: Pregunta[]) => {
         this.pregunta = pregunta.map((pregunta) => {
