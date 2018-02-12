@@ -12,7 +12,7 @@ import { AuthGuard } from 'app/login/auth-guard.service';
 })
 export class LoginComponent implements OnInit {
 
-  loginSuccess: boolean;
+  loginSuccess: boolean = true;
 
   user = {
     email: '',

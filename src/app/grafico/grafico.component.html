@@ -3,21 +3,25 @@
 <h4>RESULTADOS DE ENCUESTA - CONSOLIDADO</h4>
 <hr>
 <div class="row">
-    <div class='col-8 offset-2'>
+    <div class='col-8 offset-2 form-group'>
         <form class="col-md-12">
             <div class="form-group">
                 <label for="Reto-id">Encuesta:</label>
                 <select class="form-curve" name="Reto" id="Reto" (change)="obtenerPreguntas()" [(ngModel)]="idreto">
 			        <option *ngFor="let retos of retos" value="{{retos.idreto}}">{{retos.descripcion}}</option>
                 </select>
-
+                <label>Pregunta:</label>
+                <select class="form-curve" (change)="obtenerid()" id="idpregunta" [(ngModel)]="idpregunta">
+			        <option *ngFor="let pregunta of pregunta" value="{{pregunta.idpreguntaai}}">{{pregunta.descripcion}}</option>
+                </select>
             </div>
+            <button class="btn btn-secondary" (click)="obtenerDatoGrap()">Actualizar</button>
         </form>
     </div>
 </div>
 
 
-
+<!--
 
 <div class="row">
     <div class="col-8 form-group offset-2">
@@ -28,20 +32,8 @@
         <button class="btn btn-secondary" (click)="obtenerDatoGrap()">Actualizar</button>
     </div>
 </div>
-<!--
-<div class="row">
-    <div class="col-8 form-group offset-2 form-curve">
-        <form class="col-md-12">
-            <label>Pregunta:</label>
-            <select class="form-curve" (change)="obtenerid()" id="idpregunta" [(ngModel)]="idpregunta">
-			    <option *ngFor="let pregunta of pregunta" value="{{pregunta.idpreguntaai}}" >{{pregunta.descripcion}}</option>
-            </select>
-            <button class="btn btn-secondary " (click)="obtenerDatoGrap()">Actualizar</button>
-        </form>
-    </div>
-</div>
--->
 
+-->
 <hr>
 
 <div *ngIf="chartsData" style="display: block">

@@ -19,6 +19,7 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { EncuestadosComponent } from './encuestados/encuestados.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     NavbarComponent,
     GraficoComponent,
     ImagenComponent,
-    LoginComponent
+    LoginComponent,
+    EncuestadosComponent
   ],
   imports: [
     BrowserModule,
