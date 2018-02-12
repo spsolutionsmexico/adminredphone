@@ -12,6 +12,8 @@ import { AuthGuard } from 'app/login/auth-guard.service';
 })
 export class LoginComponent implements OnInit {
 
+  loginSuccess: boolean;
+
   user = {
     email: '',
     password: ''
@@ -26,7 +28,7 @@ export class LoginComponent implements OnInit {
       .then((res) => {
         this.router.navigate(['Actualizar']);
       })
-      .catch((err) => console.log('error: ' + err));
+      .catch((err) => console.log('error: ' + err, this.loginSuccess=false));
   }
 
 

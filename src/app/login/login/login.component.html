@@ -17,6 +17,9 @@
                     <label for="password">Password:</label>
                     <input type="password" class="form-control" [(ngModel)]="user.password" name="password" placeholder="Password" autocomplete="on" required>
                 </div>
+                <div class="alert alert-danger" *ngIf="loginSuccess==False">
+                    <strong>Lo sentimos, el usuario o contraseña son incorrectos.</strong>
+                </div>
                 <div class="form-group">
                     <button type="buton" class="btn btn-primary btn-block" style="margin-bottom: 20px" (click)="signInWithEmail()" [disabled]="formCtrl.form.invalid">Login</button>
                 </div>
