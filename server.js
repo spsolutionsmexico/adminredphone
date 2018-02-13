@@ -127,9 +127,9 @@ function insertarRespuestaPG(idreto, fbid) {
     //obtener datos firebase 
     console.log('insertarRespuestaPG - idreto: ', idreto);
     console.log('insertarRespuestaPG - fbid: ', fbid);
-    var refRespuesta = db.ref(REF_RETO + idreto + '/respuestas/' + fbid);
+    var refRespuesta = db.ref(REF_RETO + idreto + '/respuestas/' + fbid + '/');
     refRespuesta.on("value", function(snap) {
-        snap.forEach(function(chFildSnap) {
+        snap.forEach(function(childSnap) {
             var contexto = childSnap.key;
             var valor = childSnap.val();
             console.log("Valor:", valor)
