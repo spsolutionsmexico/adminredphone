@@ -17,9 +17,10 @@
 
 <div class="row" *ngIf="retoDetalle" style="display: block">
     <div class="col-8 form-group offset-2">
-        <form class="form-group">
+        <form class="form-group" *ngFor="let retoDetalle of retoDetalle">
             <label>Detalle de Reto:</label>
             <label>Fecha de envio: {{retoDetalle.fechaenvio}}</label>
+            <br>
             <label>Cantidad de Invitados: {{retoDetalle.cantidadinvitados}}</label>
             <label>Cantidad de Contestados: {{retoDetalle.cantidadrespuestas}}</label>
         </form>
