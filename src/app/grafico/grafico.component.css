@@ -1,8 +1,14 @@
-.form-curve{
-	width: 90%;
-	
+.form-curve {
+    width: 90%;
 }
-hr{
-	border-width: 3px;
-	border-color: blue;
+
+hr {
+    border-width: 3px;
+    border-color: blue;
+}
+
+.cen {
+    width: 50%;
+    float: inherit;
+    align-content: center;
 }
