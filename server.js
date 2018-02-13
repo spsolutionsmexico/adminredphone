@@ -70,18 +70,7 @@ function extraerespuestas(callback) {
         callback(null, respuesta);
     });
 }
-/*
-//API consulta 
-app.get("/api/respuestas/", function(req, res) {
-    var idreto = "reto12" //solo para el demo
-    console.log("-- idreto:", idreto);
-    //console.log(extraerespuestas())
-    var res = extraerespuestas();
-    console.log('res obtenerdata: ', JSON.stringify(res));
 
-});
-
-*/
 
 //funcion que consulta respuestas a retos por id reto 
 function listarRetoRespuesta(idreto, callback) {
@@ -329,6 +318,18 @@ app.get("/api/retos", function(req, res) {
 
 });
 
+app.get("/api/retos/:id", function(req, res) {
+    // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
+    var textqry = 'select * from reto where idreto = \'' + idreto + '\'';
+    var lib = new condblib.condblib();
+    lib.obtenerdata(textqry, function(textqry, resDB) {
+        console.log('res obtenerdata: ', JSON.stringify(resDB));
+        let queryDB = resDB;
+        //return data base query 
+        res.status(200).json(queryDB);
+    });
+
+});
 
 
 app.get("/api/preguntas/:id", function(req, res) {
@@ -346,6 +347,7 @@ app.get("/api/preguntas/:id", function(req, res) {
     });
 
 });
+
 
 
 //Consulta respuestas para graficos

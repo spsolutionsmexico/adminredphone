@@ -15,8 +15,12 @@
     </div>
 </div>
 
-<div class="row" *ngIf="detalleEncuesta" style="display: block">
+<div class="row" *ngIf="retoDetalle" style="display: block">
     <div class="col-8 form-group offset-2">
+        <label>Detalle de Reto:</label>
+        <label>Fecha de envio: {{retoDetalle.fechaenvio}}</label>
+        <label>Cantidad de Invitados: {{retoDetalle.cantidadinvitados}}<label>
+        <label>Cantidad de Contestados: {{retoDetalle.cantidadrespuestas}}<label>
     </div>
 </div>
 
@@ -24,12 +28,12 @@
     <div class="col-8 form-group offset-2">
         <div class="form-group">
             <label>Pregunta:</label>
-            <select class="form-curve" (change)="obtenerid()" id="idpregunta" [(ngModel)]="idpregunta">
+        <select class="form-curve" (change)="obtenerid()" id="idpregunta" [(ngModel)]="idpregunta">
 			<option *ngFor="let pregunta of pregunta" value="{{pregunta.idpreguntaai}}">{{pregunta.descripcion}}</option>
         </select>
-        </div>
-        <button class="btn btn-secondary" (click)="obtenerDatoGrap()">Actualizar</button>
     </div>
+    <button class="btn btn-secondary" (click)="obtenerDatoGrap()">Actualizar</button>
+</div>
 </div>
 
 

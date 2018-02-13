@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Retos } from './retos';
 import { Pregunta } from './pregunta';
+import { RetosDetalle } from "./retoDetalle";
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 @Injectable()
@@ -8,6 +9,7 @@ export class RetosServService {
 
   private retosUrl = '/api/retos';
   private preguntasUrl = '/api/preguntas';
+
   
       constructor (private http: Http) {}
   
@@ -24,6 +26,12 @@ export class RetosServService {
                    .toPromise()
                    .then(response => response.json() as Pregunta[])
                    .catch(this.handleError);
+      }
+      getDetalleReto(idreto): Promise<RetosDetalle[]> {
+        return this.http.get(this.retosUrl+'/'+idreto)
+                    .toPromise()
+                    .then(response => response.json() as RetosDetalle[])
+                    .catch(this.handleError);
       }
 
       private handleError (error: any): Promise<any> {

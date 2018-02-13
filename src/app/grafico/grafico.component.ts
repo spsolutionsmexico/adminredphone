@@ -5,6 +5,7 @@ import { BaseChartDirective } from 'ng2-charts/ng2-charts';
 import { RetosServService } from 'app/retos/retos-serv.service';
 import { Retos } from 'app/retos/retos';
 import { Pregunta } from 'app/retos/pregunta';
+import { RetosDetalle } from 'app/retos/retoDetalle';
 
 @Component({
   selector: 'grafico',
@@ -15,6 +16,7 @@ import { Pregunta } from 'app/retos/pregunta';
 
 export class GraficoComponent {
 
+  retoDetalle: RetosDetalle[];
   pregunta: Pregunta[];
   retos: Retos[];
   chartsData: GraficoDatos[];
@@ -34,17 +36,22 @@ export class GraficoComponent {
     this.retosService
       .getRetos().then((retos: Retos[]) => {
         this.retos = retos.map((retos) => {
-          retos.fechaenvio = retos.fechaenvio.substr(0, 10);
-          console.log("retos",this.retos);
           return retos
-
         });
       });
   }
 
   public obtenerPreguntas() {
     console.log('reto id:', this.idreto)
-    
+    console.log('Contenido retos:')
+
+    this.retosService
+      .getDetalleReto(this.idreto).then((retoDetalle: RetosDetalle[]) => {
+        this.retoDetalle = retoDetalle.map((retoDetalle) => {
+          retoDetalle.fechaenvio = retoDetalle.fechaenvio.substr(0, 10);
+          return retoDetalle;
+        });
+      });
 
 
     this.retosService
