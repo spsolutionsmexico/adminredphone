@@ -15,24 +15,17 @@
     </div>
 </div>
 
-<div class="row cen" *ngIf="retoDetalle">
+<div class="row">
     <div class="col-8 form-group offset-2">
-        <label>Detalle de Reto:</label>
-        <table class="cen">
-            <tr>
-                <th>Fecha de envio:</th>
-                <th>Cantidad de Invitados:</th>
-                <th>Cantidad de Contestados: </th>
-            </tr>
-            <tr *ngFor="let retoDetalle of retoDetalle">
-                <td> {{retoDetalle.fechaenvio}}</td>
-                <td>{{retoDetalle.cantidadinvitados}}</td>
-                <td>{{retoDetalle.cantidadrespuestas}}</td>
-            </tr>
-        </table>
+        <div class="form-group">
+            <label>Pregunta:</label>
+            <select class="form-curve" (change)="obtenerid()" id="idpregunta" [(ngModel)]="idpregunta">
+			<option *ngFor="let pregunta of pregunta" value="{{pregunta.idpreguntaai}}">{{pregunta.descripcion}}</option>
+        </select>
+        </div>
+        <button class="btn btn-secondary" (click)="obtenerDatoGrap()">Actualizar</button>
     </div>
 </div>
-
 <hr>
 
 <div *ngIf="chartsData" style="display: block">
