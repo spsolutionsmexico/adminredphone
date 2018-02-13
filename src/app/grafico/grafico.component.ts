@@ -43,12 +43,13 @@ export class GraficoComponent {
 
   public obtenerPreguntas() {
     console.log('reto id:', this.idreto)
-    console.log('Contenido retos:')
+    
 
     this.retosService
       .getDetalleReto(this.idreto).then((retoDetalle: RetosDetalle[]) => {
         this.retoDetalle = retoDetalle.map((retoDetalle) => {
           retoDetalle.fechaenvio = retoDetalle.fechaenvio.substr(0, 10);
+          console.log('Contenido retos:',retoDetalle)
           return retoDetalle;
         });
       });
