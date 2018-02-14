@@ -240,7 +240,7 @@ app.get("/api/actualizar", function(req, res) {
         try {
             console.log('conectado a postgres');
 
-            var textqry = 'DELETE * FROM usuario';
+            var textqry = 'DELETE FROM usuario';
             var lib = new condblib.condblib();
             //---------consulta de prueba ---
             lib.obtenerdata(textqry, function(textqry, resDB) {
