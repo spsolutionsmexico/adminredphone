@@ -9,7 +9,7 @@ export class ServGraficoService {
 
   constructor(private http: Http) { }
 
-  getDatosGrap(idpreguntaai,idreto): Promise<GraficoDatos[]> {
+  getDatosGrap(idreto,idpreguntaai): Promise<GraficoDatos[]> {
     return this.http.get(this.datosGraficas + '/' + idreto + '/' + idpreguntaai )
                .toPromise()
                .then(response => response.json() as GraficoDatos[])
