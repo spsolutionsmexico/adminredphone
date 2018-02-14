@@ -78,7 +78,7 @@ export class GraficoComponent {
     console.log("Call actualizar reto button", this.verSeleccion);
     this.chartsData = null;
     console.log('Wipe chartsData:', this.chartsData);
-    this.chartService.getDatosGrap(this.verSeleccion).then((chartsData: GraficoDatos[]) => {
+    this.chartService.getDatosGrap(this.idreto,this.verSeleccion).then((chartsData: GraficoDatos[]) => {
       this.chartsData = chartsData.map((chartsData) => {
         console.log('this.chartsData: ', chartsData.respuesta);
         this.pieChartLabels.push(chartsData.respuesta);

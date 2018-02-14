@@ -355,10 +355,12 @@ app.get("/api/preguntas/:id", function(req, res) {
 
 //Consulta respuestas para graficos
 
-app.get("/api/respuestagrap/:id", function(req, res) {
+app.get("/api/respuestagrap/:idreto/:idpregunta", function(req, res) {
 
     console.log('Consulta sql');
-    var idpreguntaai = req.params.id.toLowerCase();
+    var idpreguntaai = req.params.idpregunta.toLowerCase();
+    var idreto = req.params.idreto.toLowerCase();
+
     console.log('-- idpreguntaai: ', idpreguntaai);
 
     var textqry = 'SELECT distinct respuesta.respuesta, idpreguntaai, COUNT( * ) as rep FROM respuesta where idreto = \'' + idreto + '\' and idpreguntaai=\'' + idpreguntaai + '\' GROUP BY idpreguntaai , respuesta.respuesta, idpreguntaai HAVING count(*) > 0  order by idpreguntaai';
