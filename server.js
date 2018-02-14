@@ -224,6 +224,8 @@ function insertarUSRpg(idUSR) {
         });
     });
 }
+
+
 // ACTUALIZAR API ROUTES BELOW
 
 app.get("/api/actualizar", function(req, res) {
@@ -237,21 +239,15 @@ app.get("/api/actualizar", function(req, res) {
         //conexion a postgres 
         try {
             console.log('conectado a postgres');
-            var textqry = 'SELECT * FROM usuario';
+
+            var textqry = 'DELETE * FROM usuario';
             var lib = new condblib.condblib();
             //---------consulta de prueba ---
             lib.obtenerdata(textqry, function(textqry, resDB) {
                 console.log('res obtenerdata: ', JSON.stringify(resDB));
-                let queryDB = resDB;
-                //console.log('arrUSR.length:', arrUSR.length);
-                var arrUSRPost = [];
-                queryDB.forEach(function(row) {
-                    arrUSRPost.push(row.fbid);
-                });
+
                 for (var i = 0; i < arrUSR.length; i++) {
-                    if (arrUSRPost.indexOf(arrUSR[i]) === -1) {
-                        insertarUSRpg(arrUSR[i]);
-                    }
+                    insertarUSRpg(arrUSR[i]);
                 }
             });
         } catch (err) {
