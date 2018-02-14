@@ -336,7 +336,8 @@ app.get("/api/preguntas/:id", function(req, res) {
     var idreto = req.params.id.toLowerCase();
     console.log('-- idreto: ', idreto);
 
-    var textqry = 'select DISTINCT ON (idpreguntaai) respuesta.idpreguntaai, plantillapregunta.descripcion from respuesta INNER JOIN plantillapregunta ON plantillapregunta.idpreguntaai = respuesta.idpreguntaai  where idreto=\'' + idreto + '\'';
+
+    var textqry = 'select DISTINCT ON (idpreguntaai) respuesta.idpreguntaai, plantillapregunta.descripcion, plantillapregunta.tipodepregunta from respuesta INNER JOIN plantillapregunta ON plantillapregunta.idpreguntaai = respuesta.idpreguntaai  where idreto=\'' + idreto + '\' and plantillapregunta.tipodepregunta=\'multiple\'';
     var lib = new condblib.condblib();
     lib.obtenerdata(textqry, function(textqry, resDB) {
         console.log('res obtenerdata: ', JSON.stringify(resDB));
