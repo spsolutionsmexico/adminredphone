@@ -39,11 +39,13 @@ function listarRetos(arrRETO, callback) {
     var ref = db.ref(REF_RETO);
     ref.on("value", function(snap) {
         snap.forEach(function(childSnap) {
-            var reg = childSnap.key;
-            console.log('reg = ', reg);
-            arrRETO.push(reg);
-        })
-        console.log('arrRETO.length: ', arrRETO.length);
+                var reg = childSnap.key;
+                //console.log('reg = ', reg);
+                console.log("Esto viene de firebase en funcion listarRetos")
+                arrRETO.push(reg);
+            })
+            //console.log('arrRETO.length: ', arrRETO.length);
+        console.log("Sale funcion listarRetos")
         callback(null, arrRETO);
     });
 }
@@ -266,8 +268,9 @@ app.get("/api/actualizar/reto/:id", function(req, res) {
 
     var arrRetos = [];
     listarRetos(arrRetos, function(arrRetos, resp2) {
-        console.log('ListarReto resp ', resp2);
+        console.log('ListarReto resp2 ', resp2);
         arrRetos = resp2;
+
         //conexion a postgres 
         try {
             if (arrRetos.indexOf(idreto) > -1) {
@@ -277,16 +280,16 @@ app.get("/api/actualizar/reto/:id", function(req, res) {
                 var lib = new condblib.condblib();
                 //---------consulta de prueba ---
                 lib.obtenerdata(textqry2, function(textqry2, resDB2) {
-                    console.log('res obtenerdata: ', JSON.stringify(resDB2));
+                    console.log('res obtenerdata:', JSON.stringify(resDB2));
                     let queryDB2 = resDB2;
-                    console.log('arrRetos.length', arrRetos.length);
+                    console.log('arrRetos.length:', arrRetos.length);
                     var arrRetoPost = [];
                     queryDB2.forEach(function(row) {
                         arrRetoPost.push(row.idreto);
                     });
                     for (var j = 0; j < arrRetos.length; j++) {
                         if (arrRetoPost.indexOf(arrRetos[j]) === -1 && arrRetos[j] === idreto) {
-                            console.log('Reto a insertar: ', arrRetos[j]);
+                            console.log('Reto a insertar: ', arrRetos[j], j);
                             insertarRETOpg(arrRetos[j]);
                         }
                     }
