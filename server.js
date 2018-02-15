@@ -39,12 +39,12 @@ function listarRetos(arrRETO, callback) {
     var ref = db.ref(REF_RETO);
     ref.on("value", function(snap) {
         snap.forEach(function(childSnap) {
-                var reg = childSnap.key;
-                //console.log('reg = ', reg);
-                console.log("Esto viene de firebase en funcion listarRetos")
-                arrRETO.push(reg);
-            })
-            //console.log('arrRETO.length: ', arrRETO.length);
+            var reg = childSnap.key;
+            console.log('reg = ', reg);
+            console.log("Esto viene de firebase en funcion listarRetos")
+            arrRETO.push(reg);
+        })
+        console.log('arrRETO.length: ', arrRETO.length);
         console.log("Sale funcion listarRetos")
         callback(null, arrRETO);
     });
