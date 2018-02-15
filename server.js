@@ -377,6 +377,11 @@ app.get("/api/respuestagrap/:idreto/:idpregunta", function(req, res) {
 
 });
 
+//Redirecciona los f5
+app.get('*', function(req, res) {
+    res.sendfile('./server/views/index.html')
+})
+
 
 function obtenerFormatoRespuesta(arrIdPreguntaAI, queryDB) {
     console.log('obtenerFormatoRespuesta');
