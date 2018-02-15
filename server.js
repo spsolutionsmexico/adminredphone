@@ -45,7 +45,7 @@ function listarRetos(arrRETO, callback) {
             arrRETO.push(reg);
         })
         console.log('arrRETO.length: ', arrRETO.length);
-        console.log("Sale funcion listarRetos")
+        console.log("Sale funcion listarRetos-------------------------------------------")
         callback(null, arrRETO);
     });
 }
@@ -267,7 +267,9 @@ app.get("/api/actualizar/reto/:id", function(req, res) {
     console.log('-- idreto: ', idreto);
 
     var arrRetos = [];
+    console.log("llama a listar retos")
     listarRetos(arrRetos, function(arrRetos, resp2) {
+        console.log("regresa a api actualizar------------------");
         console.log('ListarReto resp2 ', resp2);
         arrRetos = resp2;
 
