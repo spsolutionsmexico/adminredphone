@@ -276,13 +276,14 @@ app.get("/api/actualizar/reto/:id", function(req, res) {
         //conexion a postgres 
         try {
             if (arrRetos.indexOf(idreto) > -1) {
+                console.log('Entra a try');
                 console.log('Reto existe en Firebase');
                 console.log('conectado a postgres');
                 var textqry2 = 'SELECT idreto FROM reto';
                 var lib = new condblib.condblib();
                 //---------consulta de prueba ---
                 lib.obtenerdata(textqry2, function(textqry2, resDB2) {
-                    console.log('res obtenerdata:', JSON.stringify(resDB2));
+                    console.log('hago select desde pg respuesta de obtenerdata:', JSON.stringify(resDB2));
                     let queryDB2 = resDB2;
                     console.log('arrRetos.length:', arrRetos.length);
                     var arrRetoPost = [];
