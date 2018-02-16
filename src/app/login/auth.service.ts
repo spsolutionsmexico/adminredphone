@@ -27,8 +27,8 @@ export class AuthService {
   }
 
   username() {
-    console.log(this.user)
-    return this.user;
+    console.log(this.userDetails)
+    return this.userDetails;
   }
 
   signInRegular(email, password) {
