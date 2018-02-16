@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../login/auth.service';
 
 @Component({
   selector: 'navbar',
@@ -7,11 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
   private date;
-  constructor() { }
+  private user;
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
     this.date = new Date();
-
+    this.user = this.authService.username();
 
       }
 

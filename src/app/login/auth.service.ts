@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class AuthService {
-
+  
   private user: Observable<firebase.User>;
   private userDetails: firebase.User = null;
 
@@ -24,6 +24,11 @@ export class AuthService {
         }
       }
     );
+  }
+
+  username() {
+    console.log(this.user)
+    return this.user;
   }
 
   signInRegular(email, password) {
