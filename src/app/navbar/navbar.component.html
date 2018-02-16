@@ -17,7 +17,7 @@
     <nav class="navbar navbar-expand-sm navbar-inverse  nav-sty">
 
         <!-- Links -->
-        <ul class="navbar-nav">
+        <ul class="navbar-nav justify-content-center">
             <li class="nav-item">
                 <a class="nav-link" routerLink="/inicio">Inicio |</a>
             </li>
@@ -38,3 +38,9 @@
 
     </nav>
 </div>
+<script>
+    $(".nav-item").on("click", function() {
+        $(".nav-link").find(".active").removeClass("active");
+        $(this).parent().addClass("active");
+    });
+</script>
