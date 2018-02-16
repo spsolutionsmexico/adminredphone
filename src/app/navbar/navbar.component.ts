@@ -10,6 +10,10 @@ export class NavbarComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
+    function Ctrl($scope)
+    {
+        $scope.date = new Date();
+    }
+      }
 
 }
