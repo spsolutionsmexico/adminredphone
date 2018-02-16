@@ -27,8 +27,8 @@
             <li class="nav-item">
                 <a class="nav-link" routerLink="/resultados">Resultados |</a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" routerLink="/Actualizar">Procesos |</a>
+            <li class="nav-item">
+                <a class="nav-link active" routerLink="/Actualizar">Procesos |</a>
             </li>
             <li class="nav-item">
                 <a href="" class="nav-link" (click)="authService.logout()">Logout</a>
@@ -39,7 +39,7 @@
     </nav>
 </div>
 <script>
-    $(".nav-item").on("click", function() {
+    $("li").on("click", function() {
         $(".nav-link").find(".active").removeClass("active");
         $(this).parent().addClass("active");
     });
