@@ -379,7 +379,7 @@ app.get("/api/respuestagrap/:idreto/:idpregunta", function(req, res) {
 
 //Redirecciona los f5
 app.get('*', function(req, res) {
-    res.this.router.navigate(['/']);
+    res.sendfile('./src/index.html')
 })
 
 
