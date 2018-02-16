@@ -16,7 +16,7 @@ export class AuthService {
       (user) => {
         if (user) {
           this.userDetails = user;
-          console.log("-------------------------------Usuario", this.user);
+          console.log("-------------------------------Usuario", this.userDetails.email);
 
         }
         else {
