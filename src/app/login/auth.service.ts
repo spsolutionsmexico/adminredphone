@@ -27,7 +27,7 @@ export class AuthService {
   }
 
   username() {
-    console.log(this.userDetails.email)
+    console.log("este es el objeto de usuario",this.userDetails.email)
     return this.userDetails.email;
   }
 
