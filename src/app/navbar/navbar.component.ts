@@ -6,14 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+  private date;
   constructor() { }
 
   ngOnInit() {
-    function Ctrl($scope)
-    {
-        $scope.date = new Date();
-    }
+    this.date = new Date();
+
+
       }
 
 }
+
+
