@@ -12,7 +12,7 @@
 
     </div>
 </div>
+
 <div class="col-4">
-    <img src="{{imagenuno}}" alt="">
-    <img src="{{imagendos}}" alt="">
+    <img *ngFor="let respuestaDatos of respuestaDatos" src="{{respuestaDatos.respuesta}}" alt="respuestaDatos.idpreguntaai">
 </div>

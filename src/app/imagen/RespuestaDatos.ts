@@ -1,4 +1,6 @@
 export class RespuestaDatos {
-    id:string;
-    valor:string;
+    idreto:string;
+    idpreguntai:string;
+    fbid:string;
+    respuesta:string;
   }
