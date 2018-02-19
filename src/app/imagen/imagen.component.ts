@@ -5,7 +5,8 @@ import { RespuestaDatos } from "./RespuestaDatos";
 @Component({
   selector: 'app-imagen',
   templateUrl: './imagen.component.html',
-  styleUrls: ['./imagen.component.css']
+  styleUrls: ['./imagen.component.css'],
+  providers: [ServImagenService]
 })
 export class ImagenComponent {
 
