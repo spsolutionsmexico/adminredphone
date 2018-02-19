@@ -377,6 +377,23 @@ app.get("/api/respuestagrap/:idreto/:idpregunta", function(req, res) {
 
 });
 
+app.get("/api/respuestas/:idreto", function(req, res) {
+
+    console.log('Consulta sql');
+    var idreto = req.params.idreto.toLowerCase();
+
+    var textqry = 'SELECT * FROM respuesta where idreto = \'' + idreto + '\' GROUP BY idpreguntaai order by idpreguntaai';
+    var lib = new condblib.condblib();
+    lib.obtenerdata(textqry, function(textqry, resDB) {
+        console.log('res obtenerdata: ', JSON.stringify(resDB));
+        let queryDB = resDB;
+        //return data base query 
+        res.status(200).json(queryDB);
+    });
+
+});
+
+
 //Redirecciona los f5
 app.get('*', function(req, res) {
     res.send('./src/app/app.component')

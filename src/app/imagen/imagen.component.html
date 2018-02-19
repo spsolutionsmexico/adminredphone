@@ -1,17 +1,18 @@
 <div class="container">
     <div class="row">
         <div class="col-4 offset-2">
-            <p>Nombre: {{nombre}} </p>
-            <p>Telefono: {{telefono}} </p>
-            <p>Fecha: 31/01/2018</p>
-            <p>Esquema: {{esquema}} </p>
-            <p>Prestamo: {{prestamo}}</p>
-            <p>IVA: {{iva}}</p>
-            <p>Plazo: {{plazo}}</p>
+            <div class="form-grup">
+                <label for="Reto-id">Encuesta:</label>
+                <select class="form-curve" (change)="ObtenerRespuestas()" name="Reto" id="Reto" [(ngModel)]="idreto">
+                    <option value="reto4">Refrigeradores con Branding</option>
+                    <option value="reto5">Refrigeradores sin Branding</option>
+			    </select>
+            </div>
         </div>
-        <div class="col-4">
-            <img src="{{imagenuno}}" alt="">
-            <img src="{{imagendos}}" alt="">
-        </div>
+
     </div>
+</div>
+<div class="col-4">
+    <img src="{{imagenuno}}" alt="">
+    <img src="{{imagendos}}" alt="">
 </div>
