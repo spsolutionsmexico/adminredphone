@@ -1,7 +1,7 @@
 <navbar></navbar>
 <div class="container">
     <div class="row">
-        <div class="col-6 offset-2">
+        <div class="col-8 offset-2">
             <div class="form-grup">
                 <label for="Reto-id">Respuestas:</label>
                 <select class="form-curve" (change)="ObtenerRespuestas()" name="Reto" id="Reto" [(ngModel)]="idreto">
@@ -17,7 +17,7 @@
 <div class="container">
     <div class="row">
         <div *ngFor="let respuestaDatos of respuestaDatos" class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 ">
-            <img src="{{respuestaDatos.respuesta}}" alt="respuestaDatos.idpreguntaai" class="img-responsive">
+            <img src="{{respuestaDatos.respuesta}}" alt="respuestaDatos.idpreguntaai" class="img-responsive resizes">
         </div>
     </div>
 </div>
