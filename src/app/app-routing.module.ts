@@ -15,7 +15,7 @@ import { NavbarComponent } from 'app/navbar/navbar.component';
 
 const AppRoutingModule: Routes = [
   { 
-    path: '*',
+    path: '',
     component: LoginComponent
   },
   {
