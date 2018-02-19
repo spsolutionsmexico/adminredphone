@@ -382,7 +382,7 @@ app.get("/api/respuestas/:idreto", function(req, res) {
     console.log('Consulta sql');
     var idreto = req.params.idreto.toLowerCase();
 
-    var textqry = 'SELECT * FROM respuesta where idreto = \'' + idreto + '\' GROUP BY idpreguntaai order by idpreguntaai';
+    var textqry = 'SELECT * FROM respuesta where idreto = \'' + idreto + '\' order by idpreguntaai';
     var lib = new condblib.condblib();
     lib.obtenerdata(textqry, function(textqry, resDB) {
         console.log('res obtenerdata: ', JSON.stringify(resDB));
