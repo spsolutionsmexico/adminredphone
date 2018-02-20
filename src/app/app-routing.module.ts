@@ -17,7 +17,7 @@ const AppRoutingModule: Routes = [
   { 
     path: '',
     redirectTo: '/Actualizar',
-    pathMatch = 'full'
+    pathMatch: 'full'
   },
   {
     path: 'resultados',
