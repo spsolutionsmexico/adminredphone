@@ -33,4 +33,4 @@ const AppRoutingModule: Routes = [
   }
 ];
 
-export const AppRoutes = RouterModule.forRoot(AppRoutingModule, { enableTracing: true });
+export const AppRoutes = RouterModule.forRoot(AppRoutingModule);
