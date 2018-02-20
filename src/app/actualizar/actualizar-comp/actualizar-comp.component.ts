@@ -39,6 +39,7 @@ export class ActualizarCompComponent implements OnInit {
     this.hecho = false;
     console.log("Call actualizar reto button");
     this.actualizarservice.getActualizarReto(this.idreto);
+    this.hecho = true;
   }
 
   
