@@ -396,7 +396,7 @@ app.get("/api/respuestas/:idreto", function(req, res) {
 
 //Redirecciona los f5
 app.get('*', function(req, res) {
-    res.send('./src/app/app.component')
+    res.send('./src/app/app-routing.module')
 })
 
 
