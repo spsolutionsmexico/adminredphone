@@ -1,5 +1,3 @@
-import { RootRenderer } from "@angular/core";
-
 var express = require("express");
 var bodyParser = require("body-parser");
 var condblib = require(__dirname + '/condblib');
@@ -398,7 +396,7 @@ app.get("/api/respuestas/:idreto", function(req, res) {
 
 //Redirecciona los f5
 app.get('*', function(req, res) {
-    res.redirect("");
+    res.redirect("")
 })
 
 
