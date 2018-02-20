@@ -16,7 +16,7 @@ import { NavbarComponent } from 'app/navbar/navbar.component';
 const AppRoutingModule: Routes = [
   { 
     path: '',
-    redirectTo: '/Actualizar',
+    redirectTo: '/login',
     pathMatch: 'full'
   },
   {
