@@ -1,4 +1,4 @@
-import { NgModule }             from '@angular/core';
+import { NgModule, Component }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 
@@ -16,8 +16,9 @@ import { NavbarComponent } from 'app/navbar/navbar.component';
 const AppRoutingModule: Routes = [
   { 
     path: '',
-    redirectTo: '/login',
-    pathMatch: 'full'
+    redirectTo: 'login',
+    pathMatch: 'full',
+    component: LoginComponent,
   },
   {
     path: 'resultados',
