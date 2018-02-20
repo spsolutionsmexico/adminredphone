@@ -16,7 +16,8 @@ import { NavbarComponent } from 'app/navbar/navbar.component';
 const AppRoutingModule: Routes = [
   { 
     path: '',
-    component: LoginComponent
+    redirectTo: '/Actualizar',
+    pathMatch = 'full'
   },
   {
     path: 'resultados',
@@ -32,4 +33,4 @@ const AppRoutingModule: Routes = [
   }
 ];
 
-export const AppRoutes = RouterModule.forRoot(AppRoutingModule);
+export const AppRoutes = RouterModule.forRoot(AppRoutingModule, { enableTracing: true , useHash:true });
