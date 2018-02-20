@@ -12,7 +12,7 @@ import { Retos } from 'app/retos/retos';
 export class ActualizarCompComponent implements OnInit {
   
   retos: Retos[];
-
+  
   constructor(private actualizarservice: ActualizarServService, private retosService: RetosServService) { }
 
   ngOnInit() {
@@ -31,9 +31,12 @@ export class ActualizarCompComponent implements OnInit {
   }
 
   public idreto: string;
+  public hecho: boolean = false;
+
   public actualizarReto(): void {
     console.log("Call actualizar reto button");
     this.actualizarservice.getActualizarReto(this.idreto);
+    this.hecho = true;
   }
 
   
