@@ -136,7 +136,7 @@ function insertarRespuestaPG(idreto, fbid) {
             var valor = childSnap.val();
             console.log("Valor:", valor)
             if (contexto != 'fb_id') {
-                //---------insertar data 
+                //---------insertar data
                 var textqryInsertReto = "INSERT INTO respuesta (idreto,idpreguntaai,fbid,respuesta) values($1,$2,$3,$4)";
                 var values = [idreto, contexto, fbid, valor];
                 var lib = new condblib.condblib();
@@ -192,7 +192,7 @@ function actualizarRespuestas(idreto) {
                 //console.log('res obtenerdata: ', JSON.stringify(resDB));
 
                 for (var i = 0; i < arrRespuestas.length; i++) {
-                    //console.log('arrCompletados.indexOf(arrRespuestas en ', +i + ' -> ' + arrCompletados.indexOf(arrRespuestas[i]));
+                    console.log('arrCompletados.indexOf(arrRespuestas en ', +i + ' -> ' + arrCompletados.indexOf(arrRespuestas[i]));
                     if (arrCompletados.indexOf(arrRespuestas[i]) >= 0) {
                         console.log('Insertar respuestas -> ', this.retoID + ' -> ' + arrRespuestas[i]);
                         insertarRespuestaPG(this.retoID, arrRespuestas[i]);
