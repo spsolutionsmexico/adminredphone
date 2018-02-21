@@ -31,7 +31,7 @@ app.use(express.static(distDir));
 // Initialize the app.
 var server = app.listen(process.env.PORT || 8080, function() {
     var port = server.address().port;
-    console.log("App now running on port", port);
+    //console.log("App now running on port", port);
 });
 //funcion que consulta los retos en firebase
 function listarRetos(arrRETO, callback) {
@@ -39,13 +39,13 @@ function listarRetos(arrRETO, callback) {
     var ref = db.ref(REF_RETO);
     ref.on("value", function(snap) {
         snap.forEach(function(childSnap) {
-            var reg = childSnap.key;
-            console.log('reg = ', reg);
-            console.log("Esto viene de firebase en funcion listarRetos")
-            arrRETO.push(reg);
-        })
-        console.log('arrRETO.length: ', arrRETO.length);
-        console.log("Sale funcion listarRetos-------------------------------------------")
+                var reg = childSnap.key;
+                //console.log('reg = ', reg);
+                //console.log("Esto viene de firebase en funcion listarRetos")
+                arrRETO.push(reg);
+            })
+            //console.log('arrRETO.length: ', arrRETO.length);
+            //console.log("Sale funcion listarRetos-------------------------------------------")
         callback(null, arrRETO);
     });
 }
@@ -134,14 +134,14 @@ function insertarRespuestaPG(idreto, fbid) {
         snap.forEach(function(childSnap) {
             var contexto = childSnap.key;
             var valor = childSnap.val();
-            console.log("Valor:", valor)
+            //console.log("Valor:", valor)
             if (contexto != 'fb_id') {
                 //---------insertar data
                 var textqryInsertReto = "INSERT INTO respuesta (idreto,idpreguntaai,fbid,respuesta) values($1,$2,$3,$4)";
                 var values = [idreto, contexto, fbid, valor];
                 var lib = new condblib.condblib();
                 lib.insertardata(textqryInsertReto, values, function(textqryInsertReto, values, resDBI) {
-                    console.log('res obtenerdata Insert: ', JSON.stringify(resDBI));
+                    //console.log('res obtenerdata Insert: ', JSON.stringify(resDBI));
                 });
             }
         })
@@ -150,7 +150,7 @@ function insertarRespuestaPG(idreto, fbid) {
 
 function insertarRETOpg(idreto) {
     //obtener datos firebase 
-    console.log('recuperando datos del usuario', idreto);
+    //console.log('recuperando datos del usuario', idreto);
     var refreto = db.ref(REF_RETO + idreto + '/datos/');
     refreto.on("value", function(snap) {
         var registro = snap.val();
@@ -174,13 +174,13 @@ var retoID;
 //funcion que actializa la tabla de respiestas a los retos 
 function actualizarRespuestas(idreto) {
     this.retoID = idreto;
-    //console.log('metodo update respuestas');
+    console.log('metodo update respuestas');
     listarRetoRespuesta(idreto, function(idreto, respuesta) {
         var arrRespuestas = respuesta;
         console.log('actualizarRespuestas-arrRespuestas.length: ', arrRespuestas.length);
         console.log('arrRespuestas: ', arrRespuestas);
         listarRetoTerminado(this.retoID, function(idretovar, respuesta2) {
-            console.log('listarRetoTerminado respuesta2: ', respuesta2);
+            ///console.log('listarRetoTerminado respuesta2: ', respuesta2);
             var arrCompletados = respuesta2;
             //console.log('actualizarRespuestas-arrCompletados.length: ', arrCompletados.length);
             //console.log('arrCompletados: ', arrCompletados);
@@ -222,7 +222,7 @@ function insertarUSRpg(idUSR) {
         var values = [registro.fb_id, registro.anonacimiento, registro.codigo, registro.sexo, t];
         var lib = new condblib.condblib();
         lib.insertardata(textqryInsert, values, function(textqryInsert, values, resDBI) {
-            console.log('res obtenerdata: ', JSON.stringify(resDBI));
+            //console.log('res obtenerdata: ', JSON.stringify(resDBI));
         });
     });
 }
@@ -243,10 +243,11 @@ app.get("/api/actualizar", function(req, res) {
             console.log('conectado a postgres');
 
             var textqry = 'DELETE FROM usuario';
+            console.log("Borrando Base", textqry)
             var lib = new condblib.condblib();
             //---------consulta de prueba ---
             lib.obtenerdata(textqry, function(textqry, resDB) {
-                console.log('res obtenerdata: ', JSON.stringify(resDB));
+                //console.log('res obtenerdata: ', JSON.stringify(resDB));
 
                 for (var i = 0; i < arrUSR.length; i++) {
                     insertarUSRpg(arrUSR[i]);
@@ -277,15 +278,15 @@ app.get("/api/actualizar/reto/:id", function(req, res) {
         try {
             if (arrRetos.indexOf(idreto) > -1) {
                 console.log('Entra a try');
-                console.log('Reto existe en Firebase');
-                console.log('conectado a postgres');
+                //console.log('Reto existe en Firebase');
+                //console.log('conectado a postgres');
                 var textqry2 = 'SELECT idreto FROM reto';
                 var lib = new condblib.condblib();
                 //---------consulta de prueba ---
                 lib.obtenerdata(textqry2, function(textqry2, resDB2) {
-                    console.log('hago select desde pg respuesta de obtenerdata:', JSON.stringify(resDB2));
+                    //console.log('hago select desde pg respuesta de obtenerdata:', JSON.stringify(resDB2));
                     let queryDB2 = resDB2;
-                    console.log('arrRetos.length:', arrRetos.length);
+                    //console.log('arrRetos.length:', arrRetos.length);
                     var arrRetoPost = [];
                     queryDB2.forEach(function(row) {
                         arrRetoPost.push(row.idreto);
@@ -305,6 +306,7 @@ app.get("/api/actualizar/reto/:id", function(req, res) {
         }
         res.status(200).json('{"resultado":"OK"}');
     });
+    console.log("termina actualizar")
 });
 
 
