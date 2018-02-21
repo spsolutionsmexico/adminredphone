@@ -3,6 +3,12 @@ var bodyParser = require("body-parser");
 const { Client } = require('pg');
 
 class condblib {
+    /***killpg(callback) {
+         console.log("Kill al conections to PG")
+         query = "select pg_cancel_backend(pid) from pg_stat_activity where pid < > pg_backend_pid()"
+     }***/
+
+
     obtenerdata(query, callback) {
         //Connect to the database before starting the application server.
         console.log('Inicia obtenerdata');
@@ -30,6 +36,7 @@ class condblib {
             callback(null, queryDB);
             //return queryDB;
         });
+        client.end();
     }
     insertardata(query, values, callback) {
         //Connect to the database before starting the application server.
@@ -53,6 +60,7 @@ class condblib {
             console.log("Insert OK");
             callback(null, 'OK');
         });
+        client.end();
     }
 }
 
