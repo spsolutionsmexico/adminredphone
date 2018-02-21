@@ -177,8 +177,8 @@ function actualizarRespuestas(idreto) {
     //console.log('metodo update respuestas');
     listarRetoRespuesta(idreto, function(idreto, respuesta) {
         var arrRespuestas = respuesta;
-        //console.log('actualizarRespuestas-arrRespuestas.length: ', arrRespuestas.length);
-        // console.log('arrRespuestas: ', arrRespuestas);
+        console.log('actualizarRespuestas-arrRespuestas.length: ', arrRespuestas.length);
+        console.log('arrRespuestas: ', arrRespuestas);
         listarRetoTerminado(this.retoID, function(idretovar, respuesta2) {
             console.log('listarRetoTerminado respuesta2: ', respuesta2);
             var arrCompletados = respuesta2;
