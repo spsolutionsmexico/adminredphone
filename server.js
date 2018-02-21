@@ -301,7 +301,7 @@ app.get("/api/actualizar/reto/:id", function(req, res) {
                 });
             }
         } catch (err) {
-            console.log('err ', err);
+            console.log('Error de insert', err);
         }
         res.status(200).json('{"resultado":"OK"}');
     });
