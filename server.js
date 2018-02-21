@@ -139,6 +139,7 @@ function insertarRespuestaPG(idreto, fbid) {
                 //---------insertar data
                 var textqryInsertReto = "INSERT INTO respuesta (idreto,idpreguntaai,fbid,respuesta) values($1,$2,$3,$4)";
                 var values = [idreto, contexto, fbid, valor];
+                console.log("values:", values);
                 var lib = new condblib.condblib();
                 lib.insertardata(textqryInsertReto, values, function(textqryInsertReto, values, resDBI) {
                     //console.log('res obtenerdata Insert: ', JSON.stringify(resDBI));

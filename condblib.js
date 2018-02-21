@@ -41,12 +41,13 @@ class condblib {
         });
         client.connect();
         console.log("Database connection ready");
+        console.log("los valores que me pasan son:", values)
         client.query(query, values, (err, resDB) => {
             if (err) {
                 console.log(JSON.stringify(err));
                 throw err;
             }
-            console.log('res: STEP1--', JSON.stringify(resDB));
+            console.log('res: Insert Data--', JSON.stringify(resDB));
             client.end();
             //return data base query 
             console.log("Insert OK");
