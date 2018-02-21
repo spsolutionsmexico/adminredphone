@@ -33,10 +33,10 @@ class condblib {
             client.end();
             //return data base query 
             console.log("return data");
+            client.end();
             callback(null, queryDB);
             //return queryDB;
         });
-        client.end();
     }
     insertardata(query, values, callback) {
         //Connect to the database before starting the application server.
@@ -58,10 +58,12 @@ class condblib {
             client.end();
             //return data base query 
             console.log("Insert OK");
+
+            client.end();
             callback(null, 'OK');
         });
-        client.end();
     }
+
 }
 
 module.exports = {
