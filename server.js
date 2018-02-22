@@ -380,7 +380,7 @@ app.get("/api/respuestagrap/:idreto/:idpregunta", function(req, res) {
 
 });
 
-app.get("/api/respuestas/:idreto", { timeout: 1500 }, function(req, res) {
+app.get("/api/respuestas/:idreto", function(req, res) {
 
     console.log('Consulta sql');
     var idreto = req.params.idreto.toLowerCase();
