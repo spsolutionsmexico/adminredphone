@@ -3,11 +3,6 @@ var bodyParser = require("body-parser");
 const { Client } = require('pg');
 
 class condblib {
-    /***killpg(callback) {
-         console.log("Kill al conections to PG")
-         query = "select pg_cancel_backend(pid) from pg_stat_activity where pid < > pg_backend_pid()"
-     }***/
-
 
     obtenerdata(query, callback) {
         //Connect to the database before starting the application server.
@@ -23,6 +18,7 @@ class condblib {
         client.query(query, (err, resDB) => {
             if (err) {
                 console.log(JSON.stringify(err));
+                client.end();
                 throw err;
             }
             console.log('res: STEP1--', JSON.stringify(resDB));
@@ -31,9 +27,9 @@ class condblib {
             }
             let queryDB = resDB.rows;
             client.end();
+            console.log("cierro conexion");
             //return data base query 
             console.log("return data");
-            client.end();
             callback(null, queryDB);
             //return queryDB;
         });
@@ -52,14 +48,17 @@ class condblib {
         client.query(query, values, (err, resDB) => {
             if (err) {
                 console.log(JSON.stringify(err));
+                client.end();
+                console.log("cierro conexion");
                 throw err;
             }
             console.log('res: Insert Data--', JSON.stringify(resDB));
-            client.end();
+
             //return data base query 
             console.log("Insert OK");
 
             client.end();
+            console.log("cierro conexion");
             callback(null, 'OK');
         });
     }
