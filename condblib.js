@@ -42,6 +42,7 @@ class condblib {
             connectionString: process.env.DATABASE_URL,
             ssl: true,
         });
+
         client.connect();
         console.log("Database connection ready");
         console.log("los valores que me pasan son:", values)
@@ -54,12 +55,13 @@ class condblib {
             }
             console.log('res: Insert Data--', JSON.stringify(resDB));
 
+            let resp = resDB.rows;
             //return data base query 
             console.log("Insert OK");
 
             client.end();
             console.log("cierro conexion");
-            callback(null, 'OK');
+            callback(null, resp);
         });
     }
 

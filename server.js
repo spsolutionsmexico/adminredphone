@@ -142,7 +142,7 @@ function insertarRespuestaPG(idreto, fbid) {
                 console.log("values:", values);
                 var lib = new condblib.condblib();
                 lib.insertardata(textqryInsertReto, values, function(textqryInsertReto, values, resDBI) {
-                    //console.log('res obtenerdata Insert: ', JSON.stringify(resDBI));
+                    console.log('res obtenerdata Insert: ', JSON.stringify(resDBI));
                 });
             }
         })
