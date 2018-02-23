@@ -26,6 +26,7 @@ class condblib {
                 console.log(JSON.stringify(row));
             }
             let queryDB = resDB.rows;
+            client.release();
             client.end();
             console.log("cierro conexion");
             //return data base query 
