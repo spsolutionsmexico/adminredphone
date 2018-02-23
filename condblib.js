@@ -61,7 +61,7 @@ class condblib {
             });
 
         } catch (err) {
-            console.log(JSON.stringify(err));
+            console.log("este es el error de inserdata", err);
             client.end();
             console.log("cierro conexion");
             callback(null, err)
