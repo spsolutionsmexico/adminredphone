@@ -134,12 +134,12 @@ function insertarRespuestaPG(idreto, fbid) {
         snap.forEach(function(childSnap) {
             var contexto = childSnap.key;
             var valor = childSnap.val();
-            //console.log("Valor:", valor)
+            console.log("-------- esto es de FireBase Valor:", valor)
             if (contexto != 'fb_id') {
                 //---------insertar data
                 var textqryInsertReto = "INSERT INTO respuesta (idreto,idpreguntaai,fbid,respuesta) values($1,$2,$3,$4)";
                 var values = [idreto, contexto, fbid, valor];
-                console.log("values:", values);
+                console.log("esto es lo que se va a insertar en postgres values:", values);
                 var lib = new condblib.condblib();
                 lib.insertardata(textqryInsertReto, values, function(textqryInsertReto, values, resDBI) {
                     console.log('res obtenerdata Insert: ', JSON.stringify(resDBI));
