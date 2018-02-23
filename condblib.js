@@ -46,9 +46,9 @@ class condblib {
         client.connect();
         console.log("Database connection ready");
         console.log("los valores que me pasan son:", values)
-        client.query(query, values, (err, resDB) => {
+        try {
+            client.query(query, values, (err, resDB) => {
 
-            try {
                 console.log('res: Insert Data--', JSON.stringify(resDB));
 
                 let resp = resDB.rows;
@@ -58,14 +58,18 @@ class condblib {
                 client.end();
                 console.log("cierro conexion");
                 callback(null, resDB);
+            });
 
-            } catch (err) {
-                console.log(JSON.stringify(err));
-                client.end();
-                console.log("cierro conexion");
-                throw err;
-            }
-        });
+        } catch (err) {
+            console.log(JSON.stringify(err));
+            client.end();
+            console.log("cierro conexion");
+            callback(null, err)
+            throw err;
+        }
+
+
+
     }
 
 }

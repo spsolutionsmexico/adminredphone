@@ -141,9 +141,14 @@ function insertarRespuestaPG(idreto, fbid) {
                 var values = [idreto, contexto, fbid, valor];
                 console.log("esto es lo que se va a insertar en postgres values:", values);
                 var lib = new condblib.condblib();
+
                 lib.insertardata(textqryInsertReto, values, function(textqryInsertReto, values, resDBI) {
+                    console.log("resDBI", resDBI);
                     console.log('res obtenerdata Insert: ', JSON.stringify(resDBI));
                 });
+
+
+
             }
         })
     });
