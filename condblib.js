@@ -46,27 +46,25 @@ class condblib {
         client.connect();
         console.log("Database connection ready");
         console.log("los valores que me pasan son:", values)
-        try {
-            client.query(query, values, (err, resDB) => {
-
-                console.log('res: Insert Data--', JSON.stringify(resDB));
-
-                let resp = resDB.rows;
-                //return data base query 
-                console.log("Insert OK");
-
+        client.query(query, values, (err, resDB) => {
+            if (err) {
+                console.log("este es el error de inserdata", err.stack);
                 client.end();
                 console.log("cierro conexion");
-                callback(null, resDB);
-            });
+                callback(null, err.stack)
+            }
+            console.log('res: Insert Data--', JSON.stringify(resDB));
 
-        } catch (err) {
-            console.log("este es el error de inserdata", err);
+            let resp = resDB.rows;
+            //return data base query 
+            console.log("Insert OK");
+
             client.end();
             console.log("cierro conexion");
-            callback(null, err)
-            throw err;
-        }
+            callback(null, resDB);
+        });
+
+
 
 
 
