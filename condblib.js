@@ -24,12 +24,13 @@ class condblib {
             //query executed
             try {
                 await client.query('BEGIN')
-                const { rows } = await client.query(query);
+                var resDB = await client.query(query);
                 await client.query('COMMIT');
-                console.log('res: STEP1--', rows);
-                for (let rows of rows.rows) {
-                    console.log(JSON.stringify(rows));
+                console.log('res: STEP1--', resDB);
+                for (let row of resDB.rows) {
+                    console.log(JSON.stringify(row));
                 }
+                let queryDB = resDB.rows;
 
             } catch (e) {
                 await client.query('ROLLBACK')
@@ -38,6 +39,7 @@ class condblib {
                 client.release()
             }
         })().catch(e => console.error(e.stack));
+        callback(null, resDB);
     }
 
 
