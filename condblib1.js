@@ -28,7 +28,7 @@ class condblib {
                 await client.query('COMMIT');
                 console.log('res: STEP1--', JSON.stringify(rows));
                 for (let rows of rows.rows) {
-                    console.log(JSON.stringify(rows));
+                    console.log("este es el for de obtener data", JSON.stringify(rows));
                 }
 
             } catch (e) {
@@ -63,7 +63,7 @@ class condblib {
                 await client.query('COMMIT');
                 console.log('res: STEP1--', JSON.stringify(rows));
                 for (let rows of rows.rows) {
-                    console.log(JSON.stringify(rows));
+                    console.log("esto es el for:", JSON.stringify(rows));
                 }
 
             } catch (e) {

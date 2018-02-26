@@ -28,10 +28,10 @@ class condblib {
                 await client.query('COMMIT');
                 console.log('res: STEP1--', resDB);
                 for (let row of resDB.rows) {
-                    console.log(JSON.stringify(rows));
+                    console.log("este es el for de obtener data", JSON.stringify(rows));
                 }
                 let queryDB = resDB.rows;
-
+                console.log("queryDB=", queryDB)
             } catch (e) {
                 await client.query('ROLLBACK')
                 throw e
