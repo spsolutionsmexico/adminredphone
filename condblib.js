@@ -72,7 +72,6 @@ class condblib {
     }
 
 }
-
 module.exports = {
     condblib: condblib,
 }
