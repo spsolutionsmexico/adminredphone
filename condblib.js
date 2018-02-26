@@ -28,7 +28,7 @@ class condblib {
                 await client.query('COMMIT');
                 console.log('res: STEP1--', resDB);
                 for (let row of resDB.rows) {
-                    console.log(JSON.stringify(row));
+                    console.log(JSON.stringify(rows));
                 }
                 let queryDB = resDB.rows;
 
