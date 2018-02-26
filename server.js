@@ -396,9 +396,9 @@ app.get("/api/respuestas/:idreto", function(req, res) {
         console.log('res obtenerdata: ', JSON.stringify(resDB));
         let queryDB = resDB;
         //return data base query 
-        console.log(err.code === 'ETIMEDOUT');
+        //console.log(err.code === 'ETIMEDOUT');
 
-        console.log(err.connect === true);
+        //console.log(err.connect === true);
         res.status(200).json(queryDB);
         process.exit(0);
 
