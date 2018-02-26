@@ -1,79 +1,76 @@
 "use strict";
-"use async"
 var bodyParser = require("body-parser");
-const { Pool, Client } = require('pg');
-
+const { Client } = require('pg');
 
 class condblib {
 
     obtenerdata(query, callback) {
-
         //Connect to the database before starting the application server.
         console.log('Inicia obtenerdata');
-        //Create database pool conection
-        const pool = new Pool({
+        console.log('process.env.DATABASE_URL: ', process.env.DATABASE_URL);
+        var client = new Client({
             connectionString: process.env.DATABASE_URL,
             ssl: true,
         });
-        //Await for pool connect
-        (async() => {
-            const client = await pool.connect()
-            console.log("Database connection ready");
-            console.log('query: ', query);
-
-            //query executed
-            try {
-                await client.query('BEGIN')
-                const { rows } = await client.query(query);
-                await client.query('COMMIT');
-                console.log('res: STEP1--', JSON.stringify(rows));
-                for (let rows of rows.rows) {
-                    console.log(JSON.stringify(rows));
-                }
-
-            } catch (e) {
-                await client.query('ROLLBACK')
-                throw e
-            } finally {
-                client.release()
+        client.connect();
+        console.log("Database connection ready");
+        console.log('query: ', query);
+        client.query(query, (err, resDB) => {
+            if (err) {
+                console.log(JSON.stringify(err));
+                client.end();
+                throw err;
             }
-        })().catch(e => console.error(e.stack));
+            console.log('res: STEP1--', JSON.stringify(resDB));
+            for (let row of resDB.rows) {
+                console.log(JSON.stringify(row));
+            }
+            let queryDB = resDB.rows;
+            client.release();
+            client.end();
+            console.log("cierro conexion");
+            //return data base query 
+            console.log("return data");
+            callback(null, queryDB);
+            //return queryDB;
+        });
     }
-
-
     insertardata(query, values, callback) {
         //Connect to the database before starting the application server.
         console.log('Inicio insertardata ');
-        //Create database pool conection
-        const pool = new Pool({
+        //console.log('process.env.DATABASE_URL: ', process.env.DATABASE_URL);
+        var client = new Client({
             connectionString: process.env.DATABASE_URL,
             ssl: true,
         });
-        //Await for pool connect
-        (async() => {
-            const client = await pool.connect()
-            console.log("Database connection ready");
-            console.log("los valores que me pasan son:", values)
-            console.log('query: ', query);
 
-            //query executed
-            try {
-                await client.query('BEGIN')
-                const { rows } = await client.query(query, values);
-                await client.query('COMMIT');
-                console.log('res: STEP1--', JSON.stringify(rows));
-                for (let rows of rows.rows) {
-                    console.log(JSON.stringify(rows));
-                }
-
-            } catch (e) {
-                await client.query('ROLLBACK')
-                throw e
-            } finally {
-                client.release()
+        client.connect();
+        console.log("Database connection ready");
+        console.log("los valores que me pasan son:", values)
+        client.query(query, values, (err, resDB) => {
+            if (err) {
+                console.log("este es el error de inserdata", err.stack);
+                client.end();
+                console.log("cierro conexion");
+                callback(null, err.stack)
             }
-        })().catch(e => console.error(e.stack));
+            console.log('res: Insert Data--', JSON.stringify(resDB));
+
+            let resp = resDB.rows;
+            //return data base query 
+            console.log("Insert OK");
+
+            client.end();
+            console.log("cierro conexion");
+            callback(null, resDB);
+        });
+
+
+
+
+
     }
+
 }
 module.exports = {
     condblib: condblib,

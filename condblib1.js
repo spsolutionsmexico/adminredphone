@@ -73,8 +73,8 @@ class condblib {
                 client.release()
             }
         })().catch(e => console.error(e.stack));
-
-
-
     }
+}
+module.exports = {
+    condblib: condblib,
 }
