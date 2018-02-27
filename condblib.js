@@ -28,7 +28,7 @@ class condblib {
                 await client.query('COMMIT');
                 console.log('res: STEP1-X-', JSON.stringify(resDB.rows));
 
-                callback(null, JSON.stringify(resDB.rows));
+                callback(null, resDB.rows);
 
             } catch (e) {
                 await client.query('ROLLBACK')
