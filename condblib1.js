@@ -1,5 +1,5 @@
 "use strict";
-"use async"
+"use async";
 var bodyParser = require("body-parser");
 const { Pool, Client } = require('pg');
 
@@ -24,12 +24,11 @@ class condblib {
             //query executed
             try {
                 await client.query('BEGIN')
-                const { rows } = await client.query(query);
+                const resDB = await client.query(query);
                 await client.query('COMMIT');
-                console.log('res: STEP1--', JSON.stringify(rows));
-                for (let rows of rows.rows) {
-                    console.log("este es el for de obtener data", JSON.stringify(rows));
-                }
+                console.log('res: STEP1-X-', JSON.stringify(resDB.rows));
+
+                callback(null, resDB.rows);
 
             } catch (e) {
                 await client.query('ROLLBACK')
@@ -59,11 +58,11 @@ class condblib {
             //query executed
             try {
                 await client.query('BEGIN')
-                const { rows } = await client.query(query, values);
+                var resDB = await client.query(query, values);
                 await client.query('COMMIT');
-                console.log('res: STEP1--', JSON.stringify(rows));
-                for (let rows of rows.rows) {
-                    console.log("esto es el for:", JSON.stringify(rows));
+                console.log('res: STEP1--', JSON.stringify(resDB));
+                for (let rows of resDB.rows) {
+                    console.log(JSON.stringify(rows));
                 }
 
             } catch (e) {
@@ -73,7 +72,9 @@ class condblib {
                 client.release()
             }
         })().catch(e => console.error(e.stack));
+        callback(null, null, JSON.stringify(resDB.rows));
     }
+
 }
 module.exports = {
     condblib: condblib,
