@@ -26,7 +26,7 @@ class condblib {
                 await client.query('BEGIN')
                 const resDB = await client.query(query);
                 await client.query('COMMIT');
-                console.log('res: STEP1-X-', JSON.stringify(resDB.rows));
+                //console.log('res: STEP1-X-', JSON.stringify(resDB.rows));
 
                 callback(null, JSON.stringify(resDB.rows));
 
