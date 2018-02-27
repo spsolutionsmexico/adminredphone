@@ -72,7 +72,7 @@ class condblib {
                 client.release()
             }
         })().catch(e => console.error(e.stack));
-        callback(null, JSON.stringify(resDB.rows));
+        callback(null, null, JSON.stringify(resDB.rows));
     }
 
 }
