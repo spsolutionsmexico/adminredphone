@@ -31,8 +31,8 @@ class condblib {
                     console.log("este es el for de obtener data", JSON.stringify(rows));
                 }
                 let queryDB = resDB.rows;***/
-
-                console.log("queryDB=", resDB)
+                ///console.log("queryDB=", resDB)
+                console.log("hasta aqui");
             } catch (e) {
                 await client.query('ROLLBACK')
                 throw e
