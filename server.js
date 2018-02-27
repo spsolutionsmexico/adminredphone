@@ -329,6 +329,7 @@ app.get("/api/retos", function(req, res) {
 
 });
 
+
 app.get("/api/retos/:id", function(req, res) {
     // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
     var idreto = req.params.id.toLowerCase();
