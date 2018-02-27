@@ -24,7 +24,7 @@ class condblib {
             //query executed
             try {
                 await client.query('BEGIN')
-                var resDB = await client.query(query);
+                const resDB = await client.query(query);
                 await client.query('COMMIT');
                 console.log('res: STEP1-X-', JSON.stringify(resDB.rows));
 
@@ -72,8 +72,9 @@ class condblib {
                 client.release()
             }
         })().catch(e => console.error(e.stack));
+        callback(null, JSON.stringify(resDB.rows));
     }
-    callback(null, null, JSON.stringify(resDB.rows));
+
 }
 module.exports = {
     condblib: condblib,
