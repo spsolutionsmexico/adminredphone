@@ -26,9 +26,11 @@ class condblib {
                 await client.query('BEGIN')
                 var resDB = await client.query(query);
                 await client.query('COMMIT');
-                console.log('res: STEP1--', resDB);
+                console.log('res: STEP1--', resDB.rows);
                 for (let rows of resDB.rows) {
+
                     console.log("este es el for de obtener data", JSON.stringify(rows));
+
                 }
                 let queryDB = resDB.rows;
                 console.log("queryDB=", queryDB)
