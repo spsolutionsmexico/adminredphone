@@ -400,7 +400,7 @@ app.get("/api/respuestas/:idreto", function(req, res) {
 
         //console.log(err.connect === true);
         console.log("resBD:", resDB)
-        res.status(200).queryDB;
+        res.status(200).json(queryDB);
         process.exit(0);
 
     });
